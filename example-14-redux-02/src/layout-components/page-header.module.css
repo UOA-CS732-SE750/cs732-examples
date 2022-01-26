@@ -1,0 +1,15 @@
+.header {
+    background-color: var(--content-background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header > h1 {
+    font-size: 300%;
+}
+
+.header > p {
+    margin: 0 0 var(--std-spacing) 0;
+}

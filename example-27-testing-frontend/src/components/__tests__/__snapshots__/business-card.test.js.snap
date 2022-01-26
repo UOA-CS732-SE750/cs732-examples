@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot with all matches 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <th>
+        Name:
+      </th>
+      <td>
+        Bob
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Phone number:
+      </th>
+      <td>
+        021 123 4567
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Email:
+      </th>
+      <td>
+        bob@bob.com
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`snapshot with email matches 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <th>
+        Email:
+      </th>
+      <td>
+        bob@bob.com
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`snapshot with name matches 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <th>
+        Name:
+      </th>
+      <td>
+        Bob
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`snapshot with no content matches 1`] = `
+<table>
+  <tbody />
+</table>
+`;
+
+exports[`snapshot with phone number matches 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <th>
+        Phone number:
+      </th>
+      <td>
+        021 123 4567
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

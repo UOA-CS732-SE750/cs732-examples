@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.container > .sidebar {
+  padding: 0 10px;
+}
+
+.container > main {
+  background-color: lightgray;
+  padding: 20px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+.box {
+  background-color: white;
+  padding: 1px 30px;
+  box-shadow: 3px 3px 3px darkgray;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.form .form-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.form .form-row > * {
+  flex-grow: 1;
+}
+
+.form .form-row > label {
+  text-align: right;
+  margin-right: 10px;
+  flex-basis: 100px;
+  flex-grow: 0;
+}

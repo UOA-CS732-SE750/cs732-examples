@@ -1,0 +1,16 @@
+{
+  "name": "example-02-my-first-react-app-jsx",
+  "version": "1.0.0",
+  "description": "This example shows how simple React code can be added to any existing webapp without any tool chains or other third-party libraries.",
+  "main": "like-button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}

@@ -1,0 +1,64 @@
+:root {
+ 
+  --background-color: lightgray;
+
+  --highlight-color: lightgray;
+  --highlight-color-2: transparent;
+  --highlight-color-3: rgba(211, 211, 211, 0.3);
+
+  --content-background-color: white;
+  --content-text-color-primary: black;
+  --content-text-color-secondary: darkslategray;
+  --content-text-color-dark-primary: white;
+  --content-text-color-dark-secondary: lightgray;
+
+  --navbar-color: black;
+  --navbar-text-color: var(--content-text-color-dark-secondary);
+  --navbar-text-highlight-color: var(--content-text-color-dark-primary);
+  --navbar-button-color: rgba(255, 255, 255, 0.5);
+
+  --std-spacing: 20px;
+  --std-padding: var(--std-spacing) var(--std-spacing) var(--std-spacing) var(--std-spacing);
+  --std-margin: var(--std-spacing) var(--std-spacing) var(--std-spacing) var(--std-spacing);
+  --half-spacing: 10px;
+  --half-padding: var(--half-spacing) var(--half-spacing) var(--half-spacing) var(--half-spacing);
+  --half-margin: var(--half-spacing) var(--half-spacing) var(--half-spacing) var(--half-spacing);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.text-secondary {
+  color: var(--content-text-color-secondary);
+}
+
+.text-it {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.flex-row-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.flex-row-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}

@@ -1,0 +1,24 @@
+.table {
+    width: 100%;
+    border-top: 1px solid var(--highlight-color);
+    border-bottom: 1px solid var(--highlight-color);
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table thead tr:last-child * {
+    border-bottom: 1px solid var(--highlight-color);
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: var(--half-padding);
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: var(--highlight-color-2);
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: var(--highlight-color-3);
+}

@@ -1,0 +1,15 @@
+.article {
+    flex-basis: 40%;
+    flex-grow: 1;
+    text-align: justify;
+    background-color: white;
+    padding: 1px 30px;
+    margin: 5px;
+    box-shadow: 3px 3px 3px darkgray;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+  
+.article:hover {
+    border: 1px solid blue;
+}

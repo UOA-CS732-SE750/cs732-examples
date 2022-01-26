@@ -1,0 +1,11 @@
+.container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+  
+.articleContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

@@ -1,0 +1,18 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.navBar > a {
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+}
+
+.navBar > a.activeLink {
+    background-color: lightblue;
+    font-weight: bold;
+}

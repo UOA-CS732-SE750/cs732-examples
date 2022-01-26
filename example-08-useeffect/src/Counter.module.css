@@ -1,0 +1,20 @@
+.counter {
+    font-size: 150%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 5px 5px 4px darkgray;
+}
+
+.counter button {
+    flex-basis: 100px;
+}
+
+.counter p {
+    margin: 0 20px;
+    text-align: center;
+}

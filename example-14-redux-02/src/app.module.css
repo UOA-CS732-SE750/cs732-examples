@@ -1,0 +1,25 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+}
+
+.container > main {
+    /* box-sizing: border-box;
+    border: 1px solid red; */
+    margin: 20px;
+}
+
+.container > footer {
+    background-color: var(--navbar-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 var(--half-spacing);
+}
+
+.container > footer > * {
+    color: var(--navbar-text-color);
+}

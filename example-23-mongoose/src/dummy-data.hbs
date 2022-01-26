@@ -1,0 +1,56 @@
+{
+    "users": [
+        {{#repeat 10}}
+        {
+            "username": "{{color}}{{@index}}",
+            "firstName": "{{firstName}}",
+            "lastName": "{{lastName}}",
+            "dateOfBirth": "{{date '1975-01-01T00:01' '2000-12-31T23:59'}}",
+
+            "address": {
+                "number": "{{int 1 100}}",
+                "street": "{{street}}",
+                "city": "{{city}}",
+                "postcode": {{int 10000 99999}}
+            },
+
+            "creditCards": [
+                {{#repeat min=1 max=3}}
+                {
+                    "lastFourDigits": "{{int 1000 9999}}",
+                    "encryptedInfo": "{{lorem 5}}"
+                }
+                {{/repeat}}
+            ],
+
+            "registeredPets": []
+        }
+        {{/repeat}}
+    ],
+
+    "pets": [
+        {{#repeat min=10 max=15}}
+        {
+            "number": "{{guid}}",
+            "name": "{{petname}}",
+            "species": "{{random 'Dog' 'Cat' 'Bird' 'Dinosaur'}}",
+            "breed": "{{color}}",
+            "initialRegistrationDate": "{{date '2012-01-01T00:01' '2020-12-31T23:59'}}",
+            "expiryDate": "{{date '2015-01-01T00:01' '2024-12-31T23:59'}}",
+            "isNeutered": {{boolean}},
+
+            "notes": [
+                {{#repeat min=0 max=3}}
+                {
+                    "date": "{{date '2019-01-01T00:01' '2020-12-31T23:59'}}",
+                    "content": "{{lorem min=10 max=30}}"
+                }
+                {{/repeat}}
+            ],
+
+            "owner": null
+
+        }
+        {{/repeat}}
+    ]
+}

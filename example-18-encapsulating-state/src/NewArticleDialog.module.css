@@ -1,0 +1,17 @@
+.form .formRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+  
+.form .formRow > * {
+    flex-grow: 1;
+}
+
+.form .formRow > label {
+    text-align: right;
+    margin-right: 10px;
+    flex-basis: 100px;
+    flex-grow: 0;
+}

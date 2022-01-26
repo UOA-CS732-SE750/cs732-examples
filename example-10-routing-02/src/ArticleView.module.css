@@ -1,0 +1,11 @@
+.article {
+    text-align: justify;
+    overflow: auto;
+}
+  
+.article img {
+    float: left;
+    padding: 2px;
+    border: 1px dotted black;
+    margin-right: 5px;
+}

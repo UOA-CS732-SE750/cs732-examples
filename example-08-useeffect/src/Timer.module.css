@@ -1,0 +1,21 @@
+.timer {
+    font-size: 150%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 5px 5px 4px darkgray;
+    row-gap: 5px;
+    column-gap: 10px;
+}
+
+.timer p {
+    font-weight: bold;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
