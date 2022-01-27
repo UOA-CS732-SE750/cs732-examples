@@ -13,7 +13,7 @@ Useful imports (may not need all of these in every file):
 import { BrowserRouter as Router, Switch, Route, useParams, Link, NavLink, useRouteMatch } from 'react-router-dom';
 ```
 ## The basics
-To set up routing, we enclose our page in a `<Router>` component. Within that `Router`, we may have any other React components as normal. We may also have one or more `<Switch>` components. Within each `Switch`, we may have any number of `<Route>` components. Children of `Route`s will only be rendered if the current URL path matches the `path` prop of that `Route`.
+To set up routing, we enclose our page in a `<Router>` component. Within that `Router`, we may have any other React components as normal. We may also have one or more `<Routes>` components. Within each `Routes`, we may have any number of `<Route>` components. `Route`s have an `element` prop, which contains a component which will only be rendered if the current URL path matches the `path` prop of that `Route`.
 
 For example, if the following JSX were defined:
 
@@ -22,14 +22,10 @@ For example, if the following JSX were defined:
     <div>
         <h1>This will always be rendered</h1>
         <p>Hello, React Router!</p>
-        <Switch>
-            <Route path="/page1">
-                <p>Welcome to page one!</p>
-            </Route>
-            <Route path="/page2">
-                <p>Welcome to page two!</p>
-            </Route>
-        </Switch>
+        <Routes>
+            <Route path="/page1" element={<p>Welcome to page one!</p>} />
+            <Route path="/page2" element={<p>Welcome to page two!</p>} />
+        </Routes>
     </div>
 </Router>
 ```
@@ -54,28 +50,24 @@ If there are no matches in the `Switch`, then nothing will be rendered there. Fo
 ```
 
 ## Adding a default route
-To add a default option which will be rendered if nothing else is for a particular `Switch`, then we can use `<Route path="*">...</Route>`. This will match any `path`. If we use this, we should put it last within the `Switch`. `Switch`es will only render the first matching `Route`, so this default will only be rendered if there are no other matches.
+To add a default option which will be rendered if nothing else is for a particular `Routes` block, then we can use `<Route path="*" element={...} />`. This will match any `path`. If we use this, we should put it last within the `Routes` block. These blocks will only render the first matching `Route`, so this default will only be rendered if there are no other matches.
 
 For example, if the following React is defined:
 
 ```jsx
 <Router>
     <div>
-        <Switch>
-            <Route path="/page1">
-                <p>Welcome to page one!</p>
-            </Route>
-            <Route path="*">
-                <p>Default!</p>
-            </Route>
-        </Switch>
+        <Routes>
+            <Route path="/page1" element={<p>Welcome to page one!</p>} />
+            <Route path="*" element={<p>Default!</p>} />
+        </Routes>
     </div>
 </Router>
 ```
 
 Then, if we navigate to `/page1` then we'll see the text "Welcome to page one!". If we navigate to any other URL within our app, we'll see the text "Default!".
 
-An example of a `Switch` with a default `Route` can be seen in the [App](./src/App.js) component.
+An example of a `Routes` block with a default `Route` can be seen in the [App](./src/App.js) component.
 
 ## Links
 We can add hyperlinks which perform client-side routing (i.e. they do not cause a request to be sent to the server) using React Router's `<Link>` and `<NavLink>` components, as so:
@@ -97,14 +89,12 @@ We can use path parameters to allow us to programmatically read parts of the cur
 To set up a `Route` with path parameters, we preface one section of the path with a `:`, like so:
 
 ```jsx
-<Route path="/articles/:id">
-    <ArticleViewer />
-</Route>
+<Route path="/articles/:id" element={<ArticleViewer />} />
 ```
 
 This has introduced a path parameter named `id`. It will match any path, and the matched value will be available for use by any React components rendered in this route (our `ArticleViewer` in this case). For example, if the URL is http://localhost:3000/articles/4, then the `id` path parameter would have the value `4`.
 
-Within any component that's a child of a `Route`, we can use the `useParams()` hook to obtain these values.
+Within any component rendered by a `Route`'s `element` prop, we can use the `useParams()` hook to obtain these values.
 
 For example:
 
