@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import initialArticles from './initial-articles';
 import ArticleView from './ArticleView';
@@ -14,7 +14,7 @@ function App() {
 
   return (
     // Because we're using React Router, we should wrap all our other components in a Router.
-    <Router>
+    <BrowserRouter>
       <div className="container">
 
         <div className="sidebar">
@@ -48,7 +48,7 @@ function App() {
         </main>
 
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

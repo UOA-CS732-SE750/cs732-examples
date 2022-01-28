@@ -5,7 +5,11 @@ export default function ArticleNavBar({ articles }) {
 
     return (
         <div className={styles.navBar}>
-            {articles.map(article => <NavLink to={`/articles/${article.id}`} activeClassName={styles.active}>{article.title}</NavLink>)}
+            {articles.map(article =>
+                <NavLink to={`/articles/${article.id}`}
+                    className={({ isActive }) => isActive && styles.active}>
+                    {article.title}
+                </NavLink>)}
         </div>
     );
 }

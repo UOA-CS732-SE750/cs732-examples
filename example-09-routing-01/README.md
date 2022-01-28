@@ -4,21 +4,22 @@ This project contains an example of how to do routing with [React Router](https:
 To install:
 
 ```sh
-npm install -S react-router-dom
+yarn add react-router-dom
 ```
 
 Useful imports (may not need all of these in every file):
 
 ```js
-import { BrowserRouter as Router, Switch, Route, useParams, Link, NavLink, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, Link, NavLink } from 'react-router-dom';
 ```
+
 ## The basics
-To set up routing, we enclose our page in a `<Router>` component. Within that `Router`, we may have any other React components as normal. We may also have one or more `<Routes>` components. Within each `Routes`, we may have any number of `<Route>` components. `Route`s have an `element` prop, which contains a component which will only be rendered if the current URL path matches the `path` prop of that `Route`.
+To set up routing, we enclose our page in a `<BrowserRouter>` component. Within that `BrowserRouter`, we may have any other React components as normal. We may also have one or more `<Routes>` components. Within each `Routes`, we may have any number of `<Route>` components. `Route`s have an `element` prop, which contains a component which will only be rendered if the current URL path matches the `path` prop of that `Route`.
 
 For example, if the following JSX were defined:
 
 ```jsx
-<Router>
+<BrowserRouter>
     <div>
         <h1>This will always be rendered</h1>
         <p>Hello, React Router!</p>
@@ -27,7 +28,7 @@ For example, if the following JSX were defined:
             <Route path="/page2" element={<p>Welcome to page two!</p>} />
         </Routes>
     </div>
-</Router>
+</BrowserRouter>
 ```
 
 Then, if the application's path were, for example, http://localhost:3000/page1, then the following HTML would be rendered:
@@ -55,14 +56,14 @@ To add a default option which will be rendered if nothing else is for a particul
 For example, if the following React is defined:
 
 ```jsx
-<Router>
+<BrowserRouter>
     <div>
         <Routes>
             <Route path="/page1" element={<p>Welcome to page one!</p>} />
             <Route path="*" element={<p>Default!</p>} />
         </Routes>
     </div>
-</Router>
+</BrowserRouter>
 ```
 
 Then, if we navigate to `/page1` then we'll see the text "Welcome to page one!". If we navigate to any other URL within our app, we'll see the text "Default!".
@@ -74,10 +75,12 @@ We can add hyperlinks which perform client-side routing (i.e. they do not cause 
 
 ```jsx
 <Link to="/page1">Page one</Link>
-<NavLink to="/page2" activeClassName="myActiveLinkCSS">Page two</NavLink>
+<NavLink to="/page2" className={({ isActive }) => isActive && "myActiveLinkCSS"}>Page two</NavLink>
 ```
 
-Both will render an HTML anchor (`<a>`) which, when clicked, will perform client-side routing to the path specified in the `to` prop. The difference between the two is that a `<NavLink>` will additionally apply the given CSS class to the hyperlink, when that link's path matches the current URL. This lets us easily create links with different styles when active.
+Both will render an HTML anchor (`<a>`) which, when clicked, will perform client-side routing to the path specified in the `to` prop. Links can be absolute (starting with `/`) or relative (see Example 10 for more on this).
+
+The difference between the two is that a `<NavLink>`'s `className` prop can accept a function. The function is supplied with a single arg, with an `isActive` prop, and should return the CSS class name to use, if any. As shown in the example above, we can conditionally apply CSS classes, based on the value of `isActive`. This lets us easily create links with different styles when active.
 
 Examples of `NavLink`s can be seen in the [ArticleNavBar](./src/ArticleNavBar.js) component.
 
