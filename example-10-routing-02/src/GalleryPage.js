@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 /**
  * Displays a grid of all images in the given list of articles, along with links
  * to view the articles themselves.
+ * 
+ * Because the gallery page is down a different branch than the articles pages, I've used absolute paths
+ * in the links here (i.e. starting with "/").
  */
 export default function GalleryPage({ articles }) {
     return (

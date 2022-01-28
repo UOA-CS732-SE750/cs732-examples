@@ -1,14 +1,13 @@
-import styles from './NewArticleDialog.module.css';
+import styles from './NewArticleForm.module.css';
 import { useState } from 'react';
-import Modal from './Modal';
 
-export default function NewArticleDialog({ onAddArticle, onCancelNewArticle }) {
+export default function NewArticleForm({ onAddArticle }) {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
     return (
-        <Modal style={{ width: '50%', height: 'auto' }} dismissOnClickOutside={true} onCancel={onCancelNewArticle}>
+        <>
             <h2>Add article</h2>
             <div className={styles.form}>
                 <div className={styles.formRow}>
@@ -27,6 +26,6 @@ export default function NewArticleDialog({ onAddArticle, onCancelNewArticle }) {
                     </button>
                 </div>
             </div>
-        </Modal>
+        </>
     );
 }

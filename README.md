@@ -21,9 +21,9 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[Example 08](./example-08-useeffect)*: Demonstrates how to have components give side-effects using the `useEffect()` hook.
 
-- *[Example 09](./example-09-routing-01)*: Demonstrates basic use of the `react-router-dom` package.
+- *[Example 09](./example-09-routing-01)*: Demonstrates basic use of React Router, **version 6** (NOT backwards compatible with older versions).
 
-- *[Example 10](./example-10-routing-02)*: Demonstrates mode advanced use of the `react-router-dom` package, along with React portals.
+- *[Example 10](./example-10-routing-02)*: Demonstrates mode advanced use of React Router.
 
 - *[Example 11](./example-11-context-01)*: Shows how to use the React Context API. Shows how to set up a context using `React.createContext()`, and how to obtain its value using `useContext()`.
 
