@@ -42,7 +42,7 @@ Alternatively, we could use a ready-made third-party solution: the `npm` package
 This package provides a more robust solution than our custom hook above. The package is open source - you can find the GitHub at: <https://github.com/donavon/use-persisted-state>. First, we must install it in our project as follows:
 
 ```sh
-npm install use-persisted-state
+yarn add use-persisted-state
 ```
 
 Then, in our code, its usage is slightly different. We import a function called `createPersistedState()`, supplying the local storage key as an argument. This doesn't return a value / setter pair as with `useState()` or our custom hook above. Rather, this function itself returns a hook that we can then use within our functional components as expected.

@@ -25,7 +25,7 @@ export function useLocalStorage(key, initialValue = null) {
     // to remain in-sync with any updates.
     useEffect(() => {
         window.localStorage.setItem(key, JSON.stringify(value)); // JSON.stringify() is the opposite of JSON.parse() it converts any value to a JSON string.
-    }, [value, setValue])
+    }, [key, value, setValue])
 
     return [value, setValue];
 
