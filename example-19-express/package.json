@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esm": "^3.2.25",
     "express": "^4.17.2",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25"
   }
 }

@@ -4,15 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node -r esm server.js",
-    "server": "npm run start"
+    "start": "node -r esm server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esm": "^3.2.25",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25"
   }
 }
