@@ -1,14 +1,10 @@
 import styles from './ArticleView.module.css';
+import { AppContext } from './AppContextProvider';
+import { useContext } from 'react';
+import { ArticleNotFound } from './ErrorPages';
+import { useParams } from 'react-router-dom';
 
-/**
- * A simple React component which renders the given article. An article is rendered as an
- * <h2> displaying its title, followed by a <p> containing its content.
- * 
- * Note that as shown here, we can write "export default.." on the same line as the function
- * definition.
- */
-export default function ArticleView({ article }) {
-    // The div below has a className defined which is referred to by the ".article" CSS selector in index.css.
+export function ArticleView({ article }) {
     return (
         <div className={styles.article}>
             <h2>{article.title}</h2>
@@ -16,4 +12,17 @@ export default function ArticleView({ article }) {
             <p>{article.content}</p>
         </div>
     );
+}
+
+export function ArticleViewFromPathParams() {
+    const { articles } = useContext(AppContext);
+    const { id } = useParams();
+    const article = articles.find(a => a.id == id);
+
+    if (article) {
+        return <ArticleView article={article} />;
+    }
+    else {
+        return <ArticleNotFound />;
+    }
 }

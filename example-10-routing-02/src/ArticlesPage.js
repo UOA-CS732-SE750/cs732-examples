@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import ArticleSidebar from './ArticleSidebar';
 
-export default function ArticlesPage({ articles, onAddArticle, onCancelNewArticle }) {
+export default function ArticlesPage({ articles }) {
 
     return (
         <>

@@ -1,16 +1,15 @@
-import styles from './NewArticleDialog.module.css';
-import { useContext, useState } from 'react';
-import Modal from './Modal';
+import styles from './NewArticleForm.module.css';
+import { useState } from 'react';
 import { AppContext } from './AppContextProvider';
-import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function NewArticleDialog() {
+export default function NewArticleForm() {
 
     const { addArticle } = useContext(AppContext);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-
-    const history = useHistory();
+    const navigate = useNavigate();
 
     // Handles when a new article is added.
     function handleAddArticle() {
@@ -19,16 +18,11 @@ export default function NewArticleDialog() {
         const newArticle = addArticle({ title, content });
 
         // Redirect the user to it
-        history.replace(`/articles/${newArticle.id}`);
-    }
-
-    // Handles when we should cancel this dialog.
-    function handleCancelNewArticle() {
-        history.goBack();
+        navigate(`/articles/${newArticle.id}`, { replace: true });
     }
 
     return (
-        <Modal style={{ width: '50%', height: 'auto' }} dismissOnClickOutside={true} onCancel={handleCancelNewArticle}>
+        <>
             <h2>Add article</h2>
             <div className={styles.form}>
                 <div className={styles.formRow}>
@@ -47,6 +41,6 @@ export default function NewArticleDialog() {
                     </button>
                 </div>
             </div>
-        </Modal>
+        </>
     );
 }
