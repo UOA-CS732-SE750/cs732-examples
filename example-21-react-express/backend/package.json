@@ -5,18 +5,17 @@
   "main": "./src/server.js",
   "scripts": {
     "start": "node -r esm ./src/server.js",
-    "server": "npm run start",
     "production": "cross-env NODE_ENV=production node -r esm ./src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esm": "^3.2.25",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "esm": "^3.2.25"
   }
 }

@@ -61,6 +61,6 @@ In our frontend's [useGet.js](./frontend/src/useGet.js) file, we have created a 
 
 - Dynamic URL: If the URL changes, the data will be re-fetched (due to the new `url` causing a mismatch in the array passed to `useEffect()`).
 
-- Loading status: While the fetch is in-progress, the `isLoading` stateful value will be set to `true`. It will be `false` at other times. This value can be used to, for example, conditionally render a "Loading" bar, as can be seen in [ArticlesPage.js](./frontend/src/ArticlesPage.js) line 26.
+- Loading status: While the fetch is in-progress, the `isLoading` stateful value will be set to `true`. It will be `false` at other times. This value can be used to, for example, conditionally render a "Loading" bar, as can be seen in [App.js](./frontend/src/App.js) line 45.
 
 You'll be extending this hook to provide additional functionality in Week Three's lab :)
