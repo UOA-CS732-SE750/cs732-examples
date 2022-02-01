@@ -37,7 +37,7 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[Example 16](./example-16-localstorage-02)*: Shows how we can integrate local storage into our React apps. Two methods are shown.
 
-- *[Example 17](./example-17-material-ui)*: Shows off one of our previous examples, rewritten with [Material UI](https://material-ui.com/).
+- *[Example 17](./example-17-mui)*: Shows off one of our previous examples, rewritten with [MUI](https://mui.com/).
 
 - *[Example 18](./example-18-encapsulating-state)*: Demonstrates one way we can encapsulate stateful values, and their mutator functions, in a context provider wrapper component.
 
