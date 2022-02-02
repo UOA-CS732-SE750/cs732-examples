@@ -6,7 +6,7 @@ The first example shows a custom hook we have written - (useLocalStorage)[./src/
 
 Its usage can be seen in `Counter.js`(./src/Counter.js). The benefit of this approach is that it is relatively simple and we can see what's going on - we have achieved `localStorage` integration with only a few lines of code and have encapsulated it in a custom hook to promote code reuse. The drawback is that the behaviour isn't as expected if we try to share the value with another component. When one component updates the value in local storage, that change will not automatically cause a re-render of any component other than the one which changed the value.
 
-To get around this issue, we could combine our `useLocalStorage()` function with React's Context mechanism as seen in [a previous example](../example-12-context-02). Something like this:
+To get around this issue, we could combine our `useLocalStorage()` function with React's Context mechanism as seen in a previous example. Something like this:
 
 ```jsx
 const MyContext = React.createContext(initialValue);
