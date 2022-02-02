@@ -11,7 +11,8 @@ function AppContextProvider({ children }) {
     // Sets up the app to fetch the articles from a REST API.
     const {
         data: articles,
-        isLoading: articlesLoading
+        isLoading: articlesLoading,
+        refresh: refreshArticles
     } = useGet('/api/articles', []);
 
     /**
@@ -42,7 +43,7 @@ function AppContextProvider({ children }) {
         };
 
         const articleResponse = await axios.post('/api/articles', articleToUpload);
-
+        refreshArticles();
         return articleResponse.data;
     }
 

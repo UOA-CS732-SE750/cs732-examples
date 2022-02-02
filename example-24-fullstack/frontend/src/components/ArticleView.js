@@ -1,21 +1,12 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import Main from './Main';
 import MUIRichTextEditor from 'mui-rte';
-
-/**
- * Custom Material-UI style tweaks
- */
-const useStyles = makeStyles((theme) => ({
-    paragraph: {
-        // textAlign: 'justify'
-    }
-}));
 
 /**
  * A simple React component which renders the title, image, and content of an article.
  */
 export default function ArticleView({ article }) {
-    const classes = useStyles();
+
     if (article) {
 
         // Try to parse content as JSON. If it is, then we'll display it in the rich text editor.
@@ -31,7 +22,7 @@ export default function ArticleView({ article }) {
                 {isJson ? (
                     <MUIRichTextEditor defaultValue={article.content} readOnly toolbar={false} />
                 ) : (
-                    <Typography paragraph className={classes.paragraph}>{article.content}</Typography>
+                    <Typography paragraph>{article.content}</Typography>
                 )}
             </Main>
         );

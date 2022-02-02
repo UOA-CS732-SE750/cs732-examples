@@ -9,6 +9,7 @@ export default function useGet(url, initialState = null) {
 
     const [data, setData] = useState(initialState);
     const [isLoading, setLoading] = useState(false);
+    const [refreshToggle, setRefreshToggle] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -18,7 +19,11 @@ export default function useGet(url, initialState = null) {
             setLoading(false);
         }
         fetchData();
-    }, [url]);
+    }, [url, refreshToggle]);
 
-    return { data, isLoading };
+    function refresh() {
+        setRefreshToggle(!refreshToggle);
+    }
+
+    return { data, isLoading, refresh };
 }

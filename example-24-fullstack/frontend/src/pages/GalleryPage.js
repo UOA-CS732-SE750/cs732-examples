@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AppContext } from '../AppContextProvider';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import GalleryCard from '../components/GalleryCard';
 import Main from '../components/Main';
 

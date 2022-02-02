@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
 import { AppContext } from '../AppContextProvider';
-import { Typography, TextField, Grid, Button } from '@material-ui/core';
+import { Typography, TextField, Grid, Button } from '@mui/material';
 import Main from '../components/Main';
 import ImageUpload from '../components/ImageUpload';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RichTextEditor from '../components/RichTextEditor';
 import { EditorState, convertToRaw } from 'draft-js';
 
@@ -13,7 +13,7 @@ export default function NewArticlePage() {
     const [title, setTitle] = useState('');
     const [image, setImage] = useState(null);
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
-    const history = useHistory();
+    const navigate = useNavigate();
     const { addArticle } = useContext(AppContext);
 
     const isError = (condition) => hasErrors && condition;
@@ -28,12 +28,9 @@ export default function NewArticlePage() {
             const content = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
             const newArticle = await addArticle(title, image, content);
             console.log(newArticle);
-            history.replace(`/articles/${newArticle._id}`);
-        }
-    }
 
-    function handleCancel() {
-        history.goBack();
+            navigate(`/articles/${newArticle._id}`, { replace: true });
+        }
     }
 
     return (
@@ -78,9 +75,6 @@ export default function NewArticlePage() {
                     <Grid container spacing={1}>
                         <Grid item>
                             <Button color="primary" variant="contained" onClick={handleOk}>Post article 😀</Button>
-                        </Grid>
-                        <Grid item>
-                            <Button color="secondary" variant="contained" onClick={handleCancel}>Cancel 😥</Button>
                         </Grid>
                     </Grid>
                 </Grid>

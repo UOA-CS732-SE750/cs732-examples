@@ -1,32 +1,23 @@
-import { Card, CardActionArea, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { getPlaintextSummary } from '../util/article-helpers';
-
-/**
- * Custom Material-UI style tweaks
- */
-const useStyles = makeStyles((theme) => ({
-    cardMedia: {
-        width: '100%',
-        height: 250,
-        objectFit: 'cover',
-        objectPosition: 'center'
-    },
-}));
 
 /**
  * Displays Material UI Card containing info about the given article.
  */
 export default function GalleryCard({ article }) {
 
-    const classes = useStyles();
-
     return (
         <CardActionArea component={Link} to={`/articles/${article._id}`}>
             <Card>
                 <CardMedia
+                    sx={{
+                        width: '100%',
+                        height: 250,
+                        objectFit: 'cover',
+                        objectPosition: 'center'
+                    }}
                     component="img"
-                    className={classes.cardMedia}
                     image={article.image}
                     title={article.title} />
                 <CardContent>

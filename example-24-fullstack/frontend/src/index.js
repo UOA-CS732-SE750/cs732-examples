@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
 import App from './App';
 import { AppContextProvider } from './AppContextProvider';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+const theme = createTheme({});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <AppContextProvider>
-        <App />
-      </AppContextProvider>
-    </Router>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <AppContextProvider>
+          <CssBaseline />
+          <App />
+        </AppContextProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

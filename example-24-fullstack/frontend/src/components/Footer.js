@@ -1,35 +1,20 @@
-import { Container, makeStyles, Typography } from '@material-ui/core';
-
-const useStyles = makeStyles((theme) => ({
-    footer: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(6, 0),
-    },
-    online: {
-        color: 'green'
-    },
-    offline: {
-        color: 'red'
-    }
-}));
+import { Container, Box, Typography, Divider } from '@mui/material';
 
 export default function Footer({ title, description }) {
-
-    const classes = useStyles();
 
     const isOnline = true;
 
     return (
-        <footer className={classes.footer}>
+        <Box component="footer" sx={{ backgroundColor: (theme) => theme.palette.background.paper, padding: (theme) => theme.spacing(6, 0) }}>
             <Container maxWidth="lg">
-                <hr />
+                <Divider />
                 <Typography variant="h6" align="center" gutterBottom>
                     {title}
                     <em> (currently </em>
                     {isOnline ? (
-                        <em className={classes.online}>online</em>
+                        <em style={{ color: 'green' }}>online</em>
                     ) : (
-                        <em className={classes.offline}>offline</em>
+                        <em style={{ color: 'red' }}>offline</em>
                     )}
                     <em>)</em>
                 </Typography>
@@ -42,6 +27,6 @@ export default function Footer({ title, description }) {
                     {description}
                 </Typography>
             </Container>
-        </footer>
+        </Box>
     )
 }

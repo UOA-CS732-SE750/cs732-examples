@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import SmallFeaturedArticle from './SmallFeaturedArticle';
 import MainFeaturedArticle from './MainFeaturedArticle';
 
