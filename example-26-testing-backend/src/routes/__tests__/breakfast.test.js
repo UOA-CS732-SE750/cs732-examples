@@ -15,9 +15,9 @@ let breakfast1, breakfast2, breakfast3;
  */
 beforeAll(async done => {
 
-    mongod = new MongoMemoryServer();
+    mongod = await MongoMemoryServer.create();
 
-    const connectionString = await mongod.getUri();
+    const connectionString = mongod.getUri();
     await mongoose.connect(connectionString, { useNewUrlParser: true });
 
     app = express();
