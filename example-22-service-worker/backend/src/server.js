@@ -5,7 +5,7 @@ import path from 'path';
 const app = express();
 const port = process.env.PORT || 3001;
 
-// Setup body-parser
+// Setup JSON parsing for request body
 app.use(express.json());
 
 // Setup our routes.

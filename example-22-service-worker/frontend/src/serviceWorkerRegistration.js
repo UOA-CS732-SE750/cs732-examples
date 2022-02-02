@@ -15,7 +15,7 @@ export function register() {
 }
 
 /**
- * Unregisters the service worker for his site.
+ * Unregisters the service worker for this site.
  */
 export function unregister() {
     if ('serviceWorker' in navigator) {
