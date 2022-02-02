@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 03 - Example 21 - React + Express integration; Consuming APIs from React code
+# CS732 examples - React + Express integration; Consuming APIs from React code
 This project contains the following:
 
 - An example project structure with frontend and backend elements. The frontend is written with create-react-app, while the backend is written with Node.js + Express.

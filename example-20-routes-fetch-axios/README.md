@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 03 - Example 20 - Organizing routes, `fetch()`, and `axios`
+# CS732 examples - Organizing routes, `fetch()`, and `axios`
 In this example, we can see one method for organizing our Express routes, using Express router. We also see basic examples of how we can consume APIs using `fetch()` and `axios`. This example doesn't contain any React code - we'll see how we can integrate with React in the next example.
 
 

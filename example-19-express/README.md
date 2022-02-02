@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 03 - Example 19 - Node.js and Express
+# CS732 examples - Node.js and Express
 This project contains a simple node.js / Express server application.
 
 The main code is located in [server.js](./server.js). The key parts of the file are as follows:

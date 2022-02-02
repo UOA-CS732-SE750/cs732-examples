@@ -1,5 +1,5 @@
-# CS732 examples - Lecture 03 - Example 22 - Service workers
-This project contains a clone of the project in [Example 21](../example-21-react-express), but configured with a service worker to allow some offline functionality. The backend code is identical to Example 21. The only change is in the frontend code.
+# CS732 examples - Service workers
+This project contains a clone of the project in [the previous example](../example-21-react-express), but configured with a service worker to allow some offline functionality. The backend code is identical to Example 21. The only change is in the frontend code.
 
 In [index.js](./frontend/src/index.js), we're importing our `serviceWorkerRegistration` file and calling its `register()` function. This file is [serviceWorkerRegistration.js](./frontend/src/serviceWorkerRegistration.js).
 

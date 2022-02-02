@@ -1,5 +1,5 @@
-# CS732 examples - Lecture 04 - Example 24 - A full-stack application!
-This project demonstrates how we can put all the moving parts together (MongoDB, Express, React, Node) to make a full MERN-stack application.
+# CS732 examples - A more complex full-stack application!
+This project demonstrates how we can put all the moving parts together (MongoDB, Express, React, Node) to make a full MERN-stack application. The webapp is more complex than the one shown in the previous example.
 
 The [frontend](./frontend) of this app is almost identical to the starting point for Lab 03. The only difference is that we've changed a bunch of references to articles' `id` to `_id` instead (to match with the auto-generated MongoDB `_id` field). If you've completed Lab 03, you're welcome to (*carefully!*) copy the changes over to this example to gain their benefits.
 

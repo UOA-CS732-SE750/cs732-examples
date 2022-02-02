@@ -1,5 +1,5 @@
-# CS732 examples - Lecture 02 - Example 09 - Routing 01
-This project contains an example of how to do routing with [React Router](https://reactrouter.com/).
+# CS732 examples - Routing 01
+This project contains an example of how to do routing with [React Router](https://reactrouter.com/), **version 6** **Note:** These examples are **not** backwards compatible with older versions of React Router. If you look up other examples online, *make sure you're only looking at RR6 examples!*.
 
 To install:
 

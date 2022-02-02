@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 04 - Example 23 - MongoDB and Mongoose
+# CS732 examples - MongoDB and Mongoose
 This project demonstrates how we can use the `mongoose` npm package to interact with a MongoDB database.
 
 - We define a schema in [schema.js](./src/schema.js). The defined schema is for a pet registration app. There are users with several fields such as `username`, `firstName`, `dateOfBirth`, etc. Each user can have any number of registered pets. The schema JS file is extensively commented, for your reference.

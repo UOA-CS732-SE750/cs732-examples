@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 04 - Example 25 - Testing with Jest
+# CS732 examples - Testing with Jest
 This project shows off several examples of how to test JavaScript code using Jest:
 
 - Basic testing can be seen in [calculator.test.js](./src/__tests__/calculator.test.js), which tests functions which perform mathematical operations, found in [calculator.js](./src/calculator.js).

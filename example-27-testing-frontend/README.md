@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 04 - Example 27 - Testing frontend (React) code
+# CS732 examples - Testing frontend (React) code
 This project demonstrates three different ways we can test our React code:
 
 - Shallow testing with `enzyme`

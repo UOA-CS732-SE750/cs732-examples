@@ -1,5 +1,5 @@
-# CS732 examples - Lecture 04 - Example 26 - Testing backend code (Express and mongoose)
-This project continues on from [Example 25](../example-25-jest) by showing how we can test our Express routes and our code which interacts with a MongoDB database.
+# CS732 examples - Testing backend code (Express and mongoose)
+This project continues on from [the previous example](../example-25-jest) by showing how we can test our Express routes and our code which interacts with a MongoDB database.
 
 
 ## Testing a MongoDB schema

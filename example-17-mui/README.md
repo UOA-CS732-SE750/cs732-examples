@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 02 - Example 17 - MUI Example
+# CS732 examples - MUI Example
 This project contains our article viewer running example, rewritten to use [MUI v5](https://mui.com/) (formerly Material UI).
 
 To install Material UI:
@@ -32,3 +32,6 @@ There's no way we could possibly cover the entirety of MUI in one lecture. For m
 
 - MUI homepage: <https://mui.com/>
 - MUI examples: <https://mui.com/getting-started/example-projects/>
+
+### Important:
+This example, and other MUI examples in this course, are *only* for MUI 5. They are **not** backwards compatible with older versions of Material UI.

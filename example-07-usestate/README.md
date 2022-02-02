@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 01 - Example 07 - useState()
+# CS732 examples - `useState()`
 This project contains examples of adding state to components using the `useState()` React hook. This allows us to add state to functional components without converting them to class components.
 
 We need to import it as so:

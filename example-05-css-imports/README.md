@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 01 - Example 05 - Styling with CSS imports
+# CS732 examples - Styling with CSS imports
 This project contains examples of styling using standard CSS imports. There is a CSS file named [index.css](./src/index.css), which is imported within [index.js](./src/index.js) using the following line:
 
 ```js
