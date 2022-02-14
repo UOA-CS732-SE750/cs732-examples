@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 01 - Example 04 - Simple components, boolean logic, and iteration
+# CS732 examples - Simple components, boolean logic, and iteration
 This project contains examples of simple React components, along with an example of boolean logic and iteration.
 
 ## A simple React component

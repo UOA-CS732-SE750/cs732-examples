@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 01 - Example 02 - Using Babel to enable JSX support
+# CS732 examples - Using Babel to enable JSX support
 JSX allows us to write HTML-like syntax to define our React components. However, it is not supported by default. We need to *transpile* our JavaScript code with JSX into a format without JSX that browsers can understand.
 
 To do this we can use Babel:

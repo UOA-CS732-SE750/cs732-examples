@@ -1,4 +1,4 @@
-# CS732 examples - Lecture 01 - Example 08 - useEffect()
+# CS732 examples - useEffect()
 This project contains examples the `useEffect()` React hook. This hook is used to run extra code, which produces side-effects, after a functional React component is rendered / rerendered.
 
 We import it as follows:

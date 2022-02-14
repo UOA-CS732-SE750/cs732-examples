@@ -1,4 +1,0 @@
-# CS732 examples - Lecture 02 - Example 15 - Local storage example one - No React
-This project contains a demo of how we can use `localStorage`, provided by modern browsers, to store and access key-value pairs that will persist across browser tabs & windows. Values stored in `localStorage` are local to a particular *origin*.
-
-An origin is a protocol / hostname / port combination. For example, in the URL `http://localhost:3000/hello/world`, the protocol is `http`, the hostname is `localhost`, and the port is `3000`. Any URL pointing to `http://localhost:3000/**` will share the same `localStorage`. However, if the protocol, hostname, or port are different, that browser tab will access a completely different `localStorage`. For example, our webapp above can't access any values placed into local storage by `https://www.google.co.nz`.

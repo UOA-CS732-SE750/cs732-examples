@@ -1,5 +1,5 @@
-# CS732 examples - Lecture 02 - Example 12 - Context example two
-This project contains a demo of how we can use `React.createContext()` and `useContext()` to provide global state. It differs from [Example 11](../example-11-context-01) in that this time, the value of the context is being modified in one sibling component, while being read in another.
+# CS732 examples - Context example two
+This project contains a demo of how we can use `React.createContext()` and `useContext()` to provide global state. It differs from the previous example in that this time, the value of the context is being modified in one sibling component, while being read in another.
 
 1. In [auth-context.js](./src/auth-context.js), we're creating the Context object itself - `AuthContext`. We're importing it whenever we need it.
 

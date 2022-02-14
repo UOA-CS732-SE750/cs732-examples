@@ -1,0 +1,21 @@
+{
+  "name": "example-23-mongoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "node -r esm ./src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "dummy-json": "^3.0.4",
+    "mongoose": "^6.1.10",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25"
+  }
+}

@@ -1,5 +1,5 @@
 
-# CS732 examples - Lecture 00 - Example 00 - Supplementary JavaScript resources
+# CS732 examples - Supplementary JavaScript resources
 This project doesn't contain any code as such, but this README contains examples of more advanced JavaScript features that are used quite often in React apps. This project covers language features that weren't taught in COMPSCI 719 - so do study this README to make sure you understand these, even if you did really well in the JavaScript section of that course!
 
 

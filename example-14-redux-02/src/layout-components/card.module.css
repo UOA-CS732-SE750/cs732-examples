@@ -1,7 +1,0 @@
-.card {
-    background-color: var(--content-background-color);
-}
-
-.card > .cardText {
-    margin: 0 var(--half-spacing) var(--half-spacing) var(--half-spacing);
-}

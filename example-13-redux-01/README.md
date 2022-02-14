@@ -1,2 +1,0 @@
-# CS732 examples - Supplementary material - Example 13 - Redux
-This supplementary example shows use of the [Redux](https://redux.js.org/) JavaScript state container. Redux doesn't rely on React in any way - it's completely separate. This example shows Redux purely by itself.
