@@ -1,47 +1,54 @@
-import { render, fireEvent, screen, act } from '@testing-library/react';
+import { render, fireEvent, screen, act, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import GreetingLoader from '../greeting-loader';
-import mockAxios from 'jest-mock-axios';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+
+let axiosMock;
+
+beforeAll(() => {
+    axiosMock = new MockAdapter(axios);
+});
 
 afterEach(() => {
-    mockAxios.reset();
+    axiosMock.reset();
 });
 
 it('loads a greeting correctly', async () => {
 
-    // Render the component; the "screen" shouldn't contain the text "Hello, World!"
+    // Render the component; the "screen" shouldn't contain the text "Hello, World!" or "Loading..."
     // The queryBy*() functions will return null if the query couldn't find a match.
     render(<GreetingLoader url="http://test.com" />);
-    expect(screen.queryByText('Hello, world!')).toBeNull();
+    expect(screen.queryByText('Hello, world!')).not.toBeInTheDocument();
+    expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
+
+    // Setup a mock response from axios - if we send a GET request to http://test.com,
+    // simulate returning a "Hello, World!" greeting.
+    const data = {
+        greeting: 'Hello, world!'
+    }
+    axiosMock.onGet('http://test.com').reply(200, data);
 
     // Simulate finding the 'Load greeting' button and clicking it.
     // The getBy*() functions will throw an exception if the query couldn't find a match.
     const button = screen.getByText('Load greeting');
     fireEvent.click(button);
 
-    // The button-click above should have caused a call to axios.get().
-    // Make sure it was actually called with the correct URL.
-    expect(mockAxios.get).toHaveBeenCalledWith('http://test.com');
+    // Now, the "Loading..." text should appear.
+    expect(screen.queryByText('Loading...')).toBeInTheDocument();
 
-    // Mock and send the axios response
-    const data = {
-        greeting: 'Hello, world!'
-    }
+    // Ensure our component made the GET request properly
+    expect(axiosMock.history.get[0].url).toEqual('http://test.com');
 
-    /**
-     * This "act()" call is for proper Arrange-Act-Assert testing of state changes in our React components
-     * (See: https://reactjs.org/docs/testing-recipes.html). It ensures that all state changes have finished
-     * being applied before the call to act() returns, so we know that any testing code after this line can
-     * test for those expected state changes. There's a sync version and an async version.
-     * 
-     * The methods from the react testing libaray (e.g. "render()" and "click()" above) already use act()
-     * internally so we don't need to wrap those calls. However, mockAxios doesn't use it by default so we need
-     * to wrap it as shown here.
-     */
-    await act(async () => mockAxios.mockResponse({ data }));
+    // This line waits for the text to appear, which should appear once the axios call has succeeded.
+    // If this times out, then we can assume the component has not updated itself in response to the 
+    // retrieved data.
+    // Default timeout is 1000ms; we can change this as a property to the second argument.
+    await waitFor(() => screen.getByText('Hello, world!'), { timeout: 1000 });
 
-    // The axios response above should cause the greeting text to be displayed in the UI. Make sure it is.
-    const p = screen.getByText('Hello, world!');
-    expect(p.tagName).toBe('P'); // Check it's an actual <p>
+    // The axios response above should cause the greeting text to be displayed in the UI,
+    // and the "loading" message should disappear again.
+    expect(screen.queryByText('Hello, world!')).toBeInTheDocument();
+    expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
 
 });

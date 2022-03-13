@@ -1,4 +1,5 @@
-import mockAxios from 'jest-mock-axios';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import SoundPlayer from '../sound-player';
 import {
     myForEachFunction,
@@ -8,8 +9,19 @@ import {
     beep
 } from '../things-to-mock';
 
+// We will populate this properly in the beforeAll.
+let axiosMock;
+
 // This line replaces the SoundPlayer class with a mock class for the rest of this file.
 jest.mock('../sound-player');
+
+/**
+ * Setup the axios mock here.
+ */
+beforeAll(() => {
+
+    axiosMock = new MockAdapter(axios);
+});
 
 /**
  * If we have a global mock like axios, its good practice to clear it after each test run,
@@ -17,7 +29,7 @@ jest.mock('../sound-player');
  */
 afterEach(() => {
     SoundPlayer.mockClear();
-    mockAxios.reset();
+    axiosMock.reset();
 });
 
 /**
@@ -133,6 +145,14 @@ describe('coinFlip2 tests', () => {
  */
 it('getArticle fetches from trex-sandwich server', async () => {
 
+    // Setup our axios mock - simulate a 200 OK response, returning this article.
+    const dummyArticle = {
+        id: 2,
+        title: 'The title',
+        content: 'The content'
+    }
+    axiosMock.onGet('https://trex-sandwich.com/ajax/articles?id=2').reply(200, dummyArticle);
+
     // Create our "then" and "catch" functions which will be called if the promise returned
     // by getArticle resolves or is rejected.
     const catchFn = jest.fn();
@@ -143,21 +163,10 @@ it('getArticle fetches from trex-sandwich server', async () => {
         .then(thenFn)
         .catch(catchFn);
 
-    // Make sure that getArticle() made a GET request to the correct URL
-    expect(mockAxios.get).toHaveBeenCalledWith('https://trex-sandwich.com/ajax/articles?id=2');
+    await promise; // This waits until the "then" and / or "catch" above have been called.
 
-    // Give a 200 OK response with valid data back to getArticle()
-    const dummyArticle = {
-        id: 2,
-        title: 'The title',
-        content: 'The content'
-    }
-    const responseObj = {
-        data: dummyArticle
-    };
-    mockAxios.mockResponse(responseObj);
-
-    await promise; // 
+    // Make sure axios was called correctly by our code
+    expect(axiosMock.history.get[0].url).toEqual('https://trex-sandwich.com/ajax/articles?id=2');
 
     // Make sure the "then" function was called with the correct data
     expect(thenFn).toHaveBeenCalledWith(dummyArticle);
