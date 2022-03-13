@@ -39,9 +39,9 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "axios-mock-adapter": "^1.20.0",
     "enzyme": "^3.11.0",
     "jest-enzyme": "^7.1.2",
-    "jest-mock-axios": "^4.3.0",
     "react-test-renderer": "^17.0.1"
   },
   "jest": {
