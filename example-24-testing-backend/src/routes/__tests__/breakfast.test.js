@@ -5,7 +5,28 @@ import express from 'express';
 import axios from 'axios';
 
 let mongod, app, server;
-let breakfast1, breakfast2, breakfast3;
+
+const breakfast1 = {
+    _id: new mongoose.Types.ObjectId('000000000000000000000001'),
+    eggs: 7,
+    bacon: 10,
+    drink: 'Coffee'
+};
+
+const breakfast2 = {
+    _id: new mongoose.Types.ObjectId('000000000000000000000002'),
+    eggs: 12,
+    bacon: 2,
+};
+
+const breakfast3 = {
+    _id: new mongoose.Types.ObjectId('000000000000000000000003'),
+    eggs: 8,
+    bacon: 50,
+    drink: 'Tea'
+};
+
+const breakfasts = [breakfast1, breakfast2, breakfast3];
 
 /**
  * Before all tests, create an in-memory MongoDB instance so we don't have to test on a real database,
@@ -30,33 +51,12 @@ beforeAll(async done => {
  * Before each test, intialize the database with some data
  */
 beforeEach(async () => {
+
+    // Drop existing db
+    await mongoose.connection.db.dropDatabase();
+
     const coll = await mongoose.connection.db.createCollection('breakfasts');
-
-    breakfast1 = {
-        eggs: 7,
-        bacon: 10,
-        drink: 'Coffee'
-    };
-
-    breakfast2 = {
-        eggs: 12,
-        bacon: 2,
-    };
-
-    breakfast3 = {
-        eggs: 8,
-        bacon: 50,
-        drink: 'Tea'
-    };
-
-    await coll.insertMany([breakfast1, breakfast2, breakfast3]);
-});
-
-/**
- * After each test, clear the database entirely
- */
-afterEach(async () => {
-    await mongoose.connection.db.dropCollection('breakfasts');
+    await coll.insertMany(breakfasts);
 });
 
 /**
@@ -76,28 +76,28 @@ afterAll(done => {
 it('gets all breakfasts from server', async () => {
 
     const response = await axios.get('http://localhost:3000/breakfasts');
-    const breakfasts = response.data;
+    const breakfastsFromApi = response.data;
 
-    expect(breakfasts).toBeTruthy();
-    expect(breakfasts.length).toBe(3);
+    expect(breakfastsFromApi).toBeTruthy();
+    expect(breakfastsFromApi.length).toBe(3);
 
-    expect(breakfasts[0].eggs).toBe(7);
-    expect(breakfasts[0].bacon).toBe(10);
-    expect(breakfasts[0].drink).toBe('Coffee');
+    expect(breakfastsFromApi[0].eggs).toBe(7);
+    expect(breakfastsFromApi[0].bacon).toBe(10);
+    expect(breakfastsFromApi[0].drink).toBe('Coffee');
 
-    expect(breakfasts[1].eggs).toBe(12);
-    expect(breakfasts[1].bacon).toBe(2);
-    expect(breakfasts[1].drink).toBeUndefined();
+    expect(breakfastsFromApi[1].eggs).toBe(12);
+    expect(breakfastsFromApi[1].bacon).toBe(2);
+    expect(breakfastsFromApi[1].drink).toBeUndefined();
 
-    expect(breakfasts[2].eggs).toBe(8);
-    expect(breakfasts[2].bacon).toBe(50);
-    expect(breakfasts[2].drink).toBe('Tea');
+    expect(breakfastsFromApi[2].eggs).toBe(8);
+    expect(breakfastsFromApi[2].bacon).toBe(50);
+    expect(breakfastsFromApi[2].drink).toBe('Tea');
 
 });
 
 it('gets a single breakfast from the server', async () => {
 
-    const response = await axios.get(`http://localhost:3000/breakfasts/${breakfast2._id}`);
+    const response = await axios.get('http://localhost:3000/breakfasts/000000000000000000000002');
     const breakfast = response.data;
 
     expect(breakfast.eggs).toBe(12);
