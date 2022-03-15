@@ -9,7 +9,16 @@ router.get('/breakfasts', async (req, res) => {
 });
 
 router.get('/breakfasts/:id', async (req, res) => {
-    res.json(await Breakfast.findById(req.params.id));
+
+    const breakfast = await Breakfast.findById(req.params.id);
+
+    if (breakfast) {
+        res.json(breakfast);
+    }
+
+    else {
+        res.sendStatus(404);
+    }
 });
 
 export default router;

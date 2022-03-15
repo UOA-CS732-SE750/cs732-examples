@@ -51,6 +51,6 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[Testing with Jest](./example-23-jest)*: Demonstrates how we can test our JS code using Jest. Several use cases are explored, such as basic testing, setup / teardown, testing exceptions, testing async code, and mocking.
 
-- *[Testing your Backend](./example-24-testing-backend)*: Shows how we can test our MongoDB database schema, and our Express routes.
+- *[Testing your Backend](./example-24-testing-backend)*: Shows how we can test our MongoDB database schema using [`mongodb-memory-server`](https://www.npmjs.com/package/mongodb-memory-server), and our Express routes using [`supertest`](https://www.npmjs.com/package/supertest).
 
-- *[Testing your Frontend](./example-25-testing-frontend)*: Shows how we can test our React code using shallow testing and snapshot testing, as well as some more complex test cases.
+- *[Testing your Frontend](./example-25-testing-frontend)*: Shows how we can test our React code using the [React testing library](https://testing-library.com/docs/react-testing-library/intro/).
