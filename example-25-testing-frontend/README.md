@@ -1,46 +1,24 @@
 # CS732 examples - Testing frontend (React) code
-This project demonstrates three different ways we can test our React code:
+This project demonstrates ways in which we can test various aspects of our React code, using the [React testing library](https://testing-library.com/docs/react-testing-library/intro). The library is included by default in any React app created with `create-react-app`. We would recommend you install `@types/jest` to get the best dev experience in VS Code.
 
-- Shallow testing with `enzyme`
-- Snapshot testing
-- Deep UI inspection and event simulation with the react testing library
+The testing library, built on top of the DOM testing library, essentially simulates a browser environment in which developers can "render" their components, and examine the ouutput "on screen", in terms of which HTML elements have been rendered, along with their contents / attributes. We can also simulate user input (e.g. button clicks), and verify that our components behave as expected.
 
+The core function is the `render()` function, into which we can supply our component hierarchy we wish to test. The function returns several functions we can use to examine and interact with rendered content. For example:
 
-## Shallow testing
-Shallow testing lets us test our React components in isolation, even if those React components use other React components internally.
+- **queryBy\*\*\* functions**: return either the matching component, or `null` if there are no matches.
+- **getBy\*\*\* functions**: return either the matching component, or throw an exception (causing the test to fail) if there are no matches.
+- **findBy\*\*\* functions**: return a promise which will resolve to the matching component if one is found within a given timeout (default 1000 milliseconds), or reject otherwise.
 
-For example, let's say that we have a component, `Page`, which is supposed to render some structure which includes other React components. For example:
+Variations of these functions include the ability to query by text content, role, or several other factors. The full list of query functions is [available here](https://testing-library.com/docs/queries/about).
 
-```jsx
-<div>
-    <h1>This is my page!</h1>
-    <div className="grid">
-        <Sidebar buttons={['Menu 1', 'Menu 2']} />
-
-        <Main>
-            <h3>Subtitle</h3>
-            <p>Some text</p>
-        </Main>
-    </div>
-</div>
-```
-
-We can use shallow testing to check that the `Sidebar` and `Main` components are being used correctly by our `Page` component - even if the `Sidebar` or `Main` components themselves contain errors. An example of these tests can be found in [page.test.js](./src/components/__tests__/page.test.js), which tests exactly the React code shown above.
+In addition to query functions, we can import a `fireEvent` object that can be used to simulate user input (e.g. button clicks), and a `waitFor()` function which can be used to wait for certain events to occur / conditions to be met (via a Promise). Using a combination of all of these functions, we can comprehensively test our React code.
 
 
-## Snapshot testing
-Snapshot testing lets us essentially "save" the output of our program (i.e. save a snapshot) at a time when we're confident of the correctness of that output. Then, whenever we make a change to our code which causes the output of the program to change, our test runner software (Jest in our case) will let us know that the snapshot has changed. At this time, we inspect the new output and we can either accept it if we're happy, or reject it otherwise.
+## Examples
+[`business-card.test.js`](./src/components/__tests__/business-card.test.js) shows some basic unit tests for a [`BusinessCard`](./src/components/business-card.js) component. We can see the use of the `render()` function here, as well as several query functions (`queryByText()`, `getByRole()`, `getByText()`).
 
-In the case of a React app (or individual React components), the "output" of the program is the actual HTML that ends up being rendered on a page. This output is stored as text files in the [__snapshots__](./src/components/__tests__/__snapshots__) folder the first time the tests are run. Then, when the tests are run again, the new output will be compared with the saved output. If there are any differences, Jest will warn us and ask whether to accept or reject the changes. If we accept, the new output will overwrite the old output.
+[`component-with-context.test.js`](./src/components/__tests__/component-with-context.test.js) shows how we can test a component which requires the use of context (i.e. obtains some values using `useContext()`). We can surround the component under test with a dummy context provider, which supplies dummy data via the context mechanism.
 
-In this project, example snapshot tests are given in [business-card.test.js](./src/components/__tests__/business-card.test.js), which snapshot a `BusinessCard` component.
+[`component-with-routes.test.js`](./src/components/__tests__/component-with-routes.test.js) shows how we can test a component which contains React Router components such as `Link`, `NavLink`, `Routes`, and `Outlet`. If we render any React Router components, we must surround our components under test in some kind of Router, or we will get errors. React Router provides the `MemoryRouter` component which works really well for this purpose. It provides an `initialEntries` prop which we can use to supply the initial simulated browser history stack, thus being able to "start the app" at any particular URL we desire. In these tests, we use this functionality to check whether the correct components are being rendered when the user navigates to particular paths.
 
-Snapshot tests are particularly good for ensuring that we don't introduce any accidental changes to our program's output - once various components have reached their "final" versions, their output shouldn't continue to change unless we make a mistake in our code.
-
-
-## Deep UI inspection and event simulation
-Sometimes we want to more precisely examine the output of our React code, and simulate events such as button clicks. To do this we can use the React testing libarary. This contains a `fireEvent` object which lets us simulate events, and various query functions which let us determine whether or not particular HTML elements are being rendered by our React code, and what their nesting is.
-
-An example of its usage is given in [greeting-loader.test.js](./src/components/__tests__/greeting-loader.test.js), which tests a `GreetingLoader` component. When a button within that component is clicked, a `GET` request should be made to a particular URL, and the data returned from that URL should be displayed in the UI. The tests within `greeting-loader.test.js` ensure that this occurrs.
-
-For more information on the React testing library and what it can offer, please refer to its documentation, at <https://testing-library.com/docs/react-testing-library/intro/>.
+[`greeting-loader.test.js`](./src/components/__tests__/greeting-loader.test.js) shows how we can combine axios mocking with `axios-mock-adapter`, with our React testing code. In this test, we're examining the `GreetingLoader` component, which should load a greeting from a web API and display it, when we click a button. We we are simulating that button click, then using `axios-mock-adapter` to return a dummy web response to our component, then ensuring the content contained within that response is correctly rendered. **Note:** For another example involving `axios-mock-adapter` by itself, refer to [example 23](../example-23-jest/).
