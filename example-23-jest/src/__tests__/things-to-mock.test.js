@@ -9,19 +9,14 @@ import {
     beep
 } from '../things-to-mock';
 
-// We will populate this properly in the beforeAll.
-let axiosMock;
+/**
+ * Setup the axios mock here.
+ */
+const axiosMock = new MockAdapter(axios);
 
 // This line replaces the SoundPlayer class with a mock class for the rest of this file.
 jest.mock('../sound-player');
 
-/**
- * Setup the axios mock here.
- */
-beforeAll(() => {
-
-    axiosMock = new MockAdapter(axios);
-});
 
 /**
  * If we have a global mock like axios, its good practice to clear it after each test run,
