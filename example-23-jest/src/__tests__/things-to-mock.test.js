@@ -148,26 +148,13 @@ it('getArticle fetches from trex-sandwich server', async () => {
     }
     axiosMock.onGet('https://trex-sandwich.com/ajax/articles?id=2').reply(200, dummyArticle);
 
-    // Create our "then" and "catch" functions which will be called if the promise returned
-    // by getArticle resolves or is rejected.
-    const catchFn = jest.fn();
-    const thenFn = jest.fn();
-
-    // Set up the test
-    const promise = getArticle(2)
-        .then(thenFn)
-        .catch(catchFn);
-
-    await promise; // This waits until the "then" and / or "catch" above have been called.
+    const article = await getArticle(2);
 
     // Make sure axios was called correctly by our code
     expect(axiosMock.history.get[0].url).toEqual('https://trex-sandwich.com/ajax/articles?id=2');
 
-    // Make sure the "then" function was called with the correct data
-    expect(thenFn).toHaveBeenCalledWith(dummyArticle);
-
-    // Make sure the "catch" function was not called.
-    expect(catchFn).not.toHaveBeenCalled();
+    // Make sure the expected article was returned
+    expect(article).toEqual(dummyArticle);
 })
 
 /**
