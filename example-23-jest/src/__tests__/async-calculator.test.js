@@ -1,4 +1,4 @@
-import { sum, difference, asyncFailsauce } from '../async-calculator';
+import { addReallyAccurately, subtractReallyAccurately, asyncFailsauce } from '../async-calculator';
 
 /**
  * This won't work, because sum() is an async function. It returns a promise rather than the actual return value,
@@ -19,17 +19,17 @@ import { sum, difference, asyncFailsauce } from '../async-calculator';
 /** We can test aync code using async / await ourselves */
 
 it('adds 1 + 2 = 3', async () => {
-    expect(await sum(1, 2)).toBe(3);
+    expect(await addReallyAccurately(1, 2)).toBe(3);
 })
 
 it('adds 3 + 5 + 4 = 12', async () => {
-    expect(await sum(3, 5, 4)).toBe(12);
+    expect(await addReallyAccurately(3, 5, 4)).toBe(12);
 })
 
 /** Another possibility: We can make our test function take a "done" argument, and call it to finish the test */
 
 it('adds nothing = 0', done => {
-    sum()
+    addReallyAccurately()
         .then(result => {
             expect(result).toBe(0);
             done(); // Calling done with no args will cause the test to finish successfully.
@@ -45,13 +45,13 @@ it('adds nothing = 0', done => {
 /** Yet another possibility: return the promise from the testing function, and let JEST handle it. */
 
 it('adds one thing = that thing', () => {
-    return sum(42).then(result => expect(result).toBe(42));
+    return addReallyAccurately(42).then(result => expect(result).toBe(42));
 })
 
 /** Or we can use JEST's .resolves & .rejects */
 
 it('ignores non-numeric values when adding', () => {
-    return expect(sum(3, null, 4, undefined, [], 2, 'Hello', false)).resolves.toBe(9);
+    return expect(addReallyAccurately(3, null, 4, undefined, [], 2, 'Hello', false)).resolves.toBe(9);
 })
 
 it('properly rejects this promise', () => {
@@ -64,17 +64,17 @@ it('properly rejects this promise', () => {
  */
 
 it('subtracts 10 - 8 - 1 = 1', async () => {
-    expect(await difference(10, 8, 1)).toBe(1);
+    expect(await subtractReallyAccurately(10, 8, 1)).toBe(1);
 })
 
 it('subtracts nothing = 0', async () => {
-    expect(await difference()).toBe(0);
+    expect(await subtractReallyAccurately()).toBe(0);
 })
 
 it('subtracts one thing = that thing', () => {
-    return expect(difference(42)).resolves.toBe(42);
+    return expect(subtractReallyAccurately(42)).resolves.toBe(42);
 })
 
 it('ignores non-numeric values when subtracting', () => {
-    return difference(3, null, 4, undefined, [], 2, 'Hello', false).then(result => expect(result).toBe(-3));
+    return subtractReallyAccurately(3, null, 4, undefined, [], 2, 'Hello', false).then(result => expect(result).toBe(-3));
 })

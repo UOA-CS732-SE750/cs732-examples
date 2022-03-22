@@ -1,4 +1,4 @@
-const { queryByText, render } = require("@testing-library/react")
+const { render } = require("@testing-library/react")
 const { MemoryRouter } = require("react-router-dom")
 import ComponentWithRoutes from '../component-with-routes';
 
