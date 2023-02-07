@@ -24,6 +24,6 @@ const [counter, setCounter] = useState(0);
 
 For further exmaples, see:
 
-- [AddArticleComponent](./src/AddArticleComponent.js) shows how we can use `useState()` to properly keep track of a user's input into form controls (e.g. `<input>`, `<textarea>`)
+- [AddArticleComponent](./src/AddArticleComponent.jsx) shows how we can use `useState()` to properly keep track of a user's input into form controls (e.g. `<input>`, `<textarea>`)
 
-- [App](./src/App.js) shows how we can store and update more complex data - an entire array of articles in this case.
+- [App](./src/App.jsx) shows how we can store and update more complex data - an entire array of articles in this case.
