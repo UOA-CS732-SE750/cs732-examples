@@ -9,7 +9,7 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[My First JSX App](./example-02-my-first-react-app-jsx)*: Shows how we can use Babel to transpile JSX code into a format which can be interpreted by all browsers.
 
-- *[create-react-app](./example-03-cra-default)*: Shows the default output of the `create-react-app` tool, as of January 27th, 2022.
+- *[Vite+React](./example-03-vite-default)*: Shows the default output of running `npm create vite@latest`, selecting `React` and `JavaScript + SWC` as options.
 
 - *[Components, Logic & Loops](./example-04-components-logic-loops)*: Demonstrates simple React components with props, use of the ternary operator (`?`) and `&&` for conditional rendering, and iteration using the `map()` function.
 
