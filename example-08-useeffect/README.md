@@ -44,6 +44,6 @@ useEffect(() => {
 
 For further examples, see:
 
-- [Counter](./src/Counter.js) shows a simple use of `useEffect()` to update a non-React area of the DOM (`document.title` in this case).
+- [Counter](./src/Counter.jsx) shows a simple use of `useEffect()` to update a non-React area of the DOM (`document.title` in this case).
 
-- [Timer](./src/Timer.js) shows how we can use `useEffect()` to start a timer - and to clean up after ourselves by stopping it when required.
+- [Timer](./src/Timer.jsx) shows how we can use `useEffect()` to start a timer - and to clean up after ourselves by stopping it when required.
