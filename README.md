@@ -11,6 +11,8 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[Vite+React](./example-03-vite-default)*: Shows the default output of running `npm create vite@latest`, selecting `React` and `JavaScript + SWC` as options.
 
+- *[Stripped-down starter project](./example-03b-vite-blank)*: A stripped-down version of the Vite+React starter project above.
+
 - *[Components, Logic & Loops](./example-04-components-logic-loops)*: Demonstrates simple React components with props, use of the ternary operator (`?`) and `&&` for conditional rendering, and iteration using the `map()` function.
 
 - *[CSS Imports](./example-05-css-imports)*: Demonstrates how to import and use raw CSS files in react webapps.
