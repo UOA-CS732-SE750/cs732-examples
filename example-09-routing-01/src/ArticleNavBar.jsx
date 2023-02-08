@@ -6,8 +6,8 @@ export default function ArticleNavBar({ articles }) {
     return (
         <div className={styles.navBar}>
             {articles.map(article =>
-                <NavLink to={`/articles/${article.id}`}
-                    className={({ isActive }) => isActive && styles.active}>
+                <NavLink key={article.id} to={`/articles/${article.id}`}
+                    className={({ isActive }) => isActive ? styles.active: undefined}>
                     {article.title}
                 </NavLink>)}
         </div>
