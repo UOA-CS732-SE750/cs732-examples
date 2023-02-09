@@ -11,7 +11,7 @@ export default function ArticleSidebar() {
         <div className={styles.navBar}>
             <h1>Articles</h1>
             {articles.map(article =>
-                <NavLink key={article.id} to={`${article.id}`} className={({ isActive }) => isActive && styles.active}>
+                <NavLink key={article.id} to={`${article.id}`} className={({ isActive }) => isActive ? styles.active : undefined}>
                     {article.title}
                 </NavLink>)}
 
