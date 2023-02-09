@@ -1,16 +1,21 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import mongoose from 'mongoose';
 import { User, Pet } from './schema';
 import { dummyData } from './dummy-data';
+
 console.log("Generated dummy data using dummy-json");
+
+mongoose.set('strictQuery', false);
 
 main();
 
 async function main() {
     // Connect to database
     // For more extra options, see: https://mongoosejs.com/docs/connections.html
-    await mongoose.connect('mongodb://localhost:27017/petRegistry', {
-        useNewUrlParser: true
-    });
+    // We're reading in the DB URL from the .env file using the dotenv package.
+    await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
     console.log('Connected to database!');
     console.log();
 
