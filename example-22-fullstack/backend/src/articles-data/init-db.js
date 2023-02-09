@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import mongoose from 'mongoose';
 import { createArticle } from './articles-dao';
 import { dummyArticles } from './random-articles';
@@ -6,9 +9,7 @@ import { Article } from './schema';
 main();
 
 async function main() {
-    await mongoose.connect('mongodb://localhost:27017/blogogog', {
-        useNewUrlParser: true
-    });
+    await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
     console.log('Connected to database!');
     console.log();
 

@@ -4,15 +4,14 @@ import { Typography, TextField, Grid, Button } from '@mui/material';
 import Main from '../components/Main';
 import ImageUpload from '../components/ImageUpload';
 import { useNavigate } from 'react-router-dom';
-import RichTextEditor from '../components/RichTextEditor';
-import { EditorState, convertToRaw } from 'draft-js';
 
 export default function NewArticlePage() {
 
     const [hasErrors, setHasErrors] = useState(false);
     const [title, setTitle] = useState('');
     const [image, setImage] = useState(null);
-    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    //     const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [text, setText] = useState('');
     const navigate = useNavigate();
     const { addArticle } = useContext(AppContext);
 
@@ -21,12 +20,12 @@ export default function NewArticlePage() {
     async function handleOk() {
         setHasErrors(true);
 
-        if (title.length > 0 && image != null && editorState.getCurrentContent().getPlainText().length > 0) {
+        if (title.length > 0 && image != null && text.length > 0) {// editorState.getCurrentContent().getPlainText().length > 0) {
 
             // We're ready to add the article!
             // TODO Some form of error handling?
-            const content = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
-            const newArticle = await addArticle(title, image, content);
+            // const content = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
+            const newArticle = await addArticle(title, image, text);
             console.log(newArticle);
 
             navigate(`/articles/${newArticle._id}`, { replace: true });
@@ -63,11 +62,15 @@ export default function NewArticlePage() {
 
                 <Grid item xs={12}>
                     <Typography variant="h6" component="h6">Share your ideas here:</Typography>
-                    <RichTextEditor
+                    {/* <RichTextEditor
                         editorState={editorState}
                         error={isError(editorState.getCurrentContent().getPlainText().length === 0)}
                         onChange={(state) => setEditorState(state)}
-                    />
+                    /> */}
+                    <TextField
+                        error={isError(text.length === 0)}
+                        onChange={(event) => setText(event.target.value)}
+                        value={text} />
                 </Grid>
 
                 <Grid item />

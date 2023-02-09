@@ -15,4 +15,4 @@ The [backend](./backend) is where the majority of the changes lie. We've replace
 
 - [The REST service defined for articles](./backend/src/routes/api/articles.js) has been updated such that all its route handlers are now `async`. This allows us to effortlessly adapt to the new async articles DAO simply by `await`ing its functions.
 
-- In the main [server.js](./backend/src/server.js) file, we've modified the server startup code. Now, we first connect to MongoDB, and then only start the server once the DB connection is established. We can see this code on line 33.
+- In the main [server.js](./backend/src/server.js) file, we've modified the server startup code. Now, we first connect to MongoDB, and then only start the server once the DB connection is established. We can see this code on line 42.

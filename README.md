@@ -45,7 +45,7 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[Express with React](./example-19-react-express)*: Demonstrates how we can use a create-react-app frontend in combination with a Node.js / Express backend.
 
-- *[Service Workers](./example-20-service-worker)*: Demonstrates how we can use a service worker to cache files, enabling "offline mode" for your webapp.
+<!-- - *[Service Workers](./example-20-service-worker)*: Demonstrates how we can use a service worker to cache files, enabling "offline mode" for your webapp. -->
 
 - *[MongoDB & Mongoose](./example-21-mongoose)*: Demonstrates how to use the `mongoose` package to communicate with a MongoDB instance. This example shows off just interaction with the database - there's no Express or React code here.
 

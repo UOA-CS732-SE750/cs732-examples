@@ -5,6 +5,8 @@ import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 import { getPlaintextSummary } from '../util/article-helpers';
 
+const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL ?? '';
+
 function SmallFeaturedArticle({ article }) {
 
     return (
@@ -26,7 +28,7 @@ function SmallFeaturedArticle({ article }) {
                 </CardContent>
                 <Hidden smDown>
                     <CardMedia sx={{ height: 80 }}
-                        image={article.image}
+                        image={IMAGE_BASE_URL + article.image}
                         title={article.title}
                     />
                 </Hidden>

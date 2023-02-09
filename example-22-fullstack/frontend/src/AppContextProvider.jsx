@@ -2,6 +2,8 @@ import React from 'react';
 import useGet from './hooks/useGet';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '';
+
 const AppContext = React.createContext({
     articles: []
 });
@@ -13,7 +15,7 @@ function AppContextProvider({ children }) {
         data: articles,
         isLoading: articlesLoading,
         refresh: refreshArticles
-    } = useGet('/api/articles', []);
+    } = useGet(`${API_BASE_URL}/api/articles`, []);
 
     /**
      * First, uploads the given image to the server, and retrieves the URL pointing to that image.
@@ -32,7 +34,7 @@ function AppContextProvider({ children }) {
 
         const imgFormData = new FormData();
         imgFormData.append('image', image);
-        const imgUploadResponse = await axios.post('/api/images', imgFormData, imgUploadConfig);
+        const imgUploadResponse = await axios.post(`${API_BASE_URL}/api/images`, imgFormData, imgUploadConfig);
 
         const imageUrl = imgUploadResponse.headers['location'];
 
@@ -42,7 +44,7 @@ function AppContextProvider({ children }) {
             content
         };
 
-        const articleResponse = await axios.post('/api/articles', articleToUpload);
+        const articleResponse = await axios.post(`${API_BASE_URL}/api/articles`, articleToUpload);
         refreshArticles();
         return articleResponse.data;
     }
