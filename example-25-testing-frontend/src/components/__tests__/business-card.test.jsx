@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom';
+import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import BusinessCard from '../business-card';
 

@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom';
+import { describe, expect, it } from 'vitest';
 const { render } = require("@testing-library/react")
 const { MemoryRouter } = require("react-router-dom")
 import ComponentWithRoutes from '../component-with-routes';
