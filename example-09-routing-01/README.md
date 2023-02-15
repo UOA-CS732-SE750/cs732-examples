@@ -4,7 +4,7 @@ This project contains an example of how to do routing with [React Router](https:
 To install:
 
 ```sh
-yarn add react-router-dom
+npm install react-router-dom
 ```
 
 Useful imports (may not need all of these in every file):
@@ -68,7 +68,7 @@ For example, if the following React is defined:
 
 Then, if we navigate to `/page1` then we'll see the text "Welcome to page one!". If we navigate to any other URL within our app, we'll see the text "Default!".
 
-An example of a `Routes` block with a default `Route` can be seen in the [App](./src/App.js) component.
+An example of a `Routes` block with a default `Route` can be seen in the [App](./src/App.jsx) component.
 
 ## Links
 We can add hyperlinks which perform client-side routing (i.e. they do not cause a request to be sent to the server) using React Router's `<Link>` and `<NavLink>` components, as so:
@@ -82,7 +82,7 @@ Both will render an HTML anchor (`<a>`) which, when clicked, will perform client
 
 The difference between the two is that a `<NavLink>`'s `className` prop can accept a function. The function is supplied with a single arg, with an `isActive` prop, and should return the CSS class name to use, if any. As shown in the example above, we can conditionally apply CSS classes, based on the value of `isActive`. This lets us easily create links with different styles when active.
 
-Examples of `NavLink`s can be seen in the [ArticleNavBar](./src/ArticleNavBar.js) component.
+Examples of `NavLink`s can be seen in the [ArticleNavBar](./src/ArticleNavBar.jsx) component.
 
 ## Path params
 Sometimes we want to render similar things for multiple different paths - for example, an article viewer might always contain the same React component to render an article - the only difference is which article is actually being rendered.
@@ -110,4 +110,4 @@ function ArticleViewer() {
 }
 ```
 
-An example of path parameter usage can be seen in the [App](./src/App.js) component.
+An example of path parameter usage can be seen in the [App](./src/App.jsx) component.

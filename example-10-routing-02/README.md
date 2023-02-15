@@ -4,7 +4,7 @@ This project contains further examples of how to do routing with [React Router](
 To install React Router (Portals don't require a separate install):
 
 ```sh
-yarn add react-router-dom
+npm install react-router-dom
 ```
 
 Useful imports (may not need all of these in every file):
@@ -17,7 +17,7 @@ import ReactDOM from 'react-dom';
 ```
 
 ## Nested routing
-It is often the case that we want to have multiple layers of routing. For instance, in the webapp included in this example project, [our webapp](./src/App.js) contains two top-level pages, [`/gallery`](./src/GalleryPage.js) and [`/articles`](./src/ArticlesPage.js). Within the `/articles` page, we can drill down and view an article with a particular id([`/articles/:id`](./src/ArticleView.js)), or add new articles ([`/articles/newArticle`](./src/NewArticleForm.js)). The top-level routes share the same navbar, while all the articles routes share a sidebar. Therefore, our tree of routes could be similar to the following:
+It is often the case that we want to have multiple layers of routing. For instance, in the webapp included in this example project, [our webapp](./src/App.jsx) contains two top-level pages, [`/gallery`](./src/GalleryPage.jsx) and [`/articles`](./src/ArticlesPage.jsx). Within the `/articles` page, we can drill down and view an article with a particular id([`/articles/:id`](./src/ArticleView.jsx)), or add new articles ([`/articles/newArticle`](./src/NewArticleForm.jsx)). The top-level routes share the same navbar, while all the articles routes share a sidebar. Therefore, our tree of routes could be similar to the following:
 
 - `/` (display a page with a navbar, shared with all child routes)
   - `/articles` (add the articles sidebar to the page)
@@ -26,7 +26,7 @@ It is often the case that we want to have multiple layers of routing. For instan
   - `/gallery` (add the galler view to the page)
   - `*` (wildcard, display error page on any other URL)
 
-To do this, in ([App.js](./src/App.js)), we can see a *nested* Route structure similar to the list shown above, where some `<Route>` components contain child `<Route>` components.
+To do this, in ([App.jsx](./src/App.jsx)), we can see a *nested* Route structure similar to the list shown above, where some `<Route>` components contain child `<Route>` components.
 
 For example, consider the following React code:
 
@@ -89,7 +89,7 @@ Then, if we navigate to `/about`, the resulting component hierarchy that is rend
 </main>
 ```
 
-As another example see how `Outlet`s are used in [PageWithNavbar](./src/PageWithNavbar.js) and [ArticlesPage](./src/ArticlesPage.js).
+As another example see how `Outlet`s are used in [PageWithNavbar](./src/PageWithNavbar.jsx) and [ArticlesPage](./src/ArticlesPage.jsx).
 
 
 ## Obtaining the URL / Path / Location
@@ -99,7 +99,7 @@ Sometimes it is useful for us to be able to obtain information about where the u
 const { pathname } = useLocation();
 ```
 
-As an example, in the `PageNotFound` component located within [`ErrorPages.js](./src/ErrorPages.js), we're obtaining the pathname and displaying it to the user, to let them know that they mistyped a URL.
+As an example, in the `PageNotFound` component located within [`ErrorPages.js](./src/ErrorPages.jsx), we're obtaining the pathname and displaying it to the user, to let them know that they mistyped a URL.
 
 
 ## Programmatically navigating
@@ -121,7 +121,7 @@ If we navigate to `/articles`, the `Articles` component will be rendered. Instea
 
 The `replace` prop is a boolean value, and is optional. If supplied, React Router will *replace* the top of the browser's history stack with the given path, rather than pushing a new item to the stack. The result is that, if you use `replace`, the user won't be able to "go back" using the browser's "back" button. If you don't use `replace`, then they *will* be able to go back.
 
-For an example, we can see in [`App.js`](./src/App.js) how we're using `Navigate` twice:
+For an example, we can see in [`App.js`](./src/App.jsx) how we're using `Navigate` twice:
 - On line 59, if the user has navigated to the root path `/`, we redirect them to the articles pages
 - On line 71, if the user has navigated to `/articles`, we redirect them to the page for the first article in the list (e.g. `/articles/1`).
 
@@ -134,4 +134,4 @@ const navigate = useNavigate();
 
 This hook gives us back a function (`navigate`), which we can call to do React Router page navigation. The first argument is a string representing the path to navigate to. This can be absolute or relative. The second argument is configuration options, if required. The most commonly used config option is `replace`, which works the same as the `replace` prop in the `Navigate` component (see above). For more info about possible config options, see [its doc page online](https://reactrouter.com/docs/en/v6/api#usenavigate).
 
-For an example, we can see in `App.js` line 47, when the user adds a new article, we redirect the user to that new article's page.
+For an example, we can see in `App.jsx` line 47, when the user adds a new article, we redirect the user to that new article's page.

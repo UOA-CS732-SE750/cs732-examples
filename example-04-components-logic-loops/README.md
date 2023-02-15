@@ -2,7 +2,7 @@
 This project contains examples of simple React components, along with an example of boolean logic and iteration.
 
 ## A simple React component
-Consider the code in [AboutMe.js](./src/AboutMe.js). This shows a simple component called `AboutMe`. It accepts two properties - `name` and `like` - and renders the information supplied in those props.
+Consider the code in [AboutMe.jsx](./src/AboutMe.jsx). This shows a simple component called `AboutMe`. It accepts two properties - `name` and `like` - and renders the information supplied in those props.
 
 For example, if the following JSX were rendered:
 ```jsx
@@ -38,10 +38,10 @@ If we only want to render somthing if a value is truthy, and nothing otherwise, 
 {number > 0.5 && <p>Heads</p>}
 ```
 
-An example conditional can be seen in [App.js](./src/App.js) - the list of articles is rendered only if there are one or more articles to display. Otherwise a backup message is displayed.
+An example conditional can be seen in [App.jsx](./src/App.jsx) - the list of articles is rendered only if there are one or more articles to display. Otherwise a backup message is displayed.
 
 ## Iteration in JSX
-We can use the `map()` function of JavaScript arrays to convert elements in an array into an array of JSX components to render. An example of this can be seen in [App.js](./src/App.js):
+We can use the `map()` function of JavaScript arrays to convert elements in an array into an array of JSX components to render. An example of this can be seen in [App.jsx](./src/App.jsx):
 
 ```jsx
 {articles.map(article => <ArticleView key={article.id} article={article} />)}

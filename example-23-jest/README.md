@@ -11,4 +11,4 @@ This project shows off several examples of how to test JavaScript code using Jes
 
 - Tests which require *mocking* can be seen in [things-to-mock.test.js](./src/__tests__/things-to-mock.test.js). These tests exercise code found in [things-to-mock.js](./src/things-to-mock.js). One of the tests uses the [`axios-mock-adapter`](https://www.npmjs.com/package/axios-mock-adapter) package to mock Axios calls.
 
-In addition to the tests, config files for the runtime environment and Jest can be found in [babel.config.js](./babel.config.js) and [jest.config.js](./jest.config.js) respectively. Note that these config files won't need to be supplied when testing your `create-react-app` code, as these configs are the defaults for those projects. But you may need them to test your Express backend code.
+In addition to the tests, config files for the runtime environment and Jest can be found in [babel.config.cjs](./babel.config.cjs) and [jest.config.cjs](./jest.config.cjs) respectively.

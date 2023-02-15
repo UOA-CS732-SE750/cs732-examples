@@ -26,7 +26,10 @@ router.post('/', upload.single("image"), (req, res) => {
 
     fs.renameSync(oldPath, newPath);
 
-    res.status(201).header('Location', `/images/${newFileName}`).end();
+    res.status(201)
+        .header('Location', `/images/${newFileName}`)
+        .header('Access-Control-Expose-Headers', 'Location') // CORS stuff
+        .send();
 
 });
 

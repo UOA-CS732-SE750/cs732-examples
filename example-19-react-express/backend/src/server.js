@@ -1,9 +1,14 @@
 import express from 'express';
 import path from 'path';
+import * as url from 'url';
+import cors from 'cors';
 
 // Setup Express
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT ?? 3000;
+
+// CORS - enable all (not fantastic for security)
+app.use(cors());
 
 // Setup JSON parsing for request body
 app.use(express.json());
@@ -12,19 +17,21 @@ app.use(express.json());
 import routes from './routes';
 app.use('/', routes);
 
-// Make the "public" folder available statically
-app.use(express.static(path.join(__dirname, '../public')));
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-// Serve up the frontend's "build" directory, if we're running in production mode.
+// Make the "public" folder available statically
+app.use(express.static(path.join(dirname, '../public')));
+
+// Serve up the frontend's "dist" directory, if we're running in production mode.
 if (process.env.NODE_ENV === 'production') {
     console.log('Running in production!');
 
     // Make all files in that folder public
-    app.use(express.static(path.join(__dirname, '../../frontend/build')));
+    app.use(express.static(path.join(dirname, '../../frontend/dist')));
 
     // If we get any GET request we can't process using one of the server routes, serve up index.html by default.
     app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../../frontend/build/index.html'));
+        res.sendFile(path.join(dirname, '../../frontend/dist/index.html'));
     });
 }
 

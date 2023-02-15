@@ -9,7 +9,9 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[My First JSX App](./example-02-my-first-react-app-jsx)*: Shows how we can use Babel to transpile JSX code into a format which can be interpreted by all browsers.
 
-- *[create-react-app](./example-03-cra-default)*: Shows the default output of the `create-react-app` tool, as of January 27th, 2022.
+- *[Vite+React](./example-03-vite-default)*: Shows the default output of running `npm create vite@latest`, selecting `React` and `JavaScript + SWC` as options, as of February 2023.
+
+- *[Stripped-down starter project](./example-03b-vite-blank)*: A stripped-down version of the Vite+React starter project above.
 
 - *[Components, Logic & Loops](./example-04-components-logic-loops)*: Demonstrates simple React components with props, use of the ternary operator (`?`) and `&&` for conditional rendering, and iteration using the `map()` function.
 
@@ -43,7 +45,7 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[Express with React](./example-19-react-express)*: Demonstrates how we can use a create-react-app frontend in combination with a Node.js / Express backend.
 
-- *[Service Workers](./example-20-service-worker)*: Demonstrates how we can use a service worker to cache files, enabling "offline mode" for your webapp.
+<!-- - *[Service Workers](./example-20-service-worker)*: Demonstrates how we can use a service worker to cache files, enabling "offline mode" for your webapp. -->
 
 - *[MongoDB & Mongoose](./example-21-mongoose)*: Demonstrates how to use the `mongoose` package to communicate with a MongoDB instance. This example shows off just interaction with the database - there's no Express or React code here.
 
