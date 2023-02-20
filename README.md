@@ -23,29 +23,29 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[useEffect() Hook](./example-08-useeffect)*: Demonstrates how to have components give side-effects using the `useEffect()` hook.
 
-- *[Routing Examples](./example-09-routing-01)*: Demonstrates basic use of React Router, **version 6** *(NOT backwards compatible with older versions)*.
+- *[useRef() Hook](./example-09-useref)*: Demonstrates how to reference an HTML element using the `useRef()` hook, with a practical example involving HTML forms.
 
-- *[More Routing Examples](./example-10-routing-02)*: Demonstrates mode advanced use of React Router.
+- *[Routing Examples](./example-10-routing-01)*: Demonstrates basic use of React Router, **version 6** *(NOT backwards compatible with older versions)*.
 
-- *[React Context API](./example-11-context-01)*: Shows how to use the React Context API. Shows how to set up a context using `React.createContext()`, and how to obtain its value using `useContext()`.
+- *[More Routing Examples](./example-11-routing-02)*: Demonstrates mode advanced use of React Router.
 
-- *[More Context](./example-12-context-02)*: Expands on the previous example by showing how we can set up a context whose value can be modified from child classes, with appropriate re-rendering occurring as expected.
+- *[React Context API](./example-12-context-01)*: Shows how to use the React Context API. Shows how to set up a context using `React.createContext()`, and how to obtain its value using `useContext()`.
 
-- *[Local Storage](./example-13-localstorage-01)*: Shows how we can use the local storage API provided by all modern browsers to persist key-value pairs which will be local to a given origin. This example shows just usage of `localStorage`, without React.
+- *[More Context](./example-13-context-02)*: Expands on the previous example by showing how we can set up a context whose value can be modified from child classes, with appropriate re-rendering occurring as expected.
 
-- *[Local Storage with React](./example-14-localstorage-02)*: Shows how we can integrate local storage into our React apps. Two methods are shown.
+- *[Local Storage](./example-14-localstorage-01)*: Shows how we can use the local storage API provided by all modern browsers to persist key-value pairs which will be local to a given origin. This example shows just usage of `localStorage`, without React.
 
-- *[MUI](./example-15-mui)*: Shows off one of our previous examples, rewritten with [MUI](https://mui.com/).
+- *[Local Storage with React](./example-15-localstorage-02)*: Shows how we can integrate local storage into our React apps. Two methods are shown.
 
-- *[Encapsulating State](./example-16-encapsulating-state)*: Demonstrates one way we can encapsulate stateful values, and their mutator functions, in a context provider wrapper component.
+- *[MUI](./example-16-mui)*: Shows off one of our previous examples, rewritten with [MUI](https://mui.com/).
 
-- *[Node.js / Express](./example-17-express)*: A simple example of a Node.js / Express web server.
+- *[Encapsulating State](./example-17-encapsulating-state)*: Demonstrates one way we can encapsulate stateful values, and their mutator functions, in a context provider wrapper component.
 
-- *[Express Routers, fetch(), and axios](./example-18-routes-fetch-axios)*: Shows a simple example of using `fetch()` and `axios` from client-side code. Also demonstrates one possible way in which Express Router can be used to more appropriately organize your server route handler code.
+- *[Node.js / Express](./example-18-express)*: A simple example of a Node.js / Express web server.
 
-- *[Express with React](./example-19-react-express)*: Demonstrates how we can use a create-react-app frontend in combination with a Node.js / Express backend.
+- *[Express Routers, fetch(), and axios](./example-19-routes-fetch-axios)*: Shows a simple example of using `fetch()` and `axios` from client-side code. Also demonstrates one possible way in which Express Router can be used to more appropriately organize your server route handler code.
 
-<!-- - *[Service Workers](./example-20-service-worker)*: Demonstrates how we can use a service worker to cache files, enabling "offline mode" for your webapp. -->
+- *[Express with React](./example-20-react-express)*: Demonstrates how we can use a create-react-app frontend in combination with a Node.js / Express backend.
 
 - *[MongoDB & Mongoose](./example-21-mongoose)*: Demonstrates how to use the `mongoose` package to communicate with a MongoDB instance. This example shows off just interaction with the database - there's no Express or React code here.
 
