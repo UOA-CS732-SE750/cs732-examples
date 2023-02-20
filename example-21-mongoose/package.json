@@ -1,5 +1,5 @@
 {
-  "name": "example-23-mongoose",
+  "name": "cs732-example-mongoose",
   "version": "1.0.0",
   "description": "",
   "main": "./src/app.js",

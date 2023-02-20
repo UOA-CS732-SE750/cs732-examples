@@ -1,5 +1,5 @@
 {
-  "name": "example-25-jest",
+  "name": "cs732-example-jest",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
