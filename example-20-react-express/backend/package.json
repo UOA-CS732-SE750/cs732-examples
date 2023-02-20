@@ -1,5 +1,5 @@
 {
-  "name": "example-21-react-express-backend",
+  "name": "cs732-example-react-express-backend",
   "version": "1.0.0",
   "description": "",
   "main": "./src/server.js",

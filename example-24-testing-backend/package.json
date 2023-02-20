@@ -1,5 +1,5 @@
 {
-  "name": "example-26-testing-backend",
+  "name": "cs732-example-testing-backend",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
