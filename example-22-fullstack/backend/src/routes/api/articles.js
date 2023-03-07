@@ -20,15 +20,13 @@ const router = express.Router();
 
 // Create new article
 router.post('/', async (req, res) => {
-    const newArticle = await createArticle({
-        title: req.body.title,
-        image: req.body.image,
-        content: req.body.content
-    });
+    const newArticle = await createArticle(req.body);
 
-    res.status(HTTP_CREATED)
+    if (newArticle) return res.status(HTTP_CREATED)
         .header('Location', `/api/articles/${newArticle._id}`)
         .json(newArticle);
+
+    return res.sendStatus(422);
 })
 
 // Retrieve all articles
@@ -52,12 +50,8 @@ router.get('/:id', async (req, res) => {
 
     const article = await retrieveArticle(id);
 
-    if (article) {
-        res.json(article);
-    }
-    else {
-        res.sendStatus(HTTP_NOT_FOUND);
-    }
+    if (article) return res.json(article);
+    return res.sendStatus(HTTP_NOT_FOUND);
 });
 
 // Update article
