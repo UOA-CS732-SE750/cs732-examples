@@ -15,7 +15,7 @@ async function main() {
     // Connect to database
     // For more extra options, see: https://mongoosejs.com/docs/connections.html
     // We're reading in the DB URL from the .env file using the dotenv package.
-    await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
+    mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
     console.log('Connected to database!');
     console.log();
 
