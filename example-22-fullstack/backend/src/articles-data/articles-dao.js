@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import { Article } from './schema';
 
 async function createArticle(article) {
@@ -18,19 +17,8 @@ async function retrieveArticle(id) {
 
 async function updateArticle(article) {
 
-    const dbArticle = await Article.findById(article._id);
-    if (dbArticle) {
-
-        dbArticle.title = article.title;
-        dbArticle.date = dayjs(article.date).toDate();
-        dbArticle.content = article.content;
-        dbArticle.image = article.image;
-
-        await dbArticle.save();
-        return true;
-    }
-
-    return false;
+    const dbArticle = await Article.findOneAndUpdate({ _id: article._id }, article);
+    return dbArticle !== undefined;
 }
 
 async function deleteArticle(id) {
