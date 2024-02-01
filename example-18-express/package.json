@@ -1,17 +1,24 @@
 {
-  "name": "cs732-example-express",
+  "name": "cs732-example-intro-to-express",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.0"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "uuid": "^9.0.0"
+    "morgan": "^1.10.0"
   }
 }

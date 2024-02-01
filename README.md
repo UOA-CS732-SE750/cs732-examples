@@ -41,7 +41,7 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[Encapsulating State](./example-17-encapsulating-state)*: Demonstrates one way we can encapsulate stateful values, and their mutator functions, in a context provider wrapper component.
 
-- *[Node.js / Express](./example-18-express)*: A simple example of a Node.js / Express web server.
+- *[Node.js / Express](./example-18-express)*: A simple example of a Node.js / Express web server, configured with some useful middleware.
 
 - *[Express Routers, fetch(), and axios](./example-19-routes-fetch-axios)*: Shows a simple example of using `fetch()` and `axios` from client-side code. Also demonstrates one possible way in which Express Router can be used to more appropriately organize your server route handler code.
 
