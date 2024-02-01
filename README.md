@@ -9,7 +9,7 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[My First JSX App](./example-02-my-first-react-app-jsx)*: Shows how we can use Babel to transpile JSX code into a format which can be interpreted by all browsers.
 
-- *[Vite+React](./example-03-vite-default)*: Shows the default output of running `npm create vite@latest`, selecting `React` and `JavaScript + SWC` as options, as of February 2023.
+- *[Vite+React](./example-03-vite-default)*: Shows the default output of running `npm create vite@latest`, selecting `React` and `JavaScript + SWC` as options, as of February 2024.
 
 - *[Stripped-down starter project](./example-03b-vite-blank)*: A stripped-down version of the Vite+React starter project above.
 
