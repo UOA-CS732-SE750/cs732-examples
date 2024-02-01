@@ -1,19 +1,18 @@
-import { Routes, Route, useNavigate, useParams, Navigate } from 'react-router-dom';
-import { useState } from 'react';
-import initialArticles from './data';
-import ArticlesPage from './ArticlesPage';
-import GalleryPage from './GalleryPage';
-import PageWithNavbar from './PageWithNavbar';
-import { ArticleNotFound, PageNotFound } from './ErrorPages';
-import ArticleView from './ArticleView';
-import NewArticleForm from './NewArticleForm';
+import { Routes, Route, useNavigate, useParams, Navigate } from "react-router-dom";
+import { useState } from "react";
+import initialArticles from "./data";
+import ArticlesPage from "./ArticlesPage";
+import GalleryPage from "./GalleryPage";
+import PageWithNavbar from "./PageWithNavbar";
+import { ArticleNotFound, PageNotFound } from "./ErrorPages";
+import ArticleView from "./ArticleView";
+import NewArticleForm from "./NewArticleForm";
 
 /**
  * Renders a navbar allowing the user to browse to the articles or gallery pages.
  * If the user tries to browse to any other URL, they are auto-redirected to the articles page.
  */
 export default function App() {
-
   // Stores the list of articles
   const [articles, setArticles] = useState(initialArticles);
 
@@ -51,37 +50,34 @@ export default function App() {
     <Routes>
       {/* Will match any path beginning with "/", e.g. /articles, /gallery, /articles/3, /some/other/path, etc. */}
       <Route path="/" element={<PageWithNavbar />}>
-
         {/**
-          * Will match exactly / (due to the "index" prop).
-          * The <Navigate> will cause the page to redirect to /articles
-          */}
+         * Will match exactly / (due to the "index" prop).
+         * The <Navigate> will cause the page to redirect to /articles
+         */}
         <Route index element={<Navigate to="articles" replace />} />
 
         {/**
-          * Will match the parent path ("/"), plus "articles", plus anything else, e.g.
-          * /articles, /articles/3, /articles/junk/notarealpath, etc.
-          */}
+         * Will match the parent path ("/"), plus "articles", plus anything else, e.g.
+         * /articles, /articles/3, /articles/junk/notarealpath, etc.
+         */}
         <Route path="articles" element={<ArticlesPage articles={articles} />}>
-
           {/**
-            * Will match exactly /articles (due to the "index" prop).
-            * The <Navigate> will cause the page to redirect to /articles/<id>, where <id> is the first article's id.
-            */}
+           * Will match exactly /articles (due to the "index" prop).
+           * The <Navigate> will cause the page to redirect to /articles/<id>, where <id> is the first article's id.
+           */}
           <Route index element={<Navigate to={`${articles[0].id}`} replace />} />
 
           {/**
-            * Will match /articles/:id, where :id is a path parameter. We will read this parameter (see ArticleViewFromPathParams
-            * below) and use it to display a specific article with the matching id.
-            */}
+           * Will match /articles/:id, where :id is a path parameter. We will read this parameter (see ArticleViewFromPathParams
+           * below) and use it to display a specific article with the matching id.
+           */}
           <Route path=":id" element={<ArticleViewFromPathParams articles={articles} />} />
 
           {/**
-            * Will match /articles/newArticle. Note that because this is more specific than /articles/:id above, this one will
-            * be chosen first, if it's a match.
-            */}
+           * Will match /articles/newArticle. Note that because this is more specific than /articles/:id above, this one will
+           * be chosen first, if it's a match.
+           */}
           <Route path="newArticle" element={<NewArticleForm onAddArticle={handleAddArticle} />} />
-
         </Route>
 
         {/* Will match /gallery */}
@@ -100,12 +96,11 @@ export default function App() {
  */
 function ArticleViewFromPathParams({ articles }) {
   const { id } = useParams();
-  const article = articles.find(a => a.id == id);
+  const article = articles.find((a) => a.id == id);
 
   if (article) {
     return <ArticleView article={article} />;
-  }
-  else {
+  } else {
     return <ArticleNotFound />;
   }
 }

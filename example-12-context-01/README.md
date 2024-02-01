@@ -1,4 +1,5 @@
 # CS732 examples - Context example one
+
 This project contains a demo of how we can use `React.createContext()` and `useContext()` to provide global state.
 
 1. In [auth-context.js](./src/auth-context.js), we're creating the Context object itself - `AuthContext`. We're importing it whenever we need it.

@@ -19,8 +19,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .container {
@@ -31,11 +30,11 @@ code {
   flex-direction: row;
 }
 
-.container>.sidebar {
+.container > .sidebar {
   padding: 0 10px;
 }
 
-.container>main {
+.container > main {
   background-color: lightgray;
   padding: 20px;
   padding-right: 40px;
@@ -57,11 +56,11 @@ code {
   margin-bottom: 10px;
 }
 
-.form .form-row>* {
+.form .form-row > * {
   flex-grow: 1;
 }
 
-.form .form-row>label {
+.form .form-row > label {
   text-align: right;
   margin-right: 10px;
   flex-basis: 100px;

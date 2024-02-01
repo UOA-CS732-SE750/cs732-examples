@@ -19,8 +19,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .container {
@@ -35,7 +34,8 @@ code {
   justify-content: space-between;
 }
 
-.article, .add-article {
+.article,
+.add-article {
   flex-basis: 40%;
   flex-grow: 1;
   text-align: justify;

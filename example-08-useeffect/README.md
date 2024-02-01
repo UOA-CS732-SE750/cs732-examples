@@ -1,17 +1,18 @@
 # CS732 examples - useEffect()
+
 This project contains examples the `useEffect()` React hook. This hook is used to run extra code, which produces side-effects, after a functional React component is rendered / rerendered.
 
 We import it as follows:
 
 ```js
-import { useEffect } from 'react';
+import { useEffect } from "react";
 ```
 
 Then we can use it simply like so, inside a react component function:
 
 ```js
 useEffect(() => {
-    // My function
+  // My function
 });
 ```
 
@@ -21,11 +22,11 @@ Sometimes we want our effect function to clean up after itself. To do this we ca
 
 ```js
 useEffect(() => {
-    // My effect code
+  // My effect code
 
-    return () => {
-        // My cleanup code
-    }
+  return () => {
+    // My cleanup code
+  };
 });
 ```
 
@@ -33,13 +34,13 @@ Sometimes, we don't want the effect function to be re-run every time the compone
 
 ```js
 useEffect(() => {
-    // My effect code
+  // My effect code
 
-    return () => {
-        // My cleanup code
-    }
+  return () => {
+    // My cleanup code
+  };
 }, valueToCheck); // The code above will only be run if valueToCheck has changed.
-                  // Usually this will be some kind of stateful value.
+// Usually this will be some kind of stateful value.
 ```
 
 For further examples, see:
