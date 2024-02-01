@@ -2,7 +2,7 @@ import express from "express";
 
 const router = express.Router();
 
-import articles from "./articles.js";
-router.use("/articles", articles);
+import api from "./api/index.js";
+router.use("/api", api);
 
 export default router;
