@@ -1,4 +1,4 @@
-import { Typography, Paper } from '@mui/material';
+import { Typography, Paper } from "@mui/material";
 
 // const useStyles = makeStyles((theme) => ({
 //     paper: {
@@ -11,20 +11,26 @@ import { Typography, Paper } from '@mui/material';
 // }));
 
 export default function Main({ image, title, children }) {
+  return (
+    <main>
+      {image && (
+        <Paper
+          sx={{
+            height: 300,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            marginBottom: (theme) => theme.spacing(2)
+          }}
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      )}
 
-    return (
-        <main>
-            {image && <Paper sx={{
-                height: 300,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                marginBottom: (theme) => theme.spacing(2)
-            }} style={{ backgroundImage: `url(${image})` }} />}
+      <Typography variant="h3" component="h3" gutterBottom>
+        {title}
+      </Typography>
 
-            <Typography variant="h3" component="h3" gutterBottom>{title}</Typography>
-
-            {children}
-        </main>
-    );
+      {children}
+    </main>
+  );
 }
