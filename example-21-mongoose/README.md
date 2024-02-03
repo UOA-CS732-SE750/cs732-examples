@@ -1,4 +1,5 @@
 # CS732 examples - MongoDB and Mongoose
+
 This project demonstrates how we can use the `mongoose` npm package to interact with a MongoDB database.
 
 **NOTE:** BEFORE running the example, you'll need the free [MongoDB community server](https://www.mongodb.com/try/download/community) installed and running on your machine. Alternatively you could use a MongoDB cloud service such as [Atlas](https://www.mongodb.com/atlas/database), and change the database URL in the `.env` file.
