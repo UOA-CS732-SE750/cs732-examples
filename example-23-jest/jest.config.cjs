@@ -1,5 +1,3 @@
 module.exports = {
-    roots: [
-        './src'
-    ]
-}
+  roots: ["./src"]
+};

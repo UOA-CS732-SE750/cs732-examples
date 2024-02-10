@@ -1,7 +1,9 @@
 # CS732 examples - Local storage example two - With React
+
 This project contains two examples showing how we can integrate the use of local storage (`localStorage`) into our React apps.
 
 ## useLocalStorage() hook
+
 The first example shows a custom hook we have written - [useLocalStorage](./src/useLocalStorage.js). The hook essentially wraps a call to `useState()` - but adds the side-effect (using `useEffect()`) of saving the stateful value to `localStorage` under a given `key` whenever it is updated.
 
 Its usage can be seen in [`Counter.jsx`](./src/Counter.jsx). The benefit of this approach is that it is relatively simple and we can see what's going on - we have achieved `localStorage` integration with only a few lines of code and have encapsulated it in a custom hook to promote code reuse. The drawback is that the behaviour isn't as expected if we try to share the value with another component. When one component updates the value in local storage, that change will not automatically cause a re-render of any component other than the one which changed the value.
@@ -12,27 +14,23 @@ To get around this issue, we could combine our `useLocalStorage()` function with
 const MyContext = React.createContext(initialValue);
 
 function MyParent() {
-    const [counter, setCounter] = useLocalStorage('counter');
-    return (
-        <MyContext.Provider value={[counter, setCounter]}>
-            <CounterIncrementer />
-            <CounterViewer />
-        </MyContext.Provider>
-    );
+  const [counter, setCounter] = useLocalStorage("counter");
+  return (
+    <MyContext.Provider value={[counter, setCounter]}>
+      <CounterIncrementer />
+      <CounterViewer />
+    </MyContext.Provider>
+  );
 }
 
 function CounterIncrementer() {
-    const [counter, setCounter] = useContext(MyContext);
-    return (
-        <button onClick={() => setCounter(counter + 1)}>Increment</button>
-    );
+  const [counter, setCounter] = useContext(MyContext);
+  return <button onClick={() => setCounter(counter + 1)}>Increment</button>;
 }
 
 function CounterViewer() {
-    const [counter, setCounter] = useContext(MyContext);
-    return (
-        <p>The current count is: {counter}</p>
-    );
+  const [counter, setCounter] = useContext(MyContext);
+  return <p>The current count is: {counter}</p>;
 }
 ```
 

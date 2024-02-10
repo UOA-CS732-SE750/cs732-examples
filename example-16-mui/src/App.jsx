@@ -1,19 +1,19 @@
-import { Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
-import initialArticles from './data';
-import PageWithAppBar from './PageWithAppBar';
-import ArticlesPage from './ArticlesPage';
-import GalleryPage from './GalleryPage';
-import ArticleView from './ArticleView';
-import NewArticleForm from './NewArticleForm';
-import { PageNotFound, ArticleNotFound } from './ErrorPages';
+import { Routes, Route, Navigate, useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import initialArticles from "./data";
+import PageWithAppBar from "./PageWithAppBar";
+import ArticlesPage from "./ArticlesPage";
+import GalleryPage from "./GalleryPage";
+import ArticleView from "./ArticleView";
+import NewArticleForm from "./NewArticleForm";
+import { PageNotFound, ArticleNotFound } from "./ErrorPages";
 
 /**
  * All possible top-level navigation paths
  */
 const navbarTabs = [
-  { title: 'Articles', to: '/articles' },
-  { title: 'Gallery', to: '/gallery' }
+  { title: "Articles", to: "/articles" },
+  { title: "Gallery", to: "/gallery" }
 ];
 
 /**
@@ -21,7 +21,6 @@ const navbarTabs = [
  * If the user tries to browse to any other URL, they are auto-redirected to the articles page.
  */
 export default function App() {
-
   const [articles, setArticles] = useState(initialArticles);
   const navigate = useNavigate();
 
@@ -47,18 +46,15 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<PageWithAppBar title="MUI Article Viewer" tabs={navbarTabs} />}>
-
         {/* Auto-navigate to the first article in the list */}
         <Route index element={<Navigate to="articles" replace />} />
 
         <Route path="articles" element={<ArticlesPage articles={articles} />}>
-
           <Route index element={<Navigate to={`${articles[0].id}`} replace />} />
 
           <Route path=":id" element={<ArticleViewFromPathParams articles={articles} />} />
 
           <Route path="new" element={<NewArticleForm onAddArticle={handleAddArticle} />} />
-
         </Route>
 
         <Route path="gallery" element={<GalleryPage articles={articles} />} />
@@ -71,12 +67,11 @@ export default function App() {
 
 function ArticleViewFromPathParams({ articles }) {
   const { id } = useParams();
-  const article = articles.find(a => a.id == id);
+  const article = articles.find((a) => a.id == id);
 
   if (article) {
     return <ArticleView article={article} />;
-  }
-  else {
+  } else {
     return <ArticleNotFound />;
   }
 }

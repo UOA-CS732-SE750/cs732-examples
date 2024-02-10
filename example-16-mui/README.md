@@ -1,4 +1,5 @@
 # CS732 examples - MUI Example
+
 This project contains our article viewer running example, rewritten to use [MUI v5](https://mui.com/) (formerly Material UI).
 
 To install Material UI:
@@ -16,7 +17,10 @@ npm install @mui/icons-material
 In addition, you'll need to add the following fonts to [index.html](./public/index.html):
 
 ```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 ```
 
@@ -34,4 +38,5 @@ There's no way we could possibly cover the entirety of MUI in one example. For m
 - MUI examples: <https://mui.com/getting-started/example-projects/>
 
 ### Important:
-This example, and other MUI examples in this course, are *only* for MUI 5. They are **not** backwards compatible with older versions of Material UI.
+
+This example, and other MUI examples in this course, are _only_ for MUI 5. They are **not** backwards compatible with older versions of Material UI.

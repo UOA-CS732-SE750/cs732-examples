@@ -5,16 +5,21 @@
   "main": "./src/app.js",
   "type": "module",
   "scripts": {
-    "start": "node --experimental-specifier-resolution=node ./src/app.js"
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dayjs": "^1.10.7",
-    "dotenv": "^16.0.3",
-    "dummy-json": "^3.0.4",
-    "mongoose": "^6.9.1",
-    "uuid": "^9.0.0"
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.4.1",
+    "dummy-json": "^3.0.5",
+    "mongoose": "^8.1.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.4"
   }
 }

@@ -1,8 +1,9 @@
 # CS732 examples - Styling with CSS imports
+
 This project contains examples of styling using standard CSS imports. There is a CSS file named [index.css](./src/index.css), which is imported within [index.jsx](./src/index.jsx) using the following line:
 
 ```js
-import './index.css';
+import "./index.css";
 ```
 
 This will make sure the contents of `index.css` is available to the browser when viewing the web app. Any CSS selectors defined in the file are **global** - they apply to the entire site, and all React components within it.

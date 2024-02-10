@@ -1,7 +1,8 @@
 # CS732 examples - Encapsulating State
+
 This project contains an example of one way we can cleanly encapsulate stateful values and their mutator functions in a contextual wrapper component, such that those values and functions can be accessed from any descendant component.
 
-Take a look at [AppContextProvider](./src/AppContextProvider.jsx). This component contains the `articles` stateful value (created with `useState()` on line 23). A context named `AppContext` is created on line 12. The `AppContextProvider` itself simply wraps the provided `children` components in an `AppContext.Provider` component, whose `value` is set to the values & functions we want to expose to descendants.
+Take a look at [AppContextProvider](./src/AppContextProvider.jsx). This component contains the `articles` stateful value (created with `useState()` on line 22). A context named `AppContext` is created on line 12. The `AppContextProvider` itself simply wraps the provided `children` components in an `AppContext.Provider` component, whose `value` is set to the values & functions we want to expose to descendants.
 
 In this case, we directly expose the `articles` list, but we also expose a function `addArticle`, which itself callse the `setArticles` mutator function. This shows that we don't always have to expose the stateful values / mutators directly.
 

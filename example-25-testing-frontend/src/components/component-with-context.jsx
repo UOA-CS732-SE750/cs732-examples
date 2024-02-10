@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
-export const MyContext = React.createContext({ myGreeting: 'Hi' });
+export const MyContext = React.createContext({ myGreeting: "Hi" });
 
 export function MyComponentWithContext() {
-    const { myGreeting } = useContext(MyContext);
+  const { myGreeting } = useContext(MyContext);
 
-    return (
-        <p>{myGreeting}</p>
-    );
+  return <p>{myGreeting}</p>;
 }

@@ -1,11 +1,11 @@
-import express from 'express';
+import express from "express";
 
 const router = express.Router();
 
-import articles from './articles';
-router.use('/articles', articles);
+import articles from "./articles.js";
+router.use("/articles", articles);
 
-import images from './images';
-router.use('/images', images);
+import images from "./images.js";
+router.use("/images", images);
 
 export default router;

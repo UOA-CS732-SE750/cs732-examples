@@ -1,10 +1,11 @@
 # CS732 examples - CSS modules
+
 This project contains examples of styling using CSS modules. These allow you to break up your CSS code and localize it to particular React components.
 
 As an example, we can see the file [ArticleView.module.css](./src/ArticleView.module.css), which contains CSS code intended to style the `ArticleView` React component. In [ArticleView.jsx](./src/ArticleView.jsx), we can see the following CSS module import line:
 
 ```js
-import styles from './ArticleView.module.css';
+import styles from "./ArticleView.module.css";
 ```
 
 Then we can access any of the CSS classes defined within the CSS module, via the imported `styles` variable. An example can be seen where we style a `<div>` with the `.article` class by using `<div className={styles.article}>...`.

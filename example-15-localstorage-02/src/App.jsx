@@ -7,17 +7,14 @@ import Counter from "./Counter";
  * I've kept the code for posterity, for now...
  */
 function App() {
-
   return (
-    <div style={{ margin: '10px', padding: '5px', border: '1px solid black' }}>
-
+    <div style={{ margin: "10px", padding: "5px", border: "1px solid black" }}>
       <Counter />
       {/* <hr />
 
       <LoginPage />
       <hr />
       <UserInfoPage /> */}
-
     </div>
   );
 }

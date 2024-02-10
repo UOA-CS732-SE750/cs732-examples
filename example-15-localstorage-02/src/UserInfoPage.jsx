@@ -5,7 +5,7 @@
 // /**
 //  * This component displays either a welcome message to the authenticated user, or a message saying "you are not logged in"
 //  * if there is no authenticated user.
-//  * 
+//  *
 //  * The user object, if any, is obtained from local storage.
 //  */
 // export default function UserInfoPage() {
