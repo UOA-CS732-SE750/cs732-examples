@@ -9,34 +9,31 @@ console.log("Generated dummy data using dummy-json");
 
 mongoose.set("strictQuery", false);
 
-main();
+// Connect to database
+// For more extra options, see: https://mongoosejs.com/docs/connections.html
+// We're reading in the DB URL from the .env file using the dotenv package.
+await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
+console.log("Connected to database!");
+console.log();
 
-async function main() {
-  // Connect to database
-  // For more extra options, see: https://mongoosejs.com/docs/connections.html
-  // We're reading in the DB URL from the .env file using the dotenv package.
-  await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
-  console.log("Connected to database!");
-  console.log();
+await clearDatabase();
+console.log();
 
-  await clearDatabase();
-  console.log();
+await addUsers();
+console.log();
+await addPets();
+console.log();
 
-  await addUsers();
-  console.log();
-  await addPets();
-  console.log();
+await logSummary();
+console.log();
 
-  await logSummary();
-  console.log();
+await runQueries();
+console.log();
 
-  await runQueries();
-  console.log();
+// Disconnect when complete
+await mongoose.disconnect();
+console.log("Disconnected from database!");
 
-  // Disconnect when complete
-  await mongoose.disconnect();
-  console.log("Disconnected from database!");
-}
 
 /**
  * Clears the database
