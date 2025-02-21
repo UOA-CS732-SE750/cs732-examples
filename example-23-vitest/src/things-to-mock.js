@@ -47,7 +47,7 @@ export function coinFlip2() {
  * We might want to test this by replacing axios.get() with something that does what we want it to.
  */
 export async function getArticle(articleId) {
-  const response = await axios.get(`https://trex-sandwich.com/ajax/articles?id=${articleId}`);
+  const response = await axios.get(`https://articleii.trex-sandwich.com/articles/${articleId}`);
   return response.data;
 }
 

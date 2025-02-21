@@ -1,4 +1,9 @@
-import { addReallyAccurately, subtractReallyAccurately, asyncFailsauce } from "../async-calculator.js";
+import { it, expect } from "vitest";
+import {
+  addReallyAccurately,
+  subtractReallyAccurately,
+  asyncFailsauce
+} from "../async-calculator.js";
 
 /**
  * This won't work, because sum() is an async function. It returns a promise rather than the actual return value,
@@ -26,9 +31,26 @@ it("adds 3 + 5 + 4 = 12", async () => {
   expect(await addReallyAccurately(3, 5, 4)).toBe(12);
 });
 
-/** Another possibility: We can make our test function take a "done" argument, and call it to finish the test */
+/**
+ * Alternatively, we can return the promise from the testing function, and let Vitest handle it.
+ *
+ * The test will pass if the promise resolves successfully, and fail if it rejects.
+ */
+it("adds one thing = that thing", () => {
+  return addReallyAccurately(42).then((result) => expect(result).toBe(42));
+});
 
-it("adds nothing = 0", (done) => {
+/**
+ * Prior to Vitest, 0.10.0, we used to be able to use the done() callback to signal the end of an async test.
+ * This is now deprecated, and will always cause the test to error. If you have old tests like this, you should
+ * refactor them to use async / await or promises.
+ *
+ * See <https://vitest.dev/guide/migration#done-callback>
+ *
+ * I have set this test to be ignored, using the .skip() method. This is an easy way to quickly disable some of
+ * our tests. We can use it with describe() too, to disable whole blocks of tests.
+ */
+it.skip("adds nothing = 0", (done) => {
   addReallyAccurately()
     .then((result) => {
       expect(result).toBe(0);
@@ -42,14 +64,10 @@ it("adds nothing = 0", (done) => {
   // If the promise never resolves or rejects, the test will fail with a timeout error. This is a good thing.
 });
 
-/** Yet another possibility: return the promise from the testing function, and let JEST handle it. */
-
-it("adds one thing = that thing", () => {
-  return addReallyAccurately(42).then((result) => expect(result).toBe(42));
-});
-
-/** Or we can use JEST's .resolves & .rejects */
-
+/**
+ * We can use expect(...).resolves & expect(...).rejects methods to explicitly test for resolved / rejected promises.
+ * This is especially useful to test code which is supposed to reject.
+ */
 it("ignores non-numeric values when adding", () => {
   return expect(addReallyAccurately(3, null, 4, undefined, [], 2, "Hello", false)).resolves.toBe(9);
 });
@@ -59,7 +77,7 @@ it("properly rejects this promise", () => {
 });
 
 /**
- * The official JEST guidelines state that no one of these is considered superior to any other.
+ * The official guidelines state that no one of these is considered superior to any other.
  * Testers should use whichever they feel is better for them / their project.
  */
 

@@ -1,3 +1,5 @@
+import { vi, expect, afterEach, it, describe, beforeEach } from "vitest";
+
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import SoundPlayer from "../sound-player.js";
@@ -9,7 +11,7 @@ import { myForEachFunction, coinFlip, coinFlip2, getArticle, beep } from "../thi
 const axiosMock = new MockAdapter(axios);
 
 // This line replaces the SoundPlayer class with a mock class for the rest of this file.
-jest.mock("../sound-player");
+vi.mock("../sound-player.js");
 
 /**
  * If we have a global mock like axios, its good practice to clear it after each test run,
@@ -23,13 +25,13 @@ afterEach(() => {
 /**
  * This tests whether our forEach function appropriately calls a callback.
  *
- * It shows how we can use jest's mocking API to check how many times mock functions have
+ * It shows how we can use vitest's mocking API to check how many times mock functions have
  * been called, and what arguments they are called with.
  */
 it("forEach appropriately calls the callback", () => {
   // If we don't care what the function does we can simply mock it like this.
   // This will take any number of args and return undefined.
-  const mockCallback = jest.fn();
+  const mockCallback = vi.fn();
 
   myForEachFunction(["a", "b", "c"], mockCallback);
 
@@ -58,7 +60,7 @@ it("forEach appropriately calls the callback", () => {
 it("coinFlip calls our random source and returns heads when given a value > 0.5", () => {
   // A mock random source that we can spy on as with the above test, that always returns
   // the value we want.
-  const mockRandom = jest.fn(() => 0.75);
+  const mockRandom = vi.fn(() => 0.75);
 
   expect(coinFlip(mockRandom)).toBe("Heads");
   expect(mockRandom.mock.calls.length).toBe(1);
@@ -68,7 +70,7 @@ it("coinFlip calls our random source and returns heads when given a value > 0.5"
  * This tests that coinFlip() returns Tails when its provided random source is < 0.5.
  */
 it("coinFlip calls our random source and returns tails when given a value < 0.5", () => {
-  const mockRandom = jest.fn(() => 0.25);
+  const mockRandom = vi.fn(() => 0.25);
 
   expect(coinFlip(mockRandom)).toBe("Tails");
   expect(mockRandom.mock.calls.length).toBe(1);
@@ -89,7 +91,7 @@ describe("coinFlip2 tests", () => {
    * but we can change that as shown below.
    */
   beforeEach(() => {
-    jest.spyOn(Math, "random");
+    vi.spyOn(Math, "random");
   });
 
   /**
@@ -120,8 +122,7 @@ describe("coinFlip2 tests", () => {
  * This tests that our getArticle() function makes an appropriate axios.get() call, and does the correct
  * thing with the response.
  *
- * We are using jest-mock-axios to help us test this. We have enabled axios mocking for all tests by manually
- * mocking axios in ../__mocks__/axios.js.
+ * We are using axios-mock-adapter to simulate the server response, rather than actually hitting the server.
  */
 it("getArticle fetches from trex-sandwich server", async () => {
   // Setup our axios mock - simulate a 200 OK response, returning this article.
@@ -130,12 +131,12 @@ it("getArticle fetches from trex-sandwich server", async () => {
     title: "The title",
     content: "The content"
   };
-  axiosMock.onGet("https://trex-sandwich.com/ajax/articles?id=2").reply(200, dummyArticle);
+  axiosMock.onGet("https://articleii.trex-sandwich.com/articles/2").reply(200, dummyArticle);
 
   const article = await getArticle(2);
 
   // Make sure axios was called correctly by our code
-  expect(axiosMock.history.get[0].url).toEqual("https://trex-sandwich.com/ajax/articles?id=2");
+  expect(axiosMock.history.get[0].url).toEqual("https://articleii.trex-sandwich.com/articles/2");
 
   // Make sure the expected article was returned
   expect(article).toEqual(dummyArticle);
@@ -145,7 +146,7 @@ it("getArticle fetches from trex-sandwich server", async () => {
  * This tests whether our beep() function instantiates and makes appropriate use of a SoundPlayer.
  *
  * We are enabling this test by mocking the ../sound-player module near the top of this file,
- * using jest.mock(...)
+ * using vi.mock(...)
  */
 it("beep uses a SoundPlayer properly", () => {
   beep();

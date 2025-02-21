@@ -1,6 +1,8 @@
-# CS732 examples - Testing with Jest
+# CS732 examples - Testing with Vitest
 
-This project shows off several examples of how to test JavaScript code using Jest:
+**Note:** In CS732, we originally used Jest, rather than Vitest, for testing the backend. However, since we use Vitest on the frontend, and Jest doesn't properly support mocking with ES6 modules, we switched to Vitest for backend testing too.
+
+This project shows off several examples of how to test JavaScript code using Vitest:
 
 - Basic testing can be seen in [calculator.test.js](./src/__tests__/calculator.test.js), which tests functions which perform mathematical operations, found in [calculator.js](./src/calculator.js).
 
@@ -12,4 +14,4 @@ This project shows off several examples of how to test JavaScript code using Jes
 
 - Tests which require _mocking_ can be seen in [things-to-mock.test.js](./src/__tests__/things-to-mock.test.js). These tests exercise code found in [things-to-mock.js](./src/things-to-mock.js). One of the tests uses the [`axios-mock-adapter`](https://www.npmjs.com/package/axios-mock-adapter) package to mock Axios calls.
 
-In addition to the tests, config files for the runtime environment and Jest can be found in [babel.config.cjs](./babel.config.cjs) and [jest.config.cjs](./jest.config.cjs) respectively.
+In addition to the tests, config files for Vitest can be found in [vite.config.js](./vite.config.js) and [vitest.setup.js](./vitest.setup.js).
