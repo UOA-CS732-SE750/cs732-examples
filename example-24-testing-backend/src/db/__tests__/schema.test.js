@@ -1,6 +1,7 @@
+import { it, expect, beforeAll, beforeEach, afterAll } from "vitest";
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import Breakfast from "../schema";
+import { Breakfast } from "../schema.js";
 
 let mongod;
 
@@ -43,9 +44,10 @@ beforeAll(async () => {
 beforeEach(async () => {
   // Drop existing collections
   await mongoose.connection.db.dropDatabase();
-
+  // console.log("schema.test.js Dropped database");
   const coll = await mongoose.connection.db.createCollection("breakfasts");
   await coll.insertMany(breakfasts);
+  // console.log("schema.test.js Inserted breakfasts");
 });
 
 /**

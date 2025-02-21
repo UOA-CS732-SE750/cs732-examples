@@ -14,4 +14,4 @@ This project shows off several examples of how to test JavaScript code using Vit
 
 - Tests which require _mocking_ can be seen in [things-to-mock.test.js](./src/__tests__/things-to-mock.test.js). These tests exercise code found in [things-to-mock.js](./src/things-to-mock.js). One of the tests uses the [`axios-mock-adapter`](https://www.npmjs.com/package/axios-mock-adapter) package to mock Axios calls.
 
-In addition to the tests, config files for Vitest can be found in [vite.config.js](./vite.config.js) and [vitest.setup.js](./vitest.setup.js).
+In addition to the tests, config files for Vitest can be found in [vitest.config.js](./vitest.config.js) and [vitest.setup.js](./vitest.setup.js).
