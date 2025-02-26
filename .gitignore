@@ -147,3 +147,5 @@ fabric.properties
 .AppleDouble
 .LSOverride
 # -----------------------------------------------------
+
+.vscode

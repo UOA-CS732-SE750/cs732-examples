@@ -32,7 +32,7 @@ function AppContextProvider({ children }) {
       id: articles.length + 1,
       title,
       content,
-      image: "https://placekitten.com/400/400"
+      image: "https://picsum.photos/400"
     };
 
     setArticles([...articles, newArticle]);
