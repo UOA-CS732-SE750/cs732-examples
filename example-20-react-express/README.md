@@ -30,7 +30,7 @@ Once we've added environment variables, we can access them from our code using `
 
 When building an app with Vite, one of the `npm` commands given is `npm build`. This will create a `dist` directory in the project folder, and will write an optimized version of your React app to it, which no longer depends on Vite or any other build / development tools. We can simply serve the contents of this `dist` directory from our Express server (or any other backend).
 
-We can see an example of this in our backend, [app.js](./backend/src/app.js). On line 26, we're setting up two additional Express routes:
+We can see an example of this in our backend, [app.js](./backend/src/app.js). On line 25, we're setting up two additional Express routes:
 
 - The first will expose the frontend's `dist` folder publicly
 

@@ -1,40 +1,40 @@
-/** ChatGPT genned array of people. */
+/** Array of people from the Pokémon franchise. */
 const people = [
   {
     id: 1,
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com"
+    firstName: "Ash",
+    lastName: "Ketchum",
+    email: "ash.ketchum@pokemon.com"
   },
   {
     id: 2,
-    firstName: "Jane",
-    lastName: "Smith",
-    email: "jane.smith@example.com"
+    firstName: "Misty",
+    lastName: "Williams",
+    email: "misty.williams@pokemon.com"
   },
   {
     id: 3,
-    firstName: "Bob",
-    lastName: "Johnson",
-    email: "bob.johnson@example.com"
+    firstName: "Brock",
+    lastName: "Harrison",
+    email: "brock.harrison@pokemon.com"
   },
   {
     id: 4,
-    firstName: "Alice",
-    lastName: "Williams",
-    email: "alice.williams@example.com"
+    firstName: "Serena",
+    lastName: "Gabena",
+    email: "serena.gabena@pokemon.com"
   },
   {
     id: 5,
-    firstName: "Charlie",
-    lastName: "Brown",
-    email: "charlie.brown@example.com"
+    firstName: "Dawn",
+    lastName: "Berlitz",
+    email: "dawn.berlitz@pokemon.com"
   },
   {
     id: 6,
-    firstName: "Alice",
-    lastName: "Stephens",
-    email: "alice.stephens@example.com"
+    firstName: "Gary",
+    lastName: "Oak",
+    email: "gary.oak@pokemon.com"
   }
 ];
 

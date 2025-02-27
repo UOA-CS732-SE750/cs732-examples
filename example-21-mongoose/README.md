@@ -8,6 +8,6 @@ This project demonstrates how we can use the `mongoose` npm package to interact 
 
 - The main program is [app.js](./src/app.js). The program demonstrates how we can add, clear, and query information in the database.
 
-- On `app.js` line 18, we connect to the database. The connection string in the `.env` file is set for a database running on the same machine as this app. If you'd like to change it to, for example, a cloud-based database, you're welcome to do so by changing this connection string.
+- On `app.js` line 12, we connect to the database. The connection string in the `.env` file is set for a database running on the same machine as this app. If you'd like to change it to, for example, a cloud-based database, you're welcome to do so by changing this connection string.
 
 - After running the app, you can open the created database in a tool such as [MongoDB Compass](https://www.mongodb.com/products/compass) to see the all of the data that's been added.
