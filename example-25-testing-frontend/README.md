@@ -4,8 +4,6 @@ This project demonstrates ways in which we can test various aspects of our React
 
 ## Intro
 
-[Vitest](https://vitest.dev/) is a testing environment _almost_ identical in API to Jest, but designed from the ground up to integrate easily with Vite-based projects. Using this instead of Jest, when working with Vite projects, is infinitely easier. The knowledge you've gained with Jest can be put to direct use as the API is almost identical - but the project setup is slightly different (see "Setup" section below).
-
 The [React testing library](https://testing-library.com/docs/react-testing-library/intro), built on top of the DOM testing library, essentially simulates a browser environment in which developers can "render" their components, and examine the ouutput "on screen", in terms of which HTML elements have been rendered, along with their contents / attributes. We can also simulate user input (e.g. button clicks), and verify that our components behave as expected.
 
 The core function is the `render()` function, into which we can supply our component hierarchy we wish to test. The function returns several functions we can use to examine and interact with rendered content. For example:
@@ -57,11 +55,7 @@ export default defineConfig({
 });
 ```
 
-4. With that, our Vitest config is done. However, unlike with Jest, we'll need to `import` the various testing functions, such as `it` and `expect`, at the top of each of our test files, like so:
-
-```js
-import { describe, expect, it } from "vitest";
-```
+4. With that, our Vitest config is done.
 
 ### Installing &amp; configuring the React testing library
 
@@ -87,4 +81,4 @@ import "@testing-library/jest-dom";
 
 [`component-with-routes.test.jsx`](./src/components/__tests__/component-with-routes.test.jsx) shows how we can test a component which contains React Router components such as `Link`, `NavLink`, `Routes`, and `Outlet`. If we render any React Router components, we must surround our components under test in some kind of Router, or we will get errors. React Router provides the `MemoryRouter` component which works really well for this purpose. It provides an `initialEntries` prop which we can use to supply the initial simulated browser history stack, thus being able to "start the app" at any particular URL we desire. In these tests, we use this functionality to check whether the correct components are being rendered when the user navigates to particular paths.
 
-[`greeting-loader.test.jsx`](./src/components/__tests__/greeting-loader.test.jsx) shows how we can combine axios mocking with `axios-mock-adapter`, with our React testing code. In this test, we're examining the `GreetingLoader` component, which should load a greeting from a web API and display it, when we click a button. We we are simulating that button click, then using `axios-mock-adapter` to return a dummy web response to our component, then ensuring the content contained within that response is correctly rendered. **Note:** For another example involving `axios-mock-adapter` by itself, refer to [example 23](../example-23-jest/).
+[`greeting-loader.test.jsx`](./src/components/__tests__/greeting-loader.test.jsx) shows how we can combine axios mocking with `axios-mock-adapter`, with our React testing code. In this test, we're examining the `GreetingLoader` component, which should load a greeting from a web API and display it, when we click a button. We we are simulating that button click, then using `axios-mock-adapter` to return a dummy web response to our component, then ensuring the content contained within that response is correctly rendered. **Note:** For another example involving `axios-mock-adapter` by itself, refer to [example 23](../example-23-vitest/).

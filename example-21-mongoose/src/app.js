@@ -1,42 +1,33 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+import "dotenv/config";
 
 import mongoose from "mongoose";
 import { User, Pet } from "./schema.js";
-import { dummyData } from "./dummy-data.js";
-
-console.log("Generated dummy data using dummy-json");
+import { seedDatabase, dummyData } from "./dummy-data.js";
 
 mongoose.set("strictQuery", false);
 
-main();
+// Connect to database
+// For more extra options, see: https://mongoosejs.com/docs/connections.html
+// We're reading in the DB URL from the .env file using the dotenv package.
+await mongoose.connect(process.env.DB_URL);
+console.log("Connected to database!");
+console.log();
 
-async function main() {
-  // Connect to database
-  // For more extra options, see: https://mongoosejs.com/docs/connections.html
-  // We're reading in the DB URL from the .env file using the dotenv package.
-  await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
-  console.log("Connected to database!");
-  console.log();
+await clearDatabase();
+console.log();
 
-  await clearDatabase();
-  console.log();
+await seedDatabase();
+console.log();
 
-  await addUsers();
-  console.log();
-  await addPets();
-  console.log();
+await logSummary();
+console.log();
 
-  await logSummary();
-  console.log();
+await runQueries();
+console.log();
 
-  await runQueries();
-  console.log();
-
-  // Disconnect when complete
-  await mongoose.disconnect();
-  console.log("Disconnected from database!");
-}
+// Disconnect when complete
+await mongoose.disconnect();
+console.log("Disconnected from database!");
 
 /**
  * Clears the database
@@ -47,46 +38,6 @@ async function clearDatabase() {
   console.log(
     `Cleared database (removed ${petsDeleted.deletedCount} pets and ${usersDeleted.deletedCount} users).`
   );
-}
-
-/**
- * Adds all dummy user data to the database
- */
-async function addUsers() {
-  for (let dummyUser of dummyData.users) {
-    // Create the DB user object, initialized with the dummy user data.
-    const dbUser = new User(dummyUser);
-
-    // Save it to the DB
-    await dbUser.save();
-    console.log(`User saved! _id = ${dbUser._id}, name = ${dbUser.fullName}`);
-  }
-}
-
-/**
- * Adds all dummy pet data to the database
- */
-async function addPets() {
-  // Grab all users, so we can randomly assign the pets to them.
-  const allUsers = await User.find();
-
-  for (let dummyPet of dummyData.pets) {
-    // Pick a random owner
-    const ownerIndex = Math.floor(Math.random() * allUsers.length);
-    const owner = allUsers[ownerIndex];
-
-    // Create the pet in the database
-    const dbPet = new Pet(dummyPet);
-
-    // Assign its owner and save
-    dbPet.owner = owner._id;
-    await dbPet.save();
-    console.log(`Pet saved! _id = ${dbPet._id}, name = ${dbPet.name}, owner = ${owner.fullName}`);
-
-    // Also add this pet to the owner's registered pets and save
-    owner.registeredPets.push(dbPet._id);
-    await owner.save();
-  }
 }
 
 /**

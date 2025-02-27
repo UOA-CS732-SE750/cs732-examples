@@ -3,11 +3,10 @@
  */
 
 /**
- * These two lines allow us to read environment variables from .env files. This way we can configure
+ * This allows us to read environment variables from .env files. This way we can configure
  * our PORT without editing our JavaScript code. This is good practice.
  */
-import dotenv from "dotenv";
-dotenv.config();
+import "dotenv/config";
 
 // Imports which we will use
 import express from "express";
@@ -31,10 +30,10 @@ const app = express();
 /**
  * Adds some default console logging to our app. This will configure the morgan middleware in a really basic manner.
  * For more advanced configuration options,
- * 
+ *
  * @see https://www.npmjs.com/package/morgan
  */
-app.use(morgan('combined'));
+app.use(morgan("combined"));
 
 /**
  * app.use() allows us to add Middleware to our Express applications. Essentially, middleware will

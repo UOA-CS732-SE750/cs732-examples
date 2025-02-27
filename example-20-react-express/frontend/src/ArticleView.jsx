@@ -4,13 +4,11 @@ import { useContext } from "react";
 import { ArticleNotFound } from "./ErrorPages";
 import { useParams } from "react-router-dom";
 
-const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL ?? "";
-
 export function ArticleView({ article }) {
   return (
     <div className={styles.article}>
       <h2>{article.title}</h2>
-      <img src={IMAGE_BASE_URL + article.image} />
+      <img src={article.image} />
       <p>{article.content}</p>
     </div>
   );

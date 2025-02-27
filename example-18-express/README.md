@@ -32,18 +32,18 @@ When you navigate to a route in your browser, it sends a `GET` request to that r
 
 - **Reading environment variables**: On [`app.js`](./src/app.js) line 9, we are using the `dotenv` package to read in and configure our sever with any _environment variables_ we have defined in the [`.env`](./.env) file. In our case, we have one variable defined there - `PORT=3000`.
 
-  We are using this environment variable on line 26 (`process.env` will contain all our environment variables as properties) - and are also supplying `3000` as a default value in case no environment variable is defined.
+  We are using this environment variable on line 25 (`process.env` will contain all our environment variables as properties) - and are also supplying `3000` as a default value in case no environment variable is defined.
 
   It is usually considered good practice to define things such as ports, base URLs, API keys, and database connection strings as environment variables. That way, we can change them without having to edit our JavaScript code, and we can even easily exclude them from version control if they contain private information.
 
 - **Server setup**: In `app.js`, we can see a basic Express setup, including:
 
-  - Creating the server (line 29)
-  - Adding logging using the [morgan](https://www.npmjs.com/package/morgan) package (line 37)
-  - Adding CORS support using the [cors](https://www.npmjs.com/package/cors) package (line 50)
-  - Adding JSON support to the HTTP request body processing (line 58)
-  - Allowing files to be served directly from the "public" directory (line 67)
-  - Starting the server (line 136)
+  - Creating the server (line 28)
+  - Adding logging using the [morgan](https://www.npmjs.com/package/morgan) package (line 36)
+  - Adding CORS support using the [cors](https://www.npmjs.com/package/cors) package (line 49)
+  - Adding JSON support to the HTTP request body processing (line 57)
+  - Allowing files to be served directly from the "public" directory (line 66)
+  - Starting the server (line 135)
 
   In future examples and labs, we may add additional features to the startup script, such as initializing databases.
 

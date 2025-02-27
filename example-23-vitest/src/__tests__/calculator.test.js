@@ -1,3 +1,4 @@
+import { it, expect } from "vitest";
 import { sum, difference } from "../calculator.js";
 
 it("adds 1 + 2 = 3", () => {

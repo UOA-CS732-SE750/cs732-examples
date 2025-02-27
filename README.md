@@ -51,7 +51,7 @@ This repository contains example code demonstrating various React / Node.js / Ex
 
 - *[The MERN Stack](./example-22-fullstack)*: Demonstrates how we can use the entire MERN stack to create a full-stack web application.
 
-- *[Testing with Jest](./example-23-jest)*: Demonstrates how we can test our JS code using Jest. Several use cases are explored, such as basic testing, setup / teardown, testing exceptions, testing async code, and mocking.
+- *[Testing with Vitest](./example-23-vitest)*: Demonstrates how we can test our JS code using Vitest. Several use cases are explored, such as basic testing, setup / teardown, testing exceptions, testing async code, and mocking.
 
 - *[Testing your Backend](./example-24-testing-backend)*: Shows how we can test our MongoDB database schema using [`mongodb-memory-server`](https://www.npmjs.com/package/mongodb-memory-server), and our Express routes using [`supertest`](https://www.npmjs.com/package/supertest).
 

@@ -1,6 +1,5 @@
 // Configure environment variables
-import dotenv from "dotenv";
-dotenv.config();
+import "dotenv/config";
 
 import express from "express";
 import cors from "cors";
@@ -24,8 +23,5 @@ import routes from "./routes/routes.js";
 app.use("/", routes);
 
 // Start the DB running. Then, once it's connected, start the server.
-mongoose
-  .connect(process.env.DB_URL)
-  .then(() =>
-    app.listen(PORT, () => console.log(`App server listening on port ${PORT}!`))
-  );
+await mongoose.connect(process.env.DB_URL);
+app.listen(PORT, () => console.log(`App server listening on port ${PORT}!`));

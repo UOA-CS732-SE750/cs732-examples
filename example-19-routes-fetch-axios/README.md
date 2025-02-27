@@ -4,7 +4,7 @@ In this example, we can see one method for organizing our Express routes, using 
 
 ## Organizing routes with Express router
 
-In our main backend JavaScript file ([app.js](./src/app.js)), we can see that on lines 26 and 27, we're importing and using `routes`, mapped to the path `/`. We're importing this from `/routes/routes.js`.
+In our main backend JavaScript file ([app.js](./src/app.js)), we can see that on lines 25 and 26, we're importing and using `routes`, mapped to the path `/`. We're importing this from `/routes/routes.js`.
 
 Inside [`/routes/routes.js`](./src/routes/routes.js), we're creating an Express router on line 3. We're adding more routes to it, imported from `./api/index.js`, on lines 5 and 6. We're mapping this to the path `/api`.
 

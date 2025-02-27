@@ -1,5 +1,6 @@
-import BankAccount from "../bank-account.js";
+import { expect, it, beforeEach, afterEach, assert } from "vitest";
 
+import BankAccount from "../bank-account.js";
 let account;
 
 // Before each of the below unit tests, re-initialize the bank account.
@@ -41,7 +42,7 @@ it("depositing not-a-number throws an error", () => {
 it("depositing not-a-number throws an error and doesn't change balance", () => {
   try {
     account.deposit("Hello");
-    fail("Depositing a string should not succeed");
+    assert.fail("Depositing a string should not succeed");
   } catch (err) {
     expect(err).toBe("amount is not an object or a number");
     expectAmount(10000, 100, 0, "$100.00");

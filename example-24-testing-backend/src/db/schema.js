@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const breakfastSchema = new Schema({
   eggs: {
     type: Number,
-    min: [6, "Too few eggs"],
+    min: [6, "Too few eggs"],
     max: 12
   },
   bacon: {
     type: Number,
-    required: [true, "Why no bacon?"]
+    required: [true, "Why no bacon?"]
   },
   drink: {
     type: String,
@@ -20,4 +20,4 @@ const breakfastSchema = new Schema({
   }
 });
 
-export default mongoose.model("Breakfast", breakfastSchema);
+export const Breakfast = mongoose.model("Breakfast", breakfastSchema);

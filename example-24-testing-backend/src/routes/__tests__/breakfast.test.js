@@ -1,5 +1,7 @@
-import routes from "../breakfast";
+import { beforeEach, beforeAll, afterAll, it, expect, describe } from "vitest";
+import routes from "../breakfast.js";
 import { MongoMemoryServer } from "mongodb-memory-server";
+import { Breakfast } from "../../db/schema.js";
 import mongoose from "mongoose";
 import express from "express";
 import request from "supertest";
@@ -47,11 +49,10 @@ beforeAll(async () => {
  * Before each test, intialize the database with some data
  */
 beforeEach(async () => {
-  // Drop existing db
-  await mongoose.connection.db.dropDatabase();
-
-  const coll = await mongoose.connection.db.createCollection("breakfasts");
-  await coll.insertMany(breakfasts);
+  await Breakfast.deleteMany({});
+  // console.log("breakfast.test.js cleared breakfasts collection");
+  await Breakfast.insertMany(breakfasts);
+  // console.log("breakfast.test.js inserted breakfasts");
 });
 
 /**
@@ -68,42 +69,30 @@ describe("GET /breakfasts", () => {
    * Tests that, when requesting all breakfasts, a 200 OK response is returned,
    * with the response body containing an array of all breakfasts in the database.
    */
-  it("gets all breakfasts from server", (done) => {
-    request(app) // "app" is the Express server we're testing
+  it("gets all breakfasts from server", async () => {
+    const response = await request(app) // "app" is the Express server we're testing
       .get("/breakfasts") // This is the URL we're invoking. And we're sending a GET request to it.
       .send() // Send the request. If we were sending a POST request, we would send the data as an argument to this function.
-      .expect(200) // Expect the response to have a status code of 200 (OK).
-      .end((err, res) => {
-        // If all the above goes well, this function will be called. We can add any additional Jest tests in here, and call done() when finished.
+      .expect(200); // Expect the response to have a status code of 200 (OK).
 
-        // If "err" is defined, it means there was a problem and we should fail the test.
-        // We can do this by calling "done", supplying the error object.
-        if (err) {
-          return done(err);
-        }
+    // response.body contains the data sent from the server.
+    const breakfastsFromApi = response.body;
 
-        // res.body contains the data sent from the server.
-        const breakfastsFromApi = res.body;
+    // Normal Jest tests.
+    expect(breakfastsFromApi).toBeTruthy();
+    expect(breakfastsFromApi.length).toBe(3);
 
-        // Normal Jest tests.
-        expect(breakfastsFromApi).toBeTruthy();
-        expect(breakfastsFromApi.length).toBe(3);
+    expect(breakfastsFromApi[0].eggs).toBe(7);
+    expect(breakfastsFromApi[0].bacon).toBe(10);
+    expect(breakfastsFromApi[0].drink).toBe("Coffee");
 
-        expect(breakfastsFromApi[0].eggs).toBe(7);
-        expect(breakfastsFromApi[0].bacon).toBe(10);
-        expect(breakfastsFromApi[0].drink).toBe("Coffee");
+    expect(breakfastsFromApi[1].eggs).toBe(12);
+    expect(breakfastsFromApi[1].bacon).toBe(2);
+    expect(breakfastsFromApi[1].drink).toBeUndefined();
 
-        expect(breakfastsFromApi[1].eggs).toBe(12);
-        expect(breakfastsFromApi[1].bacon).toBe(2);
-        expect(breakfastsFromApi[1].drink).toBeUndefined();
-
-        expect(breakfastsFromApi[2].eggs).toBe(8);
-        expect(breakfastsFromApi[2].bacon).toBe(50);
-        expect(breakfastsFromApi[2].drink).toBe("Tea");
-
-        // Call done() when finished
-        return done();
-      });
+    expect(breakfastsFromApi[2].eggs).toBe(8);
+    expect(breakfastsFromApi[2].bacon).toBe(50);
+    expect(breakfastsFromApi[2].drink).toBe("Tea");
   });
 });
 
@@ -112,27 +101,23 @@ describe("GET /breakfasts/:id", () => {
    * Tests that, when requesting a single breakfast with a valid id, a 200 OK response is returned, with the matching
    * breakfast in the response body.
    */
-  it("gets a single breakfast from the server", (done) => {
-    request(app)
+  it("gets a single breakfast from the server", async () => {
+    const response = await request(app)
       .get("/breakfasts/000000000000000000000002")
       .send()
-      .expect(200)
-      .end((err, res) => {
-        if (err) return done(err);
+      .expect(200);
 
-        const breakfast = res.body;
-        expect(breakfast.eggs).toBe(12);
-        expect(breakfast.bacon).toBe(2);
-        expect(breakfast.drink).toBeUndefined();
-
-        return done();
-      });
+    const breakfast = response.body;
+    expect(breakfast.eggs).toBe(12);
+    expect(breakfast.bacon).toBe(2);
+    expect(breakfast.drink).toBeUndefined();
   });
 
   /**
    * Tests that, when requesting a single breakfast with a nonexistant id, a 404 response is returned.
+   * 
    */
-  it("returns a 404 response when requesting with an invalid id", (done) => {
-    request(app).get("/breakfasts/00000000000000000000000F").send().expect(404, done); // We can pass the done function right away as a callback to expect(), if we don't have any further checks to make.
+  it("returns a 404 response when requesting with an invalid id", async () => {
+    await request(app).get("/breakfasts/00000000000000000000000F").send().expect(404);
   });
 });

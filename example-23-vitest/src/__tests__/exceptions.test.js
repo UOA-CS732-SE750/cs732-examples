@@ -1,3 +1,4 @@
+import { it, expect } from "vitest";
 import { throwStuff } from "../exceptions.js";
 
 it("throws an appropriate error", () => {

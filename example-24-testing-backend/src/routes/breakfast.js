@@ -1,5 +1,5 @@
 import express from "express";
-import Breakfast from "../db/schema";
+import { Breakfast } from "../db/schema.js";
 
 const router = express.Router();
 
