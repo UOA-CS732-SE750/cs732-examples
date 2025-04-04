@@ -54,14 +54,11 @@ it.skip("adds nothing = 0", (done) => {
   addReallyAccurately()
     .then((result) => {
       expect(result).toBe(0);
-      done(); // Calling done with no args will cause the test to finish successfully.
+      done();
     })
     .catch((err) => {
-      done(err); /* Calling done with an argument will cause the test to fail,
-                          and the value of that arg to be reported to the test runner */
+      done(err);
     });
-
-  // If the promise never resolves or rejects, the test will fail with a timeout error. This is a good thing.
 });
 
 /**
