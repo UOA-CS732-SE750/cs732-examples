@@ -1,8 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
-
-const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL ?? "";
+import { getImagePath } from "../../../backend/src/util/image-path-utils";
 
 /**
  * Displays Material UI Card containing info about the given article.
@@ -19,7 +18,7 @@ export default function GalleryCard({ article }) {
             objectPosition: "center"
           }}
           component="img"
-          image={IMAGE_BASE_URL + article.image}
+          image={getImagePath(article.image)}
           title={article.title}
         />
         <CardContent>

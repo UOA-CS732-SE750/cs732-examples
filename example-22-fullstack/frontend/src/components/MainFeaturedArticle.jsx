@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { Paper, Typography, Grid, Link as MuiLink, Box } from "@mui/material";
 import { Link as RRLink } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
-
-const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL ?? "";
+import { getImagePath } from "../../../backend/src/util/image-path-utils";
 
 function MainFeaturedArticle({ article }) {
   return (
@@ -19,10 +18,10 @@ function MainFeaturedArticle({ article }) {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center"
       }}
-      style={{ backgroundImage: `url(${IMAGE_BASE_URL + article.image})` }}
+      style={{ backgroundImage: `url(${getImagePath(article.image)})` }}
     >
       {/* Increase the priority of the hero background image */}
-      {<img style={{ display: "none" }} src={IMAGE_BASE_URL + article.image} alt={article.title} />}
+      {<img style={{ display: "none" }} src={getImagePath(article.image)} alt={article.title} />}
 
       <Box
         sx={{

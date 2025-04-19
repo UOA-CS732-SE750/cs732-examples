@@ -4,8 +4,7 @@ import { Typography, Card, CardActionArea, CardContent, CardMedia, Hidden } from
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
-
-const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL ?? "";
+import { getImagePath } from "../../../backend/src/util/image-path-utils";
 
 function SmallFeaturedArticle({ article }) {
   return (
@@ -28,7 +27,7 @@ function SmallFeaturedArticle({ article }) {
         <Hidden smDown>
           <CardMedia
             sx={{ height: 80 }}
-            image={IMAGE_BASE_URL + article.image}
+            image={getImagePath(article.image)}
             title={article.title}
           />
         </Hidden>
