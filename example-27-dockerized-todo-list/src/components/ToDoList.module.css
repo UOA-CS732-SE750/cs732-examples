@@ -1,0 +1,64 @@
+/* filepath: /Users/amea020/Dev/Course-Projects/Code demos/complete examples/dockerized-todo-list/src/components/ToDoList.module.scss */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  & h3 {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+    color: #333;
+
+    & em {
+      font-style: italic;
+      color: #666;
+    }
+  }
+
+  & p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+}
+
+.complete {
+  background-color: #e6f7e6; /* Light green background */
+  border-color: #b2d8b2; /* Softer green border */
+  text-decoration: line-through; /* Strike-through text */
+  color: #888; /* Muted text color */
+}
+
+.overdue {
+  background-color: #ffe6e6; /* Light red background */
+  border-color: #f5b2b2; /* Softer red border */
+  color: #d9534f; /* Muted red text color */
+  font-weight: bold; /* Emphasize overdue items */
+}
+
+.dueSoon {
+  background-color: #fff3cd; /* Light yellow background */
+  border-color: #ffeeba; /* Softer yellow border */
+  color: #856404; /* Muted yellow text color */
+  font-weight: bold; /* Emphasize due soon items */
+}
