@@ -1,0 +1,43 @@
+.jokeslist {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: 1rem;
+
+  & > li {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / 3;
+    align-items: center;
+    padding: 1rem;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+
+  & > input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+
+.error {
+  color: #f44336; /* Red color for error text */
+  background-color: #fdecea; /* Light red background */
+  border: 1px solid #f44336; /* Red border */
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}

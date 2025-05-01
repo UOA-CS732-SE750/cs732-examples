@@ -1,0 +1,38 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      - PORT=3000
+      - DB_CONNECTION_STRING=mongodb://dadjokes-mongo:27017/dadjokes
+      - NODE_ENV=production
+    depends_on:
+      - dadjokes-mongo
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost
+    depends_on:
+      - backend
+
+  dadjokes-mongo:
+    image: mongo:latest
+    # ports:
+    #   - "27017:27017"
+    volumes:
+      - dadjokes-mongo-data:/data/db
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
+
+volumes:
+  dadjokes-mongo-data:

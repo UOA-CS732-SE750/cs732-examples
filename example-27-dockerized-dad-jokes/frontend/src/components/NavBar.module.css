@@ -1,0 +1,30 @@
+.navbar {
+  background-color: #3f51b5; /* MUI primary color */
+  padding: 0 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+
+  & > ul {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  & li {
+    padding: 1.2rem 1rem;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+
+    &:has(:hover, .active) {
+      background-color: #303f9f; /* MUI dark primary color */
+      border-bottom-color: white;
+    }
+  }
+
+  & a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+}
