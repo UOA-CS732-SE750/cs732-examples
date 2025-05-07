@@ -12,7 +12,7 @@ export default function useDadJokes() {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`${API_URL}/api/dad-jokes/`);
+      const response = await axios.get(`${API_URL}/api/dad-jokes`);
       setJokes(response.data);
     } catch (error) {
       setError(error.response.data);
@@ -30,7 +30,7 @@ export default function useDadJokes() {
     setJokes([...oldJokes, { text }]);
     setError(null);
     try {
-      const response = await axios.post(`${API_URL}/api/dad-jokes/`, { text });
+      const response = await axios.post(`${API_URL}/api/dad-jokes`, { text });
       setJokes([...oldJokes, response.data]);
     } catch (error) {
       setError(error.response.data);

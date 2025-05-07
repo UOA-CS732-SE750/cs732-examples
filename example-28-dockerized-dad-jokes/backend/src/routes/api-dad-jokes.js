@@ -10,11 +10,11 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const newJoke = req.body.text;
   console.log(newJoke);
-  if (!newJoke || typeof newJoke !== "string" || newJoke.length === 0)
+  if (!newJoke || typeof newJoke !== "string" || newJoke.trim().length === 0)
     return res.status(422).send("joke must be a string with length > 0");
 
   const joke = new DadJoke({
-    text: newJoke
+    text: newJoke.trim()
   });
   await joke.save();
   return res.status(201).location(`/api/dad-jokes/${joke._id}`).json(joke);
