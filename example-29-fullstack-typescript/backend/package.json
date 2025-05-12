@@ -5,9 +5,10 @@
   "main": "./src/app.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./src/app.js",
-    "start": "node ./src/app.js",
-    "init-db": "node ./src/data/init-db.js"
+    "dev": "nodemon --watch . --ext ts --exec \"ts-node\" src/app.js",
+    "build": "tsc",
+    "start": "node ./build/src/app.js",
+    "init-db": "ts-node ./src/data/init-db.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.3",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
