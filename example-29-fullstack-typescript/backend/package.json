@@ -1,0 +1,29 @@
+{
+  "name": "cs732-example-fullstack-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js",
+    "init-db": "node ./src/data/init-db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.4"
+  }
+}
