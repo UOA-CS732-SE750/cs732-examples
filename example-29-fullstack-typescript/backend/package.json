@@ -1,5 +1,5 @@
 {
-  "name": "cs732-example-fullstack-backend",
+  "name": "cs732-example-fullstack-typescript-backend",
   "version": "1.0.0",
   "description": "",
   "main": "./src/app.js",
