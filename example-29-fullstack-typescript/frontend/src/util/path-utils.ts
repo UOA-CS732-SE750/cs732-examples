@@ -1,6 +1,6 @@
 export function joinPaths(...segments: string[]): string {
-  let result = "";
-  for (let i = 0; i < segments.length; i++) {
+  let result = segments[0] ?? "";
+  for (let i = 1; i < segments.length; i++) {
     const segment = segments[i];
     if (segment?.startsWith("/")) {
       result = result.replace(/\/+$/, "") + segment;

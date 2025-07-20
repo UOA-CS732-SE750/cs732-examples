@@ -39,7 +39,7 @@ export default function ImageUpload({ onChange, error, helperText }: ImageUpload
                 : `1px solid ${theme.palette.primary.main}`,
             padding: (theme) => theme.spacing(1)
           }}
-          src={previewImage ?? "https://placehold.co/600x400"}
+          src={previewImage ?? undefined}
           alt=""
         />
       </Grid>
