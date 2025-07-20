@@ -7,7 +7,7 @@
     "dev": "nodemon --watch . --ext ts --exec tsx src/app.ts",
     "build": "tsc",
     "start": "node ./build/src/app.js",
-    "init-db": "ts-node ./src/data/init-db.ts"
+    "init-db": "tsx ./src/data/init-db.ts"
   },
   "keywords": [],
   "author": "",

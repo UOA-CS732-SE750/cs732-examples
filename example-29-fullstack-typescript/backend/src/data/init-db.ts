@@ -3,8 +3,9 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import { seedDatabase } from "./random-articles.js";
 import { Article } from "./schema.js";
+import env from "@/util/env.js";
 
-await mongoose.connect(process.env.DB_URL);
+await mongoose.connect(env.DB_URL);
 console.log("Connected to database!");
 console.log();
 
