@@ -6,13 +6,9 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {
-    "./package.json": "./package.json",
+    "./tsconfig-base.json": "./tsconfig-base.json",
     ".": {
       "default": "./src/index.ts"
     }
-  },
-  "files": [
-    "src/**",
-    "./tsconfig-base.json"
-  ]
+  }
 }
