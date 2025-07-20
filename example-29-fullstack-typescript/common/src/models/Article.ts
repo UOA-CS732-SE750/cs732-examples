@@ -4,14 +4,14 @@ import z from 'zod';
 // It works great with TS, but you don't have to use it if you don't want to
 // Docs: https://zod.dev/
 export const ArticleSchema = z.object({
-  id: z.string(),
+  _id: z.string(),
   title: z.string().nonempty().max(100), // You can specifify extra constraints like min/max length (not available in TS)
-  date: z.coerce.date(), // Use coerce to auto-convert data while validating
-  image: z.string().url(),
-  content: z.string().nonempty(),
+  date: z.coerce.date().optional(), // Use coerce to auto-convert data while validating
+  image: z.string().url().optional(),
+  content: z.string().optional(),
 });
 
-export type Article = z.infer<typeof ArticleSchema>; // You can auto-generate TS types from zod schemas
+export type ArticleType = z.infer<typeof ArticleSchema>; // You can auto-generate TS types from zod schemas
 
 // You can define Typescript types like this instead if you're not using zod for validation
 // export type Article = {
