@@ -3,8 +3,14 @@ import { Outlet } from "react-router-dom";
 import { AppBarWithRRTabs } from "../components/RR6-Integration";
 import Footer from "../components/Footer";
 import dayjs from "dayjs";
+import { TabType } from "@/util/types";
 
-export default function PageWithAppBar({ title, tabs }) {
+type PageWithAppBarProps = {
+  title: string;
+  tabs: TabType[];
+};
+
+export default function PageWithAppBar({ title, tabs }: PageWithAppBarProps) {
   return (
     <Box
       sx={{

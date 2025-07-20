@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom";
 export default function NewArticlePage() {
   const [hasErrors, setHasErrors] = useState(false);
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<File | null>(null);
   //     const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [text, setText] = useState("");
   const navigate = useNavigate();
   const { addArticle } = useContext(AppContext);
 
-  const isError = (condition) => hasErrors && condition;
+  const isError = (condition: boolean) => hasErrors && condition;
 
   async function handleOk() {
     setHasErrors(true);
@@ -34,7 +34,7 @@ export default function NewArticlePage() {
 
   return (
     <Main title="Tell us your story!">
-      <Grid container spacing={3} justify="space-between">
+      <Grid container spacing={3} justifyContent="space-between">
         <Grid item xs={12}>
           <Typography variant="h6" component="h6">
             Enter a title for your article:
@@ -58,9 +58,9 @@ export default function NewArticlePage() {
             Choose a main image:
           </Typography>
           <ImageUpload
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={(e) => setImage(e.target.files?.[0] ?? null)}
             error={isError(image === null)}
-            helperText={isError(image === null) && "Please choose an image!"}
+            helperText={isError(image === null) ? "Please choose an image!" : ""}
           />
         </Grid>
 

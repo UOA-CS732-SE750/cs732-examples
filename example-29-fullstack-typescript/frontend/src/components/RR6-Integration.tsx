@@ -1,10 +1,6 @@
 import { Link as RouterLink, useLocation, useResolvedPath } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Tabs, Tab } from "@mui/material";
-
-type TabType = {
-  title: string;
-  to: string;
-};
+import { TabType } from "@/util/types";
 
 type AppBarWithRRTabsProps = {
   title: string;

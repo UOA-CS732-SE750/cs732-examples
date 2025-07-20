@@ -14,7 +14,7 @@ export default function SingleArticlePage() {
 
     return (
       <main>
-        <ArticleView article={article} />
+        <ArticleView article={article ?? null} />
       </main>
     );
   }
