@@ -1,4 +1,3 @@
-import env from "./env";
 import { joinPaths } from "./path-utils";
 
 // !!! TypeScript !!!

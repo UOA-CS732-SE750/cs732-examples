@@ -1,9 +1,8 @@
-import * as React from "react";
+import { Box, Grid, Link as MuiLink, Paper, Typography } from "@mui/material";
 import PropTypes from "prop-types";
-import { Paper, Typography, Grid, Link as MuiLink, Box } from "@mui/material";
 import { Link as RRLink } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
-import { getImagePath } from "../../../backend/src/util/image-path-utils";
+import { getImagePath } from "../util/image-path-utils";
 
 function MainFeaturedArticle({ article }) {
   return (

@@ -1,10 +1,9 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import { Typography, Card, CardActionArea, CardContent, CardMedia, Hidden } from "@mui/material";
+import { Card, CardActionArea, CardContent, CardMedia, Hidden, Typography } from "@mui/material";
 import dayjs from "dayjs";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
-import { getImagePath } from "../../../backend/src/util/image-path-utils";
+import { getImagePath } from "../util/image-path-utils";
 
 function SmallFeaturedArticle({ article }) {
   return (

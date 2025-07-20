@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
+import { getImagePath } from "../util/image-path-utils";
 import Main from "./Main";
-import { getImagePath } from "../../../backend/src/util/image-path-utils";
 
 /**
  * A simple React component which renders the title, image, and content of an article.
