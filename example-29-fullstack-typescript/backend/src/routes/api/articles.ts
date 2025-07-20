@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
 });
 
 // Retrieve all articles
-router.get("/", async (req, res) => {
+router.get("/", async (_req, res) => { // You can put a '_' in front of any paramters you don't use to avoid TS warnings
   // Uncomment the following code to introduce an artificial delay before the response
   // is sent back to the client.
   // setTimeout(async () => {

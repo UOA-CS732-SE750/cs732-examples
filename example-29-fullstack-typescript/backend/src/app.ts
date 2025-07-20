@@ -5,6 +5,7 @@ import morgan from "morgan";
 import env from "./util/env";
 
 // Sets our port to the PORT environment variable
+// !!! TypeScript !!!
 // This uses a new file - env.ts - which allows us to 'type' our environment variables using Zod
 const PORT = env.PORT;
 

@@ -16,7 +16,13 @@ const upload = multer({
  */
 router.post('/', upload.single("image"), (req, res) => {
 
-    // TODO Make sure the uploaded file is actually an image!
+    // !!! TypeScript !!!
+    // This is called a type guard. It checks if req.file is defined.
+    // You should always check if req.file is defined before using it, even in JS.
+    // In TS, doing this allows TS to automatically 'narrow the type' from `Express.Multer.File | undefined` to `Express.Multer.File`
+    if (!req.file) {
+        return res.status(400).send("No file uploaded or file is not an image.");
+    }
 
     const oldPath = req.file.path;
     const ext = req.file.originalname.substring(req.file.originalname.lastIndexOf('.'));
@@ -25,7 +31,7 @@ router.post('/', upload.single("image"), (req, res) => {
 
     fs.renameSync(oldPath, newPath);
 
-    res.status(201)
+    return res.status(201)
         .header('Location', `/images/${newFileName}`)
         .header('Access-Control-Expose-Headers', 'Location') // CORS stuff
         .send();

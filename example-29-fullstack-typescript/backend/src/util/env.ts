@@ -1,3 +1,4 @@
+// !!! TypeScript !!!
 // This file reads environment variables from an .env file and validates them with zod
 // It exports the validated environment variables as an object to be used throughout the application
 
