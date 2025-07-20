@@ -1,11 +1,10 @@
 {
-  "name": "cs732-example-fullstack-typescript-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./src/app.js",
+  "name": "backend",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --watch . --ext ts --exec \"ts-node\" src/app.js",
+    "dev": "nodemon --watch . --ext ts --exec tsx src/app.ts",
     "build": "tsc",
     "start": "node ./build/src/app.js",
     "init-db": "ts-node ./src/data/init-db.ts"
@@ -14,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "common": "file:../common",
     "cors": "^2.8.5",
     "dayjs": "^1.11.10",
     "dotenv": "^16.4.1",
@@ -24,9 +24,8 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3",
-    "prettier": "^3.2.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10"
   }
 }

@@ -3,10 +3,23 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "backend",
+    "common",
+    "frontend"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "npm i && npm i --workspaces",
+    "backend:dev": "npm run dev --workspace backend",
+    "frontend:dev": "npm run dev --workspace frontend"
   },
   "dependencies": {
     "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.4",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
   }
 }

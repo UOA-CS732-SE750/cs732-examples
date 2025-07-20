@@ -1,0 +1,3 @@
+{
+  "extends": "cs732-example-fullstack-typescript-common/tsconfig-base.json"
+}
