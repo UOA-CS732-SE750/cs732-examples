@@ -1,8 +1,9 @@
 import React from "react";
 import useGet from "./hooks/useGet";
 import axios from "axios";
+import env from "./util/env";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "";
+const API_BASE_URL = env.VITE_API_BASE_URL;
 
 const AppContext = React.createContext({
   articles: []

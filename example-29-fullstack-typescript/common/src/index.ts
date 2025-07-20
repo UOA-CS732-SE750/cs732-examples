@@ -8,6 +8,7 @@
  * @see .\package.json
  */
 export * from "./models/Article";
+export * from "./util/parseEnv";
 
 // This isn't part of the barrel, but I want to ensure that Zod is extended with Mongoose types anytime this module is accessed.
 import { extendZod } from "@zodyac/zod-mongoose"; // Make Zod work as a Mongoose schema
