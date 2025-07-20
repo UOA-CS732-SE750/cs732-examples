@@ -8,7 +8,14 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const theme = createTheme({});
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+// !!! TypeScript !!!
+// Need a type guard to ensure that the root element exists
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  throw new Error("Root element not found");
+}
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={theme}>

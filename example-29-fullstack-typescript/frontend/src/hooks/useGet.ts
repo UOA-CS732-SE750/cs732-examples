@@ -5,8 +5,8 @@ import axios from "axios";
  * A custom hook which fetches data from the given URL. Includes functionality to determine
  * whether the data is still being loaded or not.
  */
-export default function useGet(url, initialState = null) {
-  const [data, setData] = useState(initialState);
+export default function useGet<T>(url: string, initialState: T) {
+  const [data, setData] = useState<T>(initialState);
   const [isLoading, setLoading] = useState(false);
   const [refreshToggle, setRefreshToggle] = useState(false);
 
