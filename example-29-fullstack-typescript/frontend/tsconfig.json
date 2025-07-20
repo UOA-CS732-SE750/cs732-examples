@@ -8,7 +8,8 @@
     "outDir": "./build",
     "noEmit": false,
     "emitDeclarationOnly": true,
-    "tsBuildInfoFile": "build/tsconfig.tsbuildinfo"
+    "tsBuildInfoFile": "build/tsconfig.tsbuildinfo",
+    "types": ["vite/client"]
   },
   "include": ["vite.config.ts", "src/**/*"]
 }
