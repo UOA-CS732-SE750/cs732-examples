@@ -1,4 +1,5 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { ArticleType } from "common";
 import { Link } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
 import { getImagePath } from "../util/image-path-utils";
@@ -6,7 +7,7 @@ import { getImagePath } from "../util/image-path-utils";
 /**
  * Displays Material UI Card containing info about the given article.
  */
-export default function GalleryCard({ article }) {
+export default function GalleryCard({ article }: { article: ArticleType }) {
   return (
     <CardActionArea component={Link} to={`/articles/${article._id}`}>
       <Card>

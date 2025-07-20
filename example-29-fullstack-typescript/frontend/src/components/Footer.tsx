@@ -1,6 +1,11 @@
 import { Container, Box, Typography, Divider } from "@mui/material";
 
-export default function Footer({ title, description }) {
+type FooterProps = {
+  title: string;
+  description: string;
+};
+
+export default function Footer({ title, description }: FooterProps) {
   const isOnline = true;
 
   return (

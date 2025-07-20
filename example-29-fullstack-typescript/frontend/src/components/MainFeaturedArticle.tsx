@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { Link as RRLink } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
 import { getImagePath } from "../util/image-path-utils";
+import { ArticleType } from "common";
 
-function MainFeaturedArticle({ article }) {
+function MainFeaturedArticle({ article }: { article: ArticleType }) {
   return (
     <Paper
       sx={{

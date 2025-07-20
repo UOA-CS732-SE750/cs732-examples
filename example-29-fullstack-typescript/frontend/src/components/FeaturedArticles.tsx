@@ -1,8 +1,9 @@
 import { Grid } from "@mui/material";
 import SmallFeaturedArticle from "./SmallFeaturedArticle";
 import MainFeaturedArticle from "./MainFeaturedArticle";
+import { ArticleType } from "common";
 
-export default function FeaturedArticles({ articles }) {
+export default function FeaturedArticles({ articles }: { articles: ArticleType[] }) {
   if (!(articles && articles.length > 0)) {
     return null;
   }
@@ -10,16 +11,16 @@ export default function FeaturedArticles({ articles }) {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <MainFeaturedArticle article={articles[0]} />
+        <MainFeaturedArticle article={articles[0]!} /> {/* TypeScript non-null assertion using '!' since we check length above */}
       </Grid>
       {articles.length >= 2 && (
         <Grid item xs={12} md={6}>
-          <SmallFeaturedArticle article={articles[1]} />
+          <SmallFeaturedArticle article={articles[1] ?? null} />
         </Grid>
       )}
       {articles.length >= 3 && (
         <Grid item xs={12} md={6}>
-          <SmallFeaturedArticle article={articles[2]} />
+          <SmallFeaturedArticle article={articles[2] ?? null} />
         </Grid>
       )}
     </Grid>

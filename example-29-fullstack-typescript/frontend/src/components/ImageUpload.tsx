@@ -1,18 +1,31 @@
 import { useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 
-export default function ImageUpload({ onChange, error, helperText }) {
-  // const [currentImageFile, setCurrentImageFile] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
+type ImageUploadProps = {
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: boolean;
+  helperText?: string;
+};
 
-  function handleImageFileChange(event) {
+export default function ImageUpload({ onChange, error, helperText }: ImageUploadProps) {
+  // const [currentImageFile, setCurrentImageFile] = useState(null);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+
+  function handleImageFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+    // !!! TypeScript !!!
+    // Another example of a type guard.
+    if (!event.target.files?.[0]) {
+      setPreviewImage(null);
+      return;
+    }
+
     // setCurrentImageFile(event.target.files[0]);
-    setPreviewImage(URL.createObjectURL(event.target.files[0]));
+    setPreviewImage(URL.createObjectURL(event.target.files[0]!));
     onChange && onChange(event);
   }
 
   return (
-    <Grid container alignItems="center" justify="space-between">
+    <Grid container alignItems="center" justifyContent="space-between">
       <Grid item xs={12}>
         <Box
           component="img"
@@ -26,13 +39,13 @@ export default function ImageUpload({ onChange, error, helperText }) {
                 : `1px solid ${theme.palette.primary.main}`,
             padding: (theme) => theme.spacing(1)
           }}
-          src={previewImage}
+          src={previewImage ?? "https://placehold.co/600x400"}
           alt=""
         />
       </Grid>
       {helperText ? (
         <Grid item>
-          <Typography color={error && "secondary"} variant="caption" component="span">
+          <Typography color={error ? "secondary" : undefined} variant="caption" component="span">
             {helperText}
           </Typography>
         </Grid>

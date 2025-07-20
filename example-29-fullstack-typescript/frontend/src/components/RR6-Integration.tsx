@@ -1,10 +1,20 @@
 import { Link as RouterLink, useLocation, useResolvedPath } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Tabs, Tab } from "@mui/material";
 
+type TabType = {
+  title: string;
+  to: string;
+};
+
+type AppBarWithRRTabsProps = {
+  title: string;
+  tabs: TabType[];
+};
+
 /**
  * A MUI AppBar with a title and a set of tabs. The current tab is highlighted based on the current React Router location.
  */
-export function AppBarWithRRTabs({ title, tabs }) {
+export function AppBarWithRRTabs({ title, tabs }: AppBarWithRRTabsProps) {
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
@@ -29,7 +39,7 @@ export function AppBarWithRRTabs({ title, tabs }) {
  *
  * If one of those tabs' corresponding path is currently active, that tab will be highlighted.
  */
-export function RRTabs({ tabs }) {
+export function RRTabs({ tabs }: { tabs: TabType[] }) {
   let activeTab;
   /**
    * Normally, you shouldn't use hooks inside loops / conditionals.
@@ -61,7 +71,7 @@ export function RRTabs({ tabs }) {
  * The logic here is taken from React Router's NavLink component, which uses the same logic to determine if
  * it should be considered "active" or not.
  */
-function useIsActive(to) {
+function useIsActive(to: string) {
   const location = useLocation();
   const resolvedPath = useResolvedPath(to);
 

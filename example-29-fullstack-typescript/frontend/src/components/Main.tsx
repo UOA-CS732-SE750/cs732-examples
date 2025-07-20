@@ -10,7 +10,13 @@ import { Typography, Paper } from "@mui/material";
 //     }
 // }));
 
-export default function Main({ image, title, children }) {
+type MainProps = {
+  image?: string;
+  title: string;
+  children?: React.ReactNode;
+};
+
+export default function Main({ image, title, children }: MainProps) {
   return (
     <main>
       {image && (

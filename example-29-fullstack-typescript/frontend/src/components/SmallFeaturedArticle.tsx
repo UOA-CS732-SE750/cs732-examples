@@ -4,8 +4,13 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
 import { getImagePath } from "../util/image-path-utils";
+import { ArticleType } from "common";
 
-function SmallFeaturedArticle({ article }) {
+function SmallFeaturedArticle({ article }: { article: ArticleType | null }) {
+  if (!article) {
+    return null;
+  }
+
   return (
     <CardActionArea component={Link} to={`/articles/${article._id}`}>
       <Card>
