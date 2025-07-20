@@ -8,6 +8,7 @@ import { z } from "zod";
 const envSchema = z.object({
   PORT: z.coerce.number({ message: "PORT must be a number" }).default(3000),
   DB_URL: z.string({ message: "DB_URL must be a string" }).trim(),
+  VITE_IMAGE_BASE_URL: z.string().optional().default(""),
 });
 export type Env = z.infer<typeof envSchema>;
 
