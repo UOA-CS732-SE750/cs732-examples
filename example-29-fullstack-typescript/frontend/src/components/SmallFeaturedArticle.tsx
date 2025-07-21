@@ -1,10 +1,9 @@
 import { Card, CardActionArea, CardContent, CardMedia, Hidden, Typography } from "@mui/material";
+import { ArticleType } from "common";
 import dayjs from "dayjs";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
 import { getImagePath } from "../util/image-path-utils";
-import { ArticleType } from "common";
 
 function SmallFeaturedArticle({ article }: { article: ArticleType | null }) {
   if (!article) {
@@ -28,6 +27,8 @@ function SmallFeaturedArticle({ article }: { article: ArticleType | null }) {
             Continue reading...
           </Typography>
         </CardContent>
+        {/* Don't do this usually - I'm suppressing the deprecation warning to keep this code similar to the Fullstack example */}
+        {/* eslint-disable-next-line @typescript-eslint/no-deprecated */}{" "}
         <Hidden smDown>
           <CardMedia
             sx={{ height: 80 }}
@@ -39,14 +40,5 @@ function SmallFeaturedArticle({ article }: { article: ArticleType | null }) {
     </CardActionArea>
   );
 }
-
-SmallFeaturedArticle.propTypes = {
-  article: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
-  }).isRequired
-};
 
 export default SmallFeaturedArticle;

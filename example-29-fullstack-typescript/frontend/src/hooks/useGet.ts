@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 /**
  * A custom hook which fetches data from the given URL. Includes functionality to determine
@@ -13,11 +13,11 @@ export default function useGet<T>(url: string, initialState: T) {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      const response = await axios.get(url);
+      const response: AxiosResponse<T> = await axios.get(url);
       setData(response.data);
       setLoading(false);
     }
-    fetchData();
+    void fetchData();
   }, [url, refreshToggle]);
 
   function refresh() {

@@ -150,6 +150,6 @@ export async function seedDatabase() {
   const createdArticles = await Article.insertMany(articles);
   console.log(`Seeded database with ${createdArticles.length} articles:`);
   createdArticles.forEach((article) => {
-    console.log(`- ${article.title} (_id = ${article._id})`);
+    console.log(`- ${article.title} (_id = ${String(article._id)})`);
   });
 }

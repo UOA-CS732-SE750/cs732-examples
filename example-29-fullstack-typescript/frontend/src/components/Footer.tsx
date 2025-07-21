@@ -6,7 +6,7 @@ type FooterProps = {
 };
 
 export default function Footer({ title, description }: FooterProps) {
-  const isOnline = true;
+  const isOnline = navigator.onLine;
 
   return (
     <Box

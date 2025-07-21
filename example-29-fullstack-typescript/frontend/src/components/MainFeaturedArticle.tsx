@@ -1,9 +1,8 @@
 import { Box, Grid, Link as MuiLink, Paper, Typography } from "@mui/material";
-import PropTypes from "prop-types";
+import { ArticleType } from "common";
 import { Link as RRLink } from "react-router-dom";
 import { getPlaintextSummary } from "../util/article-helpers";
 import { getImagePath } from "../util/image-path-utils";
-import { ArticleType } from "common";
 
 function MainFeaturedArticle({ article }: { article: ArticleType }) {
   return (
@@ -60,14 +59,5 @@ function MainFeaturedArticle({ article }: { article: ArticleType }) {
     </Paper>
   );
 }
-
-MainFeaturedArticle.propTypes = {
-  article: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
-  }).isRequired
-};
 
 export default MainFeaturedArticle;

@@ -4,8 +4,8 @@ import ArticlesSummaryPage from "./pages/ArticlesSummaryPage";
 import SingleArticlePage from "./pages/SingleArticlePage";
 import NewArticlePage from "./pages/NewArticlePage";
 // import LoadingPage from './pages/LoadingPage';
-import { AppContext } from "./AppContextProvider";
-import { useContext } from "react";
+// import { AppContext } from "./AppContextProvider";
+// import { useContext } from "react";
 import PageWithAppBar from "./pages/PageWithAppBar";
 
 /**
@@ -21,7 +21,7 @@ const navbarTabs = [
  * Renders a navbar allowing the user to browse to the articles or gallery pages.
  */
 function App() {
-  const { articlesLoading } = useContext(AppContext);
+  // const { articlesLoading } = useContext(AppContext);
 
   return (
     <Routes>
