@@ -18,10 +18,7 @@ async function retrieveArticle(id: string) {
 }
 
 async function updateArticle(article: ArticleType) {
-  const dbArticle = await Article.findOneAndUpdate(
-    { _id: article._id },
-    article
-  );
+  const dbArticle = await Article.findOneAndUpdate({ _id: article._id }, article);
   return dbArticle !== undefined;
 }
 
@@ -29,10 +26,4 @@ async function deleteArticle(id: string) {
   await Article.deleteOne({ _id: id });
 }
 
-export {
-  createArticle,
-  retrieveArticle,
-  retrieveArticleList,
-  updateArticle,
-  deleteArticle,
-};
+export { createArticle, retrieveArticle, retrieveArticleList, updateArticle, deleteArticle };

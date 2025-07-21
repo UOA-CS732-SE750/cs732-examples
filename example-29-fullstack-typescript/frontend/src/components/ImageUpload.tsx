@@ -20,7 +20,7 @@ export default function ImageUpload({ onChange, error, helperText }: ImageUpload
     }
 
     // setCurrentImageFile(event.target.files[0]);
-    setPreviewImage(URL.createObjectURL(event.target.files[0]!));
+    setPreviewImage(URL.createObjectURL(event.target.files[0]));
     onChange && onChange(event);
   }
 

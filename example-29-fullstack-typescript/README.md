@@ -10,20 +10,20 @@ This repository is set up with best practices for using TypeScript with Mongoose
    https://www.youtube.com/watch?v=V78lbWLKMxo is a 5min intro.
 
 1. Set up the monorepo  
-   Because you'll need to share types between the frontend and backend, you can't put your types in either your frontend or backend folders. You'll need to set up a common package that is imported by both the frontend and backend* (actually, even if you're not using TypeScript this is a good idea - to share utility functions). The 'multi-app' repository you end up setting up is called a monorepo.  
+   Because you'll need to share types between the frontend and backend, you can't put your types in either your frontend or backend folders. You'll need to set up a common package that is imported by both the frontend and backend\* (actually, even if you're not using TypeScript this is a good idea - to share utility functions). The 'multi-app' repository you end up setting up is called a monorepo.  
    Check out how the four package.jsons in this project are set up, and copy the relevant parts into your own project.
    - Root: `workspaces` and `scripts` sections. `"common": "file:common"`.
    - Common: `exports` section and `common/src/index.ts` file
    - Frontend & backend: `"common": "file:../common"`
-   
+
    Now, you can import say ArticleType with `import { ArticleType } from "common";` as if common was an npm package.
 
-   \* There are many *many* ways to set up TypeScript monorepos, but this is the easiest for the projects you'll make in CS732. https://monorepo.tools/typescript is the best place to learn more.
+   \* There are many _many_ ways to set up TypeScript monorepos, but this is the easiest for the projects you'll make in CS732. https://monorepo.tools/typescript is the best place to learn more.
 
 2. Set up TypeScript  
    TypeScript is purely for you, the dev. When being run, TS first needs to be compiled to JS. We use `tsc` (`typescript` in the package.json) to compile TypeScript (e.g. for production builds) and `tsx` to run it directly for quick dev servers and scripts. Check out the package.jsons for the scripts!  
-   Both `tsc` and `tsx` (which uses `tsc` under the hood) require a config file called `tsconfig.json` to work. Check out the four tsconfig.jsons along with `common/tsconfig-base.json` to get a feel for how they work. https://www.typescriptlang.org/tsconfig/ for the full reference but since they're just configs, I'd just copy these files and get experience modifying them when necessary.  
-   
+   Both `tsc` and `tsx` (which uses `tsc` under the hood) require a config file called `tsconfig.json` to work. Check out the four tsconfig.jsons along with `common/tsconfig-base.json` to get a feel for how they work. https://www.typescriptlang.org/tsconfig/ for the full reference but since they're just configs, I'd just copy these files and get experience modifying them when necessary.
+
    IMPORTANT: to get TypeScript warnings and autocomplete in your IDE, you need to open VSCode to the folder containing the root `tsconfig.json` and possibly restart your TS server (`ctrl + shift + P`).
    ![alt text](restart-ts-server.png)
 
@@ -39,12 +39,13 @@ This repository is set up with best practices for using TypeScript with Mongoose
    - `zod` runtime validation for TS
    - `@zodyac/zod-mongoose` zod schema -> mongoose schema
    - Environment variables (see `env.ts`)
-   
+
    Most of these show up in this example. To quickly see all the TypeScript-specific comments, search up `!!! TypeScript !!!` using VSCode.
 
 ## Extra for Experts
 
 If you've used TypeScript before and are looking for new cool stuff, check out:
+
 - [`Zod`](https://zod.dev/) runtime schema & validation library that works well with TS
 - [`@zodyac/zod-mongoose`](https://www.npmjs.com/package/@zodyac/zod-mongoose) zod schema -> mongoose schema
 - [`Swagger`](https://swagger.io/) (OpenAPI) interactive documentation generated from your TS types

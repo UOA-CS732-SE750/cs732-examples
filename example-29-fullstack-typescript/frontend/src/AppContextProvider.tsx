@@ -18,9 +18,9 @@ type AppContextType = {
 const AppContext = React.createContext<AppContextType>({
   articles: [],
 
-   // These two weren't included in the JS fullstack example.
-   // If the app tried to access this value outside of the context provider, it would throw an error - a very hard bug to catch!
-   // But TS easily catches this at compile time.
+  // These two weren't included in the JS fullstack example.
+  // If the app tried to access this value outside of the context provider, it would throw an error - a very hard bug to catch!
+  // But TS easily catches this at compile time.
   articlesLoading: false,
   addArticle: async () => {
     throw new Error("addArticle not implemented");

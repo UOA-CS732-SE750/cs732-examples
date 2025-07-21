@@ -44,7 +44,7 @@ export function RRTabs({ tabs }: { tabs: TabType[] }) {
    *
    * I'm using eslint-disable-next-line to prevent the linter from throwing an error on that hook call.
    */
-  for (let tab of tabs) {
+  for (const tab of tabs) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const isActiveTab = useIsActive(tab.to);
     if (!activeTab && isActiveTab) {

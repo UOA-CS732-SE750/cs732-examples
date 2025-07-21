@@ -11,7 +11,8 @@ export default function FeaturedArticles({ articles }: { articles: ArticleType[]
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <MainFeaturedArticle article={articles[0]!} /> {/* TypeScript non-null assertion using '!' since we check length above */}
+        {/* TypeScript non-null assertion using '!' since we check length above */}
+        <MainFeaturedArticle article={articles[0]!} />
       </Grid>
       {articles.length >= 2 && (
         <Grid item xs={12} md={6}>
