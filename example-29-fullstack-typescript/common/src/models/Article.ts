@@ -7,7 +7,7 @@ export const ArticleSchema = z.object({
   _id: z.string(),
   title: z.string().nonempty().max(100), // You can specifify extra constraints like min/max length (not available in TS)
   date: z.coerce.date(), // Use coerce to auto-convert data while validating
-  image: z.string().url(),
+  image: z.string(),
   content: z.string()
 });
 

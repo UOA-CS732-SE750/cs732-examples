@@ -20,12 +20,15 @@ router.post("/", async (req, res) => {
   // !!! TypeScript !!!
   // We use Zod to validate the request body against the ArticleSchema.
   // If you're not using Zod, you can either validate manually or cast the type to Article and pray the client doesn't send malformed data :)
-  const payload = ArticleSchema.omit({ _id: true }).parse(req.body);
+  const newArticle = ArticleSchema.omit({ _id: true }).parse({ date: Date.now(), ...req.body });
 
-  const newArticle = await createArticle(payload);
+  const savedArticle = await createArticle(newArticle);
 
-  if (newArticle)
-    return res.status(201).header("Location", `/api/articles/${newArticle._id}`).json(newArticle);
+  if (savedArticle)
+    return res
+      .status(201)
+      .header("Location", `/api/articles/${savedArticle._id}`)
+      .json(savedArticle);
 
   return res.sendStatus(422);
 });
