@@ -1,0 +1,15 @@
+{
+  "extends": "common/tsconfig-base.json",
+  "display": "React",
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2020",
+    "jsx": "react-jsx",
+    "outDir": "./build",
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "tsBuildInfoFile": "build/tsconfig.tsbuildinfo",
+    "types": ["vite/client"]
+  },
+  "include": ["vite.config.ts", "src/**/*"]
+}

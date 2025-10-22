@@ -1,0 +1,63 @@
+import { Box, Grid, Link as MuiLink, Paper, Typography } from "@mui/material";
+import { ArticleType } from "common";
+import { Link as RRLink } from "react-router-dom";
+import { getPlaintextSummary } from "../util/article-helpers";
+import { getImagePath } from "../util/image-path-utils";
+
+function MainFeaturedArticle({ article }: { article: ArticleType }) {
+  return (
+    <Paper
+      sx={{
+        position: "relative",
+        backgroundColor: (theme) => theme.palette.grey[800],
+        color: (theme) => theme.palette.common.white,
+        marginBottom: (theme) => theme.spacing(4),
+        backgroundImage: "url(https://source.unsplash.com/random)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center"
+      }}
+      style={{ backgroundImage: `url(${getImagePath(article.image)})` }}
+    >
+      {/* Increase the priority of the hero background image */}
+      {<img style={{ display: "none" }} src={getImagePath(article.image)} alt={article.title} />}
+
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          bottom: 0,
+          right: 0,
+          left: 0,
+          backgroundColor: "rgba(0,0,0,.3)"
+        }}
+      />
+      <Grid container>
+        <Grid item md={8}>
+          <Box
+            sx={(theme) => ({
+              position: "relative",
+              padding: theme.spacing(3),
+              [theme.breakpoints.up("md")]: {
+                padding: theme.spacing(6),
+                paddingRight: 0
+              }
+            })}
+          >
+            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+              {article.title}
+            </Typography>
+            <Typography variant="h5" color="inherit" paragraph>
+              {getPlaintextSummary(article, 100)}
+            </Typography>
+            <MuiLink variant="subtitle1" component={RRLink} to={`/articles/${article._id}`}>
+              Continue reading...
+            </MuiLink>
+          </Box>
+        </Grid>
+      </Grid>
+    </Paper>
+  );
+}
+
+export default MainFeaturedArticle;

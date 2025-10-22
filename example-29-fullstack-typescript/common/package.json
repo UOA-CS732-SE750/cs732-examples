@@ -1,0 +1,12 @@
+{
+  "name": "common",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./tsconfig-base.json": "./tsconfig-base.json",
+    ".": {
+      "default": "./src/index.ts"
+    }
+  }
+}
