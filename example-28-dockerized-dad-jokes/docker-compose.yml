@@ -14,6 +14,9 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
+      # Set build-time arguments for the frontend.
+      # These can be accessed in the Dockerfile using ARG instruction,
+      # and can be used as build-time environment variables.
       args:
         VITE_API_BASE_URL: http://localhost
     depends_on:

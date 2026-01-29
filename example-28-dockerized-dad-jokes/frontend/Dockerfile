@@ -19,11 +19,9 @@ COPY frontend ./frontend
 # Set working directory to frontend
 WORKDIR /app/frontend
 
-# Accept build argument and allow it to be used as an environment variable
+# Accept build argument and allow it to be used as an environment
+# variable during the build process only (it won't persist as a runtime env var)
 ARG VITE_API_BASE_URL
-
-# Set the environment variable for the build process
-# ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
 # Build the project
 RUN npm run build
