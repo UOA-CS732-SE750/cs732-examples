@@ -4,17 +4,16 @@ This project is a direct clone of [example-22-fullstack](../example-22-fullstack
 
 This repository is set up with best practices for using TypeScript with Mongoose in a monorepo, so definitely refer to this if you're planning to set up your own TS repository!
 
-
 ## Quickstart
 
 Before anything else, install node modules:  
 From root (make sure you're cd'd to `.../example-29-fullstack-typescript/`): `npm run setup`
 
-- To seed database: `cd backend && npm run init-db`
-- To start backend: `npm run backend:dev`
-- To start frontend: `npm run frontend:dev`
+- To seed database: `npm run init-db`
+- To start backend: `npm run dev:backend`
+- To start frontend: `npm run dev:frontend`
+- To start both at once in shared terminal: `npm run dev`
 - To lint everything with Prettier & ESLint: `npm run lint`
-
 
 ## Setting Up TypeScript in Your Project
 
@@ -53,7 +52,6 @@ From root (make sure you're cd'd to `.../example-29-fullstack-typescript/`): `np
    - Environment variables (see `env.ts`)
 
    Most of these show up in this example. To quickly see all the TypeScript-specific comments, search up `!!! TypeScript !!!` using VSCode.
-
 
 ## Extra for Experts
 
