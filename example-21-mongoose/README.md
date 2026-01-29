@@ -4,6 +4,8 @@ This project demonstrates how we can use the `mongoose` npm package to interact 
 
 **NOTE:** BEFORE running the example, you'll need the free [MongoDB community server](https://www.mongodb.com/try/download/community) installed and running on your machine. Alternatively you could use a MongoDB cloud service such as [Atlas](https://www.mongodb.com/atlas/database), and change the database URL in the `.env` file.
 
+Also please remember to copy `.env.example` over to `.env`.
+
 - We define a schema in [schema.js](./src/schema.js). The defined schema is for a pet registration app. There are users with several fields such as `username`, `firstName`, `dateOfBirth`, etc. Each user can have any number of registered pets. The schema JS file is extensively commented, for your reference.
 
 - The main program is [app.js](./src/app.js). The program demonstrates how we can add, clear, and query information in the database.
