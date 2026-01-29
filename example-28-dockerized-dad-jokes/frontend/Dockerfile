@@ -4,20 +4,26 @@ FROM node:23-slim AS builder
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy root workspace files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Copy frontend workspace package.json
+COPY frontend/package*.json ./frontend/
 
-# Copy the rest of the application code
-COPY . .
+# Install dependencies for frontend workspace only
+RUN npm ci --workspace=frontend --include-workspace-root
 
-# Accept build argument
+# Copy the frontend application code
+COPY frontend ./frontend
+
+# Set working directory to frontend
+WORKDIR /app/frontend
+
+# Accept build argument and allow it to be used as an environment variable
 ARG VITE_API_BASE_URL
 
 # Set the environment variable for the build process
-ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+# ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
 # Build the project
 RUN npm run build
@@ -26,10 +32,10 @@ RUN npm run build
 FROM nginx:stable-alpine
 
 # Copy built files from the first stage
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/frontend/dist /usr/share/nginx/html
 
 # Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy custom Nginx configuration if needed
 # COPY nginx.conf /etc/nginx/nginx.conf

@@ -1,5 +1,5 @@
 {
-  "name": "cs732-example-react-express-backend",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
@@ -14,8 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "nodemon": "^3.0.2",
-    "prettier": "^3.1.0"
+    "nodemon": "^3.0.2"
   },
   "dependencies": {
     "cors": "^2.8.5",
