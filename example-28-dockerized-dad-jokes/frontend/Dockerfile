@@ -8,11 +8,10 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci
 
 # Copy the rest of the application code
 COPY . .
-
 
 # Accept build argument
 ARG VITE_API_BASE_URL

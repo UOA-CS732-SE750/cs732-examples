@@ -20,3 +20,6 @@ Thumbs.db
 .vscode
 .idea
 *.swp
+
+# Usually a good idea to ignore env files, and pass env variables in other ways
+.env
