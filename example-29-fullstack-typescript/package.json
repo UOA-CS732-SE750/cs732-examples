@@ -10,8 +10,10 @@
   ],
   "scripts": {
     "setup": "npm i && npm i --workspaces",
-    "backend:dev": "npm run dev --workspace backend",
-    "frontend:dev": "npm run dev --workspace frontend",
+    "init-db": "npm run init-db --workspace backend",
+    "dev": "concurrently -c \"cyan.bold,magenta.bold\" \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:frontend": "npm run dev --workspace frontend",
     "lint": "prettier . --write && eslint --fix . --cache"
   },
   "dependencies": {
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
+    "concurrently": "^9.2.1",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-dom": "^1.52.3",

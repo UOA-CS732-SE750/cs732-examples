@@ -3,20 +3,20 @@ FROM node:23-slim AS builder
 
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install
+# Copy root workspace files
+COPY package*.json ./
 
-# Copy application files
-COPY . .
+# Copy backend workspace package.json
+COPY backend/package*.json ./backend/
 
-# Stage 2: Run
-FROM node:23-slim
+# Install dependencies for backend workspace only
+RUN npm ci --workspace=backend --include-workspace-root
 
-WORKDIR /app
+# Copy backend application files
+COPY backend ./backend
 
-# Copy only the necessary files from the build stage
-COPY --from=builder /app .
+# Set working directory to backend
+WORKDIR /app/backend
 
 # Expose the application port
 EXPOSE 3000

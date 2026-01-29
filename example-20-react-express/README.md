@@ -20,11 +20,13 @@ _Note_: There are other possible project structures - this is just one possibili
 
 When making web requests from our frontend - such as when we consume our own Express API - we need so specify the URL to which that request should be sent. Often, this URL could be different depending on various conditions. For instance, in this example, we have two variations. When running in development mode, our backend is served from <http://localhost:3000>, but our frontend is served from our Vite dev server (usually <http://localhost:5173>). Therefore we explicitly need to point our frontend's API requests to <http://localhost:3000>. However, when we build for production, we might want to deploy the frontend and backend to different locations - or the _same_ location - in the cloud (currently the project is setup such that the backend serves the production-ready frontend itself - see below). And, we want to be able to change these configurations easily.
 
-One way we can set this up is to use _environment variables_. Vite [supports environment variables using various `.env` files](https://vitejs.dev/guide/env-and-mode.html). In our example, in our [frontend](./frontend), we have two files: `.env` and `.env.production`. The contents of `.env` will apply by default, and will be overridden in production by the more specific `.env.production` file.
+One way we can set this up is to use _environment variables_. Vite [supports environment variables using various `.env` files](https://vitejs.dev/guide/env-and-mode.html).
 
 Note that our environment variables start with `VITE_`. As mentioned in [this link](https://vitejs.dev/guide/env-and-mode.html), Vite requires this in order to prevent accidental leakage of env variables into the client code.
 
-Once we've added environment variables, we can access them from our code using `import.meta.env.*`, where `*` is our env variable name. For example, the value of our `VITE_IMAGE_BASE_URL` variable can be obtained with `import.meta.env.VITE_IMAGE_BASE_URL`. This can be seen in [GalleryPage.jsx](./frontend/src/GalleryPage.jsx) and [ArticleView.jsx](./frontend/src/ArticleView.jsx).
+Once we've added environment variables, we can access them from our code using `import.meta.env.*`, where `*` is our env variable name. For example, the value of our `VITE_API_BASE_URL` variable can be obtained with `import.meta.env.VITE_API_BASE_URL`. This can be seen in [AppContextProvider.jsx](./frontend/src/AppContextProvider.jsx).
+
+**Note:** It is considerd **bad practice** to commit `.env` files containing any secrets such as API keys. Instead, commit an `.env.example` file with the secure details omitted, then each developer can create their own `.env` file (which is gitignored), and add their own sensitive info to it, which will not be added to version control.
 
 ## Building the frontend for production, and serving it from the backend
 

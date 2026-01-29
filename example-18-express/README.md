@@ -2,7 +2,7 @@
 
 This example shows a basic Node.js / Express server with some simple configuration. We can see the examples detailed below.
 
-Remember to `npm install` to install your application's dependencies prior to running.
+Remember to `npm install` to install your application's dependencies prior to running. In addition, make sure you create a `.env` file by copying `.env.example` over to `.env`.
 
 ## Testing your routes
 

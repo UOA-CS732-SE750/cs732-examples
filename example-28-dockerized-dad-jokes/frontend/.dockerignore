@@ -5,6 +5,7 @@ Dockerfile
 .git
 .gitignore
 .env
+.env.*
 dist
 coverage
 *.log

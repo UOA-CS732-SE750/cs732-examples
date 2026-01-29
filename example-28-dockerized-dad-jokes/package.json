@@ -1,0 +1,25 @@
+{
+  "name": "cs732-example-dad-jokes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shows a dockerized full-stack app example using React, Express, and MongoDB",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -c \"cyan.bold,magenta.bold\" \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "build": "npm run build --workspace=frontend",
+    "start": "npm run start --workspace=backend",
+    "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.2.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
