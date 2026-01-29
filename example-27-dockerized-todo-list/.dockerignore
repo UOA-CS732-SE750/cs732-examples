@@ -23,3 +23,4 @@ Thumbs.db
 
 # Usually a good idea to ignore env files, and pass env variables in other ways
 .env
+.env.*
