@@ -2,6 +2,8 @@
 
 In this example, we can see one method for organizing our Express routes, using Express router. We also see basic examples of how we can consume APIs using `fetch()` and `axios`. This example doesn't contain any React code - we'll see how we can integrate with React in the next example.
 
+**Note:** Before running, make sure you create a `.env` file by copying `.env.example` over to `.env`.
+
 ## Organizing routes with Express router
 
 In our main backend JavaScript file ([app.js](./src/app.js)), we can see that on lines 25 and 26, we're importing and using `routes`, mapped to the path `/`. We're importing this from `/routes/routes.js`.
