@@ -13,8 +13,6 @@ export function difference(...numbers) {
 }
 
 function getNumber(val) {
-  if (typeof val === "number") {
-    return val;
-  }
-  return 0;
+  if (typeof val === "number") return val;
+  throw new Error("Non-numeric value detected");
 }
